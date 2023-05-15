@@ -174,9 +174,10 @@ public class ManageRoom extends JFrame implements ActionListener {
         } else if (e.getSource() == add_btn) {
             boolean flag = false;
             try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+                String line;
                 // Check if the room number already exists in the file
-                while ((br.readLine()) != null) {
-                    if (br.readLine().equals(roomNum_fld.getText())) {
+                while ((line = br.readLine()) != null) {
+                    if (line.equals(roomNum_fld.getText())) {
                         flag = true;
                         break;
                     }
