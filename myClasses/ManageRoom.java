@@ -172,68 +172,69 @@ public class ManageRoom extends JFrame implements ActionListener {
             setVisible(false);
             new DashBoard();
         } else if (e.getSource() == add_btn) {
-            boolean flag = false;
-            try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
-                String line;
-                // Check if the room number already exists in the file
-                while ((line = br.readLine()) != null) {
-                    if (line.equals(roomNum_fld.getText())) {
-                        flag = true;
-                        break;
-                    }
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-
-            if (flag) {
-                // Display a warning message if the room number already exists
-                JOptionPane.showMessageDialog(null, "Room number already exist", "Error", JOptionPane.WARNING_MESSAGE);
-            } else {
                 // Check if room number and price are not empty
                 if (!romNumEmpty && !priceEmpty) {
-                    try {
-                        String line = "./files/rooms.txt";
-                        try {
-                            File file = new File(line);
-                            if (!file.exists()) {
-                                file.createNewFile();
-                                // Append data to the file
-                                FileWriter fileWriter = new FileWriter(file, true);
-                                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                                PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                                printWriter.close();
+                    boolean flag = false;
+                    try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+                        String line;
+                        // Check if the room number already exists in the file
+                        while ((line = br.readLine()) != null) {
+                            if (line.equals(roomNum_fld.getText())) {
+                                flag = true;
+                                break;
                             }
-
-                            BufferedReader rdfile3 = new BufferedReader(new FileReader("./files/rooms.txt"));
-                            int ttlLines3 = 0;
-                            while (rdfile3.readLine() != null) {
-                                ttlLines3++;
-                            }
-                            rdfile3.close();
-
-                            // Append room details to the file
-                            FileWriter fileWriter = new FileWriter(file, true);
-                            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                            PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                            printWriter.println("Rooms Details");
-                            printWriter.println(romNum);
-                            printWriter.println(romType);
-                            printWriter.println(bed);
-                            printWriter.println(price);
-                            printWriter.println("Not Booked");
-                            printWriter.println();
-                            printWriter.close();
-
-                            // Clear text fields
-                            roomNum_fld.setText(null);
-                            price_fld.setText(null);
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
                         }
                     } catch (Exception ex) {
                         ex.printStackTrace();
+                    }
+
+                    if (flag) {
+                        // Display a warning message if the room number already exists
+                        JOptionPane.showMessageDialog(null, "Room number already exist", "Error", JOptionPane.WARNING_MESSAGE);
+                    }else{
+                        try {
+                            String line = "./files/rooms.txt";
+                            try {
+                                File file = new File(line);
+                                if (!file.exists()) {
+                                    file.createNewFile();
+                                    // Append data to the file
+                                    FileWriter fileWriter = new FileWriter(file, true);
+                                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                                    PrintWriter printWriter = new PrintWriter(bufferedWriter);
+                                    printWriter.close();
+                                }
+
+                                BufferedReader rdfile3 = new BufferedReader(new FileReader("./files/rooms.txt"));
+                                int ttlLines3 = 0;
+                                while (rdfile3.readLine() != null) {
+                                    ttlLines3++;
+                                }
+                                rdfile3.close();
+
+                                // Append room details to the file
+                                FileWriter fileWriter = new FileWriter(file, true);
+                                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                                PrintWriter printWriter = new PrintWriter(bufferedWriter);
+                                printWriter.println("Rooms Details");
+                                printWriter.println(romNum);
+                                printWriter.println(romType);
+                                printWriter.println(bed);
+                                printWriter.println(price);
+                                printWriter.println("Not Booked");
+                                printWriter.println();
+                                printWriter.close();
+
+                                // Clear text fields
+                                roomNum_fld.setText(null);
+                                price_fld.setText(null);
+
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
                     }
                 } else {
                     // Display a warning message if any box is not filled
@@ -261,7 +262,7 @@ public class ManageRoom extends JFrame implements ActionListener {
                     ex.printStackTrace();
                 }
 
-            }
+
         } else if (e.getSource() == del_btn) {
             if (JOptionPane.showConfirmDialog(null, "Confirmation", "Remove This Room?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 DefaultTableModel tempTbl = (DefaultTableModel) table.getModel();
