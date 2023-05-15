@@ -1,0 +1,72 @@
+Check In Details
+Naruto Uzumaki
+113
+Male
+08024681357
+Japanese
+naruto@konohavillage.com
+Hidden Leaf Village
+2023/05/13
+5000
+Booked
+
+Check In Details
+Goku Son
+114
+Male
+08055555555
+Saiyan
+goku@capsulecorp.com
+Mount Paozu
+2023/05/14
+2000
+Booked
+
+Check In Details
+Ichigo Kurosaki
+212
+Male
+08012341234
+Japanese
+ichigo@soulreapers.com
+Karakura Town
+2023/05/15
+3000
+Booked
+
+Check In Details
+Sakura Haruno
+214
+Female
+08098765432
+Japanese
+sakura@konohavillage.com
+Hidden Leaf Village
+2023/05/16
+8000
+Booked
+
+Check In Details
+Yuji Itadori
+216
+Male
+08012345678
+Japanese
+itadori@hotmail.com
+Sendai City
+2023/05/10
+6000
+Booked
+
+Check In Details
+Neha sharma
+112
+Female
+01670919087
+Bangladeshi
+neha@gmail.com
+dhaka
+2023/05/15
+2000
+Booked
+

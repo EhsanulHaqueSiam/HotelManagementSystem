@@ -1,0 +1,112 @@
+Rooms Details
+111
+Non-Ac
+Single
+1000
+Not Booked
+
+Rooms Details
+112
+Non-Ac
+Double
+2000
+Booked
+
+Rooms Details
+113
+AC
+Triple
+5000
+Booked
+
+Rooms Details
+114
+Non-Ac
+Double
+2000
+Booked
+
+Rooms Details
+115
+Non-Ac
+Double
+2000
+Not Booked
+
+Rooms Details
+116
+Non-Ac
+Double
+2000
+Not Booked
+
+Rooms Details
+117
+Non-Ac
+Double
+2000
+Not Booked
+
+Rooms Details
+118
+Non-Ac
+Double
+2000
+Not Booked
+
+Rooms Details
+211
+Non-Ac
+Double
+2000
+Not Booked
+
+Rooms Details
+212
+AC
+Single
+3000
+Booked
+
+Rooms Details
+213
+Non-Ac
+Double
+2000
+Not Booked
+
+Rooms Details
+214
+AC
+Triple
+8000
+Booked
+
+Rooms Details
+215
+Non-Ac
+Double
+2000
+Not Booked
+
+Rooms Details
+216
+AC
+Single
+6000
+Booked
+
+Rooms Details
+217
+Non-Ac
+Single
+8000
+Not Booked
+
+Rooms Details
+218
+Non-Ac
+Double
+2000
+Not Booked
+
