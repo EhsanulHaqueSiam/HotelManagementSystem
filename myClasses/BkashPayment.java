@@ -15,6 +15,9 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
     final JButton next_btn;
     final JPasswordField pass_fld;
 
+    public static void main(String[] args) {
+        new BkashPayment();
+    }
     BkashPayment() {
 
         setTitle("Bkash Payment");
@@ -78,7 +81,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
             boolean isMobileNumberEmpty = MobileNumber.isEmpty();
             boolean isPinEmpty = Pin.isEmpty();
             // Call confirmPayment method with input values and current instance
-            confirmPayment(isMobileNumberEmpty, isPinEmpty, this);
+            confirmPayment(isMobileNumberEmpty, isPinEmpty, this, num_fld, pass_fld);
         }
     }
 

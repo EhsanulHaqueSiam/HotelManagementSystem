@@ -70,3 +70,15 @@ dhaka
 2000
 Booked
 
+Check In Details
+Anupum Das
+217
+Male
+01818080896
+Bangladeshi
+das@gmail.com
+Feni
+2023/05/16
+8000
+Booked
+

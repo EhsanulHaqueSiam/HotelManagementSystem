@@ -101,7 +101,7 @@ Rooms Details
 Non-Ac
 Single
 8000
-Not Booked
+Booked
 
 Rooms Details
 218
