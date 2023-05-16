@@ -12,8 +12,6 @@ import java.util.Objects;
 
 public class CheckIn extends ShowRoom implements ActionListener,myInterface.WriteCheckInInfo {
 
-    //TODO: Price and RoomNo default clear button and confirm button
-
     private final JFrame frame;
     private final JTextField name_field;
     private final JTextField mbl_fld;
