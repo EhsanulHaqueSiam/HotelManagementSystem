@@ -113,7 +113,6 @@ public class UDashBoard extends JFrame implements ActionListener {
         logoutBtn = new JButton("Logout");
         logoutBtn.setBounds(780, 440, 85, 31);
         contentPane.add(logoutBtn);
-        //TODO setfocusable
 
         logoutBtn.addActionListener(this);
         checkIn_btn.addActionListener(this);
