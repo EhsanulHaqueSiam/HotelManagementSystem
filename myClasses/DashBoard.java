@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class DashBoard extends JFrame implements ActionListener {
-    //TODO table editable table changeable logout image
 
     private final JButton Manage_btn;
     private final JButton logoutButton;
