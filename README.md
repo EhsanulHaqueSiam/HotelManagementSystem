@@ -331,5 +331,9 @@ Feel free to explore the source code and contribute to the project to make it ev
 - [ ] Button Set Focusable OFF
 - [ ] Table Color
 - [ ] !!Room Search Same room add Fix
+- [ ] Terminal show state
+- [ ] ConfirmDialogue button setFocusable(false)
+- [ ] setLocationRelativeTo(null)
+- [ ] table editable table changeable logout image
 
 
