@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 public class ManageRoom extends JFrame implements ActionListener {
-    //TODO Table data edit and table shift
 
     private final JTable table;
     private final JTextField roomNum_fld;
