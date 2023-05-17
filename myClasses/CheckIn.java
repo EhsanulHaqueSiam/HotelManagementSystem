@@ -259,7 +259,6 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
             gender_Box.setSelectedIndex(0);
             bed_Box.setSelectedIndex(0);
             roomType_Box.setSelectedIndex(0);
-            roomNo_Box.setSelectedIndex(0);
         } else if (e.getSource() == confirm_btn) {
             if (!isNameFieldEmpty && !isMobileNumberFieldEmpty && !isNationalityFieldEmpty && !isGmailEmpty && !isAddressEmpty && !isCheckinDateEmptyField && !isCostFieldEmpty) {
                 try {
