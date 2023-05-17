@@ -312,10 +312,10 @@ Feel free to explore the source code and contribute to the project to make it ev
 
 - [ ] Full name cannot contain numbers. (For Edit Profile Also)
 - [ ] Full name and username cannot be the same (For Edit Profile Also)
-- [ ] Fix Checkout Show Massage Dialog
-- [ ] Bkash and Nagad number and pin cannot contain letters. Show error.
-- [ ] Bkash and Nagad number have to be 11 digits. If not, show an error message.
-- [ ] Bkash pin has to be 5 digits. If not, show an error message.
+- [x] Fix Checkout Show Massage Dialog
+- [x] Bkash and Nagad number and pin cannot contain letters. Show error.
+- [x] Bkash and Nagad number have to be 11 digits. If not, show an error message.
+- [x] Bkash pin has to be 5 digits. If not, show an error message.
 - [ ] Nagad pic has to be 4 digits. If not, show an error message.
 - [ ] Mage good Text Datas
 - [ ] !!UserCheckIn Error on Clear All button (when nothing is inputted) java.lang.IllegalArgumentException: setSelectedIndex: 0 out of bounds
