@@ -310,7 +310,7 @@ Feel free to explore the source code and contribute to the project to make it ev
 
 ## To-Do List
 
-- [ ] Full name cannot contain numbers. (For Edit Profile Also)
+- [x] Full name cannot contain numbers. (For Edit Profile Also)
 - [ ] Full name and username cannot be the same (For Edit Profile Also)
 - [x] Fix Checkout Show Massage Dialog
 - [x] Bkash and Nagad number and pin cannot contain letters. Show error.
@@ -318,19 +318,19 @@ Feel free to explore the source code and contribute to the project to make it ev
 - [x] Bkash pin has to be 5 digits. If not, show an error message.
 - [ ] Nagad pic has to be 4 digits. If not, show an error message.
 - [ ] Mage good Text Datas
-- [ ] !!UserCheckIn Error on Clear All button (when nothing is inputted) java.lang.IllegalArgumentException: setSelectedIndex: 0 out of bounds
+- [x] !!UserCheckIn Error on Clear All button (when nothing is inputted) java.lang.IllegalArgumentException: setSelectedIndex: 0 out of bounds
 - [ ] For User and Admin Nationality cannot contain numbers
 - [ ] For User and Admin Gmail must have an "@" sign
 - [ ] For User and Admin Address must contain letters and numbers. Only numbers are not allowed.
 - [ ] !!Profile name not updated Problem
-- [ ] !!AdminCheckIn Error on Clear All button (when nothing is inputted) java.lang.IllegalArgumentException: setSelectedIndex: 0 out of bounds
-- [ ] Yes/No Confirmation of removing room rooms when nothing is selected
-- [ ] When entering blank data and adding a room, it shows "room already exists"
+- [x] !!AdminCheckIn Error on Clear All button (when nothing is inputted) java.lang.IllegalArgumentException: setSelectedIndex: 0 out of bounds
+- [x] Yes/No Confirmation of removing room rooms when nothing is selected
+- [x] When entering blank data and adding a room, it shows "room already exists"
 - [ ] Price cannot contain letters
 - [ ] Add Icons and Title
 - [ ] Button Set Focusable OFF
 - [ ] Table Color
-- [ ] !!Room Search Same room add Fix
+- [x] !!Room Search Same room add Fix
 - [ ] Terminal show state
 - [ ] ConfirmDialogue button setFocusable(false)
 - [ ] setLocationRelativeTo(null)
