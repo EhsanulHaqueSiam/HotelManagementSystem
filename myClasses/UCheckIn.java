@@ -293,7 +293,6 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
             gender_Box.setSelectedIndex(0);
             bed_Box.setSelectedIndex(0);
             roomType_Box.setSelectedIndex(0);
-            roomNo_Box.setSelectedIndex(0);
         } else if (e.getSource() == confirm_btn) {
             // Check if all required fields are not empty
             if (!nameEmpty && !mblnumEmpty && !nationalityEmpty && !gamilEmpty && !addressEmpty && !chkindateEmpty && !costEmpty) {
