@@ -337,6 +337,9 @@ public class Edit extends JFrame implements ActionListener {
             if (emptyName) {
                 // Display a warning message if the name field is empty
                 JOptionPane.showMessageDialog(null, "Enter your name", " Error!", JOptionPane.WARNING_MESSAGE);
+            } else if (!isValidFullname(newPhoneNumber)) {
+                // Display an error message for invalid Fullname
+                JOptionPane.showMessageDialog(null, "Invalid fullname. Please enter a valid fullname.", "Error!", JOptionPane.WARNING_MESSAGE);
             } else {
                 // Construct a new name string
                 newName = "Full Name : " + newPhoneNumber;
@@ -704,6 +707,10 @@ public class Edit extends JFrame implements ActionListener {
                 }
             }
         }
+    }
+    public static boolean isValidFullname(String fullname) {
+        String pattern = "^(?!.*\\d)(?!.*[^a-zA-Z0-9 .'-])(?!.*[ .'-]{2,})[a-zA-Z0-9 .'-]+$";
+        return fullname.matches(pattern);
     }
 
 }
