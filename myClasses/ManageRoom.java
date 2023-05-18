@@ -2,7 +2,9 @@ package myClasses;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,6 +73,32 @@ public class ManageRoom extends JFrame implements ActionListener {
         table.getColumnModel().getColumn(1).setPreferredWidth(82);
 
         model.setRowCount(0);
+
+        // Set custom background colors for alternate rows
+        table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                if (row % 2 == 0) {
+                    component.setBackground(new Color(230, 230, 230)); // Light gray for even rows
+                } else {
+                    component.setBackground(Color.WHITE); // White for odd rows
+                }
+                // Customize selection colors
+                if (isSelected) {
+                    component.setBackground(Color.RED); // Set red background for selected row
+                }
+
+                return component;
+            }
+        });
+
+// Customize table header names
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(new Color(150, 150, 150)); // Dark gray for header background
+        header.setForeground(Color.WHITE); // White text color for header
+        Font headerFont = header.getFont();
+        header.setFont(headerFont.deriveFont(Font.BOLD)); // Make the font bold
 
         try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
             String line;
