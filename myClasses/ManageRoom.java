@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 public class ManageRoom extends JFrame implements ActionListener {
+    //TODO Table data edit and table shift
 
     private final JTable table;
     private final JTextField roomNum_fld;
@@ -57,7 +58,14 @@ public class ManageRoom extends JFrame implements ActionListener {
         table = new JTable();
         scrollPane.setViewportView(table);
 
-        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Room Number", "Room Type", "Bed", "Price", "Status"});
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Room Number", "Room Type", "Bed", "Price", "Status"}) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Make all cells non-editable
+            }
+        };
+
+        table.getTableHeader().setReorderingAllowed(false);
         table.setModel(model);
         table.getColumnModel().getColumn(0).setPreferredWidth(80);
         table.getColumnModel().getColumn(1).setPreferredWidth(82);
@@ -171,95 +179,95 @@ public class ManageRoom extends JFrame implements ActionListener {
             setVisible(false);
             new DashBoard();
         } else if (e.getSource() == add_btn) {
-                // Check if room number and price are not empty
-                if (!romNumEmpty && !priceEmpty) {
-                    boolean flag = false;
-                    try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
-                        String line;
-                        // Check if the room number already exists in the file
-                        while ((line = br.readLine()) != null) {
-                            if (line.equals(roomNum_fld.getText())) {
-                                flag = true;
-                                break;
-                            }
-                        }
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-
-                    if (flag) {
-                        // Display a warning message if the room number already exists
-                        JOptionPane.showMessageDialog(null, "Room number already exist", "Error", JOptionPane.WARNING_MESSAGE);
-                    }else{
-                        try {
-                            String line = "./files/rooms.txt";
-                            try {
-                                File file = new File(line);
-                                if (!file.exists()) {
-                                    file.createNewFile();
-                                    // Append data to the file
-                                    FileWriter fileWriter = new FileWriter(file, true);
-                                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                                    PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                                    printWriter.close();
-                                }
-
-                                BufferedReader rdfile3 = new BufferedReader(new FileReader("./files/rooms.txt"));
-                                int ttlLines3 = 0;
-                                while (rdfile3.readLine() != null) {
-                                    ttlLines3++;
-                                }
-                                rdfile3.close();
-
-                                // Append room details to the file
-                                FileWriter fileWriter = new FileWriter(file, true);
-                                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                                PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                                printWriter.println("Rooms Details");
-                                printWriter.println(romNum);
-                                printWriter.println(romType);
-                                printWriter.println(bed);
-                                printWriter.println(price);
-                                printWriter.println("Not Booked");
-                                printWriter.println();
-                                printWriter.close();
-
-                                // Clear text fields
-                                roomNum_fld.setText(null);
-                                price_fld.setText(null);
-
-                            } catch (Exception ex) {
-                                ex.printStackTrace();
-                            }
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                } else {
-                    // Display a warning message if any box is not filled
-                    JOptionPane.showMessageDialog(null, "Please Fill all the box", "Error", JOptionPane.WARNING_MESSAGE);
-                }
-                DefaultTableModel model = (DefaultTableModel) table.getModel();
-                model.setRowCount(0);
-
+            // Check if room number and price are not empty
+            if (!romNumEmpty && !priceEmpty) {
+                boolean flag = false;
                 try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
                     String line;
+                    // Check if the room number already exists in the file
                     while ((line = br.readLine()) != null) {
-                        if (!line.equals("Rooms Details")) {
-                            String[] rowData = new String[5]; // create an array with 5 elements
-                            rowData[0] = line; // add the first element to the Room Number column
-                            for (int i = 1; i < 5; i++) {
-                                // read the next 4 lines and add the data to the corresponding column
-                                rowData[i] = br.readLine();
-                            }
-                            model.addRow(rowData); // add the row to the JTable
-                            br.readLine(); // skip two empty lines
-                            br.readLine();
+                        if (line.equals(roomNum_fld.getText())) {
+                            flag = true;
+                            break;
                         }
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
+                if (flag) {
+                    // Display a warning message if the room number already exists
+                    JOptionPane.showMessageDialog(null, "Room number already exist", "Error", JOptionPane.WARNING_MESSAGE);
+                }else{
+                    try {
+                        String line = "./files/rooms.txt";
+                        try {
+                            File file = new File(line);
+                            if (!file.exists()) {
+                                file.createNewFile();
+                                // Append data to the file
+                                FileWriter fileWriter = new FileWriter(file, true);
+                                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                                PrintWriter printWriter = new PrintWriter(bufferedWriter);
+                                printWriter.close();
+                            }
+
+                            BufferedReader rdfile3 = new BufferedReader(new FileReader("./files/rooms.txt"));
+                            int ttlLines3 = 0;
+                            while (rdfile3.readLine() != null) {
+                                ttlLines3++;
+                            }
+                            rdfile3.close();
+
+                            // Append room details to the file
+                            FileWriter fileWriter = new FileWriter(file, true);
+                            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                            PrintWriter printWriter = new PrintWriter(bufferedWriter);
+                            printWriter.println("Rooms Details");
+                            printWriter.println(romNum);
+                            printWriter.println(romType);
+                            printWriter.println(bed);
+                            printWriter.println(price);
+                            printWriter.println("Not Booked");
+                            printWriter.println();
+                            printWriter.close();
+
+                            // Clear text fields
+                            roomNum_fld.setText(null);
+                            price_fld.setText(null);
+
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            } else {
+                // Display a warning message if any box is not filled
+                JOptionPane.showMessageDialog(null, "Please Fill all the box", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+
+            try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if (!line.equals("Rooms Details")) {
+                        String[] rowData = new String[5]; // create an array with 5 elements
+                        rowData[0] = line; // add the first element to the Room Number column
+                        for (int i = 1; i < 5; i++) {
+                            // read the next 4 lines and add the data to the corresponding column
+                            rowData[i] = br.readLine();
+                        }
+                        model.addRow(rowData); // add the row to the JTable
+                        br.readLine(); // skip two empty lines
+                        br.readLine();
+                    }
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
 
 
         } else if (e.getSource() == del_btn) {
