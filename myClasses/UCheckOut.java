@@ -97,6 +97,8 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
             }
         };
 
+        table.setEnabled(false);
+        table.getTableHeader().setReorderingAllowed(false);
 
         table.setModel(model);
 
@@ -220,6 +222,11 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
         deleteRoomEntry(/*nameLogin, roomNum_combo*/);
         roomNum_combo.setSelectedIndex(-1);
 
+//        search_btn = new JButton("Search");
+//        search_btn.setBounds(491, 32, 89, 23);
+//        search_btn.setFocusable(false);
+//        contentPane.add(search_btn);
+
         clear_btn = new JButton("Clear");
         clear_btn.setBounds(160, 284, 97, 23);
         clear_btn.setFocusable(false);
@@ -230,6 +237,7 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
         checkOut_btn.addActionListener(this);
         clear_btn.addActionListener(this);
         roomNum_combo.addActionListener(this);
+        //search_btn.addActionListener(this);
 
         this.setVisible(true);
 

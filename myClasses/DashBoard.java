@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class DashBoard extends JFrame implements ActionListener {
+    //TODO table editable table changeable logout image
 
     private final JButton Manage_btn;
     private final JButton logoutButton;
@@ -49,6 +50,7 @@ public class DashBoard extends JFrame implements ActionListener {
 
         DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Customer Name", "Room Number", "Room Type", "Bed", "Price", "Status"});
         table.setModel(model);
+        table.getTableHeader().setReorderingAllowed(false);
         table.setEnabled(false);
 
         model.setRowCount(0);

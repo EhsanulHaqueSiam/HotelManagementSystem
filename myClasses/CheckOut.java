@@ -87,6 +87,8 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         table = new JTable();
         scrollPane.setViewportView(table);
         table.setModel(new DefaultTableModel(new Object[][]{}, new String[]{"Name", "Mobile Number", "Nationality", "Gender", "Email", "Address", "Check In Data", "Room Number", "Bed", "Room Type", "Price Per Day"}));
+        table.setEnabled(false);
+        table.getTableHeader().setReorderingAllowed(false);
         table.getColumnModel().getColumn(0).setPreferredWidth(80);
         table.getColumnModel().getColumn(1).setPreferredWidth(82);
 
@@ -202,6 +204,11 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         roomSearch();
         search_combo.setSelectedIndex(-1);
 
+//        search_btn = new JButton("Search");
+//        search_btn.setBounds(491, 32, 89, 23);
+//        search_btn.setFocusable(false);
+//        contentPane.add(search_btn);
+
         clear_btn = new JButton("Clear");
         clear_btn.setBounds(160, 284, 97, 23);
         clear_btn.setFocusable(false);
@@ -212,6 +219,7 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         checkOut_btn.addActionListener(this);
         clear_btn.addActionListener(this);
         search_combo.addActionListener(this);
+        //search_btn.addActionListener(this);
 
         this.setVisible(true);
 
