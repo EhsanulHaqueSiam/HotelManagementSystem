@@ -3,7 +3,7 @@ name: Java CI
 on:
   push:
     branches:
-      - main  # Adjust the branch name if needed
+      - main
 
 jobs:
   build:
@@ -16,7 +16,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '17'  # Specify the desired Java version (e.g., 15, 16, 17)
+          java-version: '15'
 
       - name: Compile Main.java
-        run: javac Main.java
+        run: |
+          javac $(find . -name Main.java)
