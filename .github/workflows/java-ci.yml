@@ -1,0 +1,22 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name if needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '20'  # Specify the desired Java version (e.g., 15, 16, 17)
+
+      - name: Compile Java files
+        run: javac -cp ./**/*.java
