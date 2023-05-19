@@ -308,5 +308,46 @@ This project aims to demonstrate the practical implementation of object-oriented
 
 Feel free to explore the source code and contribute to the project to make it even more robust and feature-rich. Happy coding! 🚀👩‍💻👨‍💻
 
+Certainly! Here's the same content rewritten in Markdown format for your README file:
+
+## Disclaimer
+
+Please note that this project has the following limitations:
+
+- No dedicated database: Instead of using a dedicated database like SQL or NoSQL, this project utilizes a simple text file as the database. All data will be stored and accessed from the text file.
+
+- JavaFX not implemented: This project exclusively uses Java Swing for the user interface. JavaFX is not utilized in any part of the application.
+
+## Installation
+
+Follow these steps to install and run the Hotel Management System:
+
+1. Clone the repository to your local machine:
+   ```
+   git clone https://github.com/EhsanulHaqueSiam/HotelManagementSystem.git
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd HotelManagementSystem
+   ```
+
+3. Compile the `Main.java` file using `javac`:
+   ```
+   javac Main.java
+   ```
+
+4. Run the application by executing the compiled `Main` class:
+   ```
+   java Main
+   ```
+
+5. The Hotel Management System should now be up and running. Follow the on-screen instructions to interact with the application.
+
+## Usage
+
+Once the application is running, you can perform various tasks such as managing hotel bookings, checking room availability, and more. Please refer to the application's user documentation for detailed instructions on how to use the system.
+
+
 
 
