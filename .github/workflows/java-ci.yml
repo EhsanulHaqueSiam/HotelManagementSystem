@@ -22,6 +22,11 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19'
+
       - name: Compile Java
         run: javac Main.java
 
@@ -29,7 +34,7 @@ jobs:
         id: build
         run: |
           if [ -z "$(javac Main.java 2>&1)" ]; then
-            echo "::set-output name=build-status::success"
+            echo "build-status=success" >> $GITHUB_ENV
           else
-            echo "::set-output name=build-status::failure"
+            echo "build-status=failure" >> $GITHUB_ENV
           fi
