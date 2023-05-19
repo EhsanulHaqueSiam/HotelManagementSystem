@@ -1,19 +1,25 @@
 name: Java CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '17'  # Update to the latest Java version
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'  # Update to the latest Java version
 
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Compile Java
-      run: javac Main.java
+      - name: Compile Java
+        run: javac Main.java
