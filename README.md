@@ -308,32 +308,5 @@ This project aims to demonstrate the practical implementation of object-oriented
 
 Feel free to explore the source code and contribute to the project to make it even more robust and feature-rich. Happy coding! 🚀👩‍💻👨‍💻
 
-## To-Do List
-
-- [x] <strike>Full name cannot contain numbers. (For Edit Profile Also)</strike>
-- [ ] Full name and username cannot be the same (For Edit Profile Also)
-- [x] <strike>Fix Checkout Show Massage Dialog</strike>
-- [x] <strike>Bkash and Nagad number and pin cannot contain letters. Show error.</strike>
-- [x] <strike>Bkash and Nagad number have to be 11 digits. If not, show an error message.</strike>
-- [x] <strike>Bkash pin has to be 5 digits. If not, show an error message.</strike>
-- [ ] Nagad pic has to be 4 digits. If not, show an error message.
-- [ ] Mage good Text Datas
-- [x] <strike>!!UserCheckIn Error on Clear All button (when nothing is inputted) java.lang.IllegalArgumentException: setSelectedIndex: 0 out of bounds</strike>
-- [ ] For User and Admin Nationality cannot contain numbers
-- [ ] For User and Admin Gmail must have an "@" sign
-- [ ] For User and Admin Address must contain letters and numbers. Only numbers are not allowed.
-- [ ] !!Profile name not updated Problem
-- [x] <strike>!!AdminCheckIn Error on Clear All button (when nothing is inputted) java.lang.IllegalArgumentException: setSelectedIndex: 0 out of bounds</strike>
-- [x] <strike>Yes/No Confirmation of removing room rooms when nothing is selected</strike>
-- [x] <strike>When entering blank data and adding a room, it shows "room already exists"</strike>
-- [ ] Price cannot contain letters
-- [ ] Add Icons and Title
-- [ ] Button Set Focusable OFF
-- [ ] Table Color
-- [x] <strike>!!Room Search Same room add Fix</strike>
-- [ ] Terminal show state
-- [ ] ConfirmDialogue button setFocusable(false)
-- [ ] setLocationRelativeTo(null)
-- [ ] table editable table changeable logout image
 
 
