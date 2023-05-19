@@ -16,7 +16,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '17'  # Update to the latest Java version
+          java-version: '16'  # Update to the latest Java version
+          distribution: 'adopt'  # Specify the distribution to use
 
       - name: Check out code
         uses: actions/checkout@v2
