@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        # HotelManagement bug report
+        # Hotel Management bug report
 
         Important to note that your issue may have already been reported before. Please check for existing issues [here](https://github.com/EhsanulHaqueSiam/HotelManagementSystem/labels/bug).
 
