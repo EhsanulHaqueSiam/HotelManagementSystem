@@ -16,11 +16,16 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '16'  # Update to the latest Java version
-          distribution: 'adopt'  # Specify the distribution to use
+          java-version: '20'  # Update to the latest Java version
+          distribution: 'adopt'
 
       - name: Check out code
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19'  # Update to the latest Node.js version
 
       - name: Compile Java
         run: javac Main.java
