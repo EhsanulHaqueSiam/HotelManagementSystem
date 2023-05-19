@@ -189,7 +189,7 @@ public class ManageRoom extends JFrame implements ActionListener {
         String romNum = roomNum_fld.getText(); // Room number
         String romType = (String) roomType_box.getSelectedItem(); // Room type
         String bed = (String) bed_box.getSelectedItem(); // Bed type
-        String price = price_fld.getText(); // Room price
+        String price = price_fld.getText().trim(); // Room price
 
         // Check if room number and price fields are empty
         boolean romNumEmpty = roomNum_fld.getText().isEmpty();
@@ -226,7 +226,9 @@ public class ManageRoom extends JFrame implements ActionListener {
                 if (flag) {
                     // Display a warning message if the room number already exists
                     JOptionPane.showMessageDialog(null, "Room number already exist", "Error", JOptionPane.WARNING_MESSAGE);
-                }else{
+                } else if (!price.matches("\\d+")) {
+                    JOptionPane.showMessageDialog(null, "Invalid Price", "Error", JOptionPane.WARNING_MESSAGE);
+                } else {
                     try {
                         String line = "./files/rooms.txt";
                         try {
