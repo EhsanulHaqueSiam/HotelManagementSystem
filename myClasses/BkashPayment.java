@@ -85,4 +85,24 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
         }
     }
 
+    @Override
+    public boolean inputLength(JTextField number, JPasswordField password) {
+        String numberText = number.getText();
+        String passText = String.valueOf(password.getPassword());
+
+        if (numberText.length() != 11 && passText.length() != 5) {
+            JOptionPane.showMessageDialog(null, "Phone number must contain exactly 11 digits and PIN number must contain exactly 5 digits", "Length error", JOptionPane.WARNING_MESSAGE);
+            return false;
+        } else if (numberText.length() != 11) {
+            JOptionPane.showMessageDialog(null, "Phone number must contain exactly 11 digits", "Length error", JOptionPane.WARNING_MESSAGE);
+            return false;
+        } else if (passText.length() != 5) {
+            JOptionPane.showMessageDialog(null, "PIN number must contain exactly 4 digits", "Length error", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        return true;
+    }
+
+
 }
