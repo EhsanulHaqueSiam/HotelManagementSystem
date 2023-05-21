@@ -296,6 +296,14 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
         } else if (e.getSource() == confirm_btn) {
             // Check if all required fields are not empty
             if (!nameEmpty && !mblnumEmpty && !nationalityEmpty && !gamilEmpty && !addressEmpty && !chkindateEmpty && !costEmpty) {
+
+                //Checks if Nationality contains numbers or special character
+                if (!nationality.matches("[a-zA-Z]+")) {
+                    // Display an error message or perform some other action
+                    JOptionPane.showMessageDialog(null, "Nationality cannot contain numbers or special character", "Error", JOptionPane.WARNING_MESSAGE);
+                    nationality_fld.setText(null);
+                } else{
+
                 try {
                     String line = "./files/checkIn.txt";
                     try {
@@ -381,7 +389,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-
+            }
             } else {
                 // Display an error message if any of the boxes are empty
                 JOptionPane.showMessageDialog(null, "Please Fill all the box", "Error", JOptionPane.WARNING_MESSAGE);
