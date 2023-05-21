@@ -1,9 +1,7 @@
 package myInterface;
 
 import myClasses.UDashBoard;
-
 import javax.swing.*;
-import javax.swing.text.*;
 
 public interface ConfirmPayment {
     /**
@@ -52,13 +50,13 @@ public interface ConfirmPayment {
                 break;
             }
         }
-        if(n == false && p == false){
+        if(!n && !p){
             JOptionPane.showMessageDialog(null, "Phone number and Pin number cannot contain character", "Input error", JOptionPane.WARNING_MESSAGE);
             return false;
-        }else if(n == false){
+        }else if(!n){
             JOptionPane.showMessageDialog(null, "Phone Number cannot contain character", "Phone number error", JOptionPane.WARNING_MESSAGE);
             return false;
-        }else if(p == false){
+        }else if(!p){
             JOptionPane.showMessageDialog(null, "Pin number cannot contain character", "Pin number error", JOptionPane.WARNING_MESSAGE);
             return false;
         }
