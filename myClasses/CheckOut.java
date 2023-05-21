@@ -227,11 +227,6 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         roomSearch();
         search_combo.setSelectedIndex(-1);
 
-//        search_btn = new JButton("Search");
-//        search_btn.setBounds(491, 32, 89, 23);
-//        search_btn.setFocusable(false);
-//        contentPane.add(search_btn);
-
         clear_btn = new JButton("Clear");
         clear_btn.setBounds(160, 284, 97, 23);
         clear_btn.setFocusable(false);
