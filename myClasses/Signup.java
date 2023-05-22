@@ -370,7 +370,7 @@ public class Signup extends JFrame implements ActionListener {
     }
     public static boolean isValidFullname(String fullname) {
         String pattern = "^(?!.*\\d)(?!.*[^a-zA-Z0-9 .'-])(?!.*[ .'-]{2,})[a-zA-Z0-9 .'-]+$";
-        return fullname.matches(pattern);
+        return !fullname.matches(pattern);
     }
 
 }
