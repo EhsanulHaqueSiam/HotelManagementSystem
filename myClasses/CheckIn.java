@@ -263,101 +263,109 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
             if (!isNameFieldEmpty && !isMobileNumberFieldEmpty && !isNationalityFieldEmpty && !isGmailEmpty && !isAddressEmpty && !isCheckinDateEmptyField && !isCostFieldEmpty) {
 
                 //Checks if Nationality contains numbers or special character
-                if (!nationality.matches("[a-zA-Z]+")) {
-                    // Display an error message or perform some other action
-                    JOptionPane.showMessageDialog(null, "Nationality cannot contain numbers or special character", "Error", JOptionPane.WARNING_MESSAGE);
-                    nationality_fld.setText(null);
-                } else{
-
-
-                    try {
-                        String CheckinFilePath = "./files/checkIn.txt";
+                if (!nationality.matches("[a-zA-Z]+") ) {
+                        JOptionPane.showMessageDialog(null, "Nationality cannot contain numbers or special character", "Error", JOptionPane.WARNING_MESSAGE);
+                        nationality_fld.setText(null);
+                     //checks if gmail contains @ and .com
+                    }else if(!(gmail.contains("@") && gmail.contains(".com"))){
+                        JOptionPane.showMessageDialog(null, "Gmail must contain @ and .com", "Error", JOptionPane.WARNING_MESSAGE);
+                        gmail_fld.setText(null);
+                    //checks if address contain
+                    } else if(address.matches("^\\d+$")){
+                        JOptionPane.showMessageDialog(null, "Address can not contain only number", "Error", JOptionPane.WARNING_MESSAGE);
+                        address_fld.setText(null);
+                    //checks if the mobile number is valid
+                    }else if(!(mobileNumber.length() == 11 && mobileNumber.matches("\\d+"))){
+                        JOptionPane.showMessageDialog(null, "mobile number must be only 11 digit", "Error", JOptionPane.WARNING_MESSAGE);
+                    }else{
                         try {
-                            // Create a new file or use an existing file for check-in data
-                            File file = new File(CheckinFilePath);
-                            if (!file.exists()) {
-                                boolean created = file.createNewFile();
-                                if (created) {
-                                    System.out.println("File created successfully.");
-                                } else {
-                                    System.out.println("File creation failed.");
-                                }
-                                // Open the file for writing
-                                FileWriter fileWriter = new FileWriter(file, true);
-                                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                                PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                                printWriter.close();
-                            } else {
-                                System.out.println("File already exists.");
-                            }
-                            // Write check-in data to the file
-                            WriteCheckinData(nationality, gmail, address, checkindate, cost, gender, roomNo_B, file, name, mobileNumber);
-
-
+                            String CheckinFilePath = "./files/checkIn.txt";
                             try {
-                                // Input room number to search for
-                                String roomNo = Objects.requireNonNull(roomNo_Box.getSelectedItem()).toString();
-                                // Create a temporary file to write updated data to
-                                File tempFile = new File("./files/temp.txt");
-                                PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
-                                BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"));
-                                String line2;
-                                while ((line2 = br.readLine()) != null) {
-                                    if (line2.equals("Rooms Details")) {
-                                        String[] rowData = new String[5]; // create an array with 5 elements
-                                        for (int i = 0; i < 5; i++) {
-                                            // read the next 5 lines and add the data to the corresponding column
-                                            rowData[i] = br.readLine();
-                                        }
-                                        if (rowData[0].equals(roomNo)) { // if the room number is a match
-                                            rowData[4] = "Booked"; // update the status
-                                        }
-                                        // write the updated row data to the temporary file
-                                        pw.println("Rooms Details");
-                                        for (int i = 0; i < 5; i++) {
-                                            pw.println(rowData[i]);
-                                        }
+                                // Create a new file or use an existing file for check-in data
+                                File file = new File(CheckinFilePath);
+                                if (!file.exists()) {
+                                    boolean created = file.createNewFile();
+                                    if (created) {
+                                        System.out.println("File created successfully.");
                                     } else {
-                                        // write non-"Rooms Details" lines to the temporary file unchanged
-                                        pw.println(line2);
+                                        System.out.println("File creation failed.");
                                     }
-                                }
-                                br.close();
-                                pw.close();
-                                // Replace the original file with the temporary file
-                                File originalFile = new File("./files/rooms.txt");
-                                if (originalFile.delete()) {
-                                    boolean renamed = tempFile.renameTo(originalFile);
-                                    if (renamed) {
-                                        System.out.println("File renamed successfully.");
-                                    } else {
-                                        System.out.println("Failed to rename the file.");
-                                    }
+                                    // Open the file for writing
+                                    FileWriter fileWriter = new FileWriter(file, true);
+                                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                                    PrintWriter printWriter = new PrintWriter(bufferedWriter);
+                                    printWriter.close();
                                 } else {
-                                    System.out.println("Failed to delete the original file.");
+                                    System.out.println("File already exists.");
                                 }
+                                // Write check-in data to the file
+                                WriteCheckinData(nationality, gmail, address, checkindate, cost, gender, roomNo_B, file, name, mobileNumber);
+
+
+                                try {
+                                    // Input room number to search for
+                                    String roomNo = Objects.requireNonNull(roomNo_Box.getSelectedItem()).toString();
+                                    // Create a temporary file to write updated data to
+                                    File tempFile = new File("./files/temp.txt");
+                                    PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+                                    BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"));
+                                    String line2;
+                                    while ((line2 = br.readLine()) != null) {
+                                        if (line2.equals("Rooms Details")) {
+                                            String[] rowData = new String[5]; // create an array with 5 elements
+                                            for (int i = 0; i < 5; i++) {
+                                                // read the next 5 lines and add the data to the corresponding column
+                                                rowData[i] = br.readLine();
+                                            }
+                                            if (rowData[0].equals(roomNo)) { // if the room number is a match
+                                                rowData[4] = "Booked"; // update the status
+                                            }
+                                            // write the updated row data to the temporary file
+                                            pw.println("Rooms Details");
+                                            for (int i = 0; i < 5; i++) {
+                                                pw.println(rowData[i]);
+                                            }
+                                        } else {
+                                            // write non-"Rooms Details" lines to the temporary file unchanged
+                                            pw.println(line2);
+                                        }
+                                    }
+                                    br.close();
+                                    pw.close();
+                                    // Replace the original file with the temporary file
+                                    File originalFile = new File("./files/rooms.txt");
+                                    if (originalFile.delete()) {
+                                        boolean renamed = tempFile.renameTo(originalFile);
+                                        if (renamed) {
+                                            System.out.println("File renamed successfully.");
+                                        } else {
+                                            System.out.println("Failed to rename the file.");
+                                        }
+                                    } else {
+                                        System.out.println("Failed to delete the original file.");
+                                    }
+                                } catch (Exception ex) {
+                                    ex.printStackTrace();
+                                }
+
+
+                                JOptionPane.showMessageDialog(null, "Congratulation Check In successful", "Congratulation", JOptionPane.INFORMATION_MESSAGE);
+                                // Clearing the input fields
+                                name_field.setText(null);
+                                mbl_fld.setText(null);
+                                nationality_fld.setText(null);
+                                gmail_fld.setText(null);
+                                address_fld.setText(null);
+                                cost_fld.setText(null);
+                                gender_Box.setSelectedIndex(0);
+                                bed_Box.setSelectedIndex(0);
+                                roomType_Box.setSelectedIndex(0);
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
-
-
-                            JOptionPane.showMessageDialog(null, "Congratulation Check In successful", "Congratulation", JOptionPane.INFORMATION_MESSAGE);
-                            // Clearing the input fields
-                            name_field.setText(null);
-                            mbl_fld.setText(null);
-                            nationality_fld.setText(null);
-                            gmail_fld.setText(null);
-                            address_fld.setText(null);
-                            cost_fld.setText(null);
-                            gender_Box.setSelectedIndex(0);
-                            bed_Box.setSelectedIndex(0);
-                            roomType_Box.setSelectedIndex(0);
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
 
                 }
             } else {
@@ -431,5 +439,6 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
 
         printWriter.close();
     }
+
 
 }

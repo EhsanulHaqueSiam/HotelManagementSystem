@@ -298,11 +298,18 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
             if (!nameEmpty && !mblnumEmpty && !nationalityEmpty && !gamilEmpty && !addressEmpty && !chkindateEmpty && !costEmpty) {
 
                 //Checks if Nationality contains numbers or special character
-                if (!nationality.matches("[a-zA-Z]+")) {
-                    // Display an error message or perform some other action
+                if (!nationality.matches("[a-zA-Z]+") ) {
                     JOptionPane.showMessageDialog(null, "Nationality cannot contain numbers or special character", "Error", JOptionPane.WARNING_MESSAGE);
                     nationality_fld.setText(null);
-                } else{
+                    //checks if gmail contains @ and .com
+                }else if(!(gmail.contains("@") && gmail.contains(".com"))){
+                    JOptionPane.showMessageDialog(null, "Gmail must contain @ and .com", "Error", JOptionPane.WARNING_MESSAGE);
+                    gmail_fld.setText(null);
+                    //checks if address contain
+                } else if(address.matches("^\\d+$")){
+                    JOptionPane.showMessageDialog(null, "Address can not contain only number", "Error", JOptionPane.WARNING_MESSAGE);
+                    address_fld.setText(null);
+                }else{
 
                 try {
                     String line = "./files/checkIn.txt";
