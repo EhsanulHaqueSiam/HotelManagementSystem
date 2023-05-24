@@ -114,6 +114,7 @@ public class Login extends JFrame implements ActionListener {
         EyeBtn.setForeground(Color.DARK_GRAY);
         EyeBtn.setBackground(Color.DARK_GRAY);
         EyeBtn.setBounds(818, 276, 44, 30);
+        EyeBtn.setFocusable(false);
         contentPane.add(EyeBtn);
 
         forgot = new JButton("Forgotten Password ?");
@@ -123,6 +124,7 @@ public class Login extends JFrame implements ActionListener {
         forgot.setBorder(BorderFactory.createEmptyBorder());
         forgot.setBackground(Color.DARK_GRAY);
         forgot.setBounds(687, 311, 120, 19);
+        forgot.setFocusable(false);
         contentPane.add(forgot);
 
         signup = new JButton("Don't have an account?");
@@ -131,6 +133,7 @@ public class Login extends JFrame implements ActionListener {
         signup.setFont(new Font("Calibri", Font.BOLD, 14));
         signup.setBackground(Color.DARK_GRAY);
         signup.setBounds(637, 410, 189, 30);
+        signup.setFocusable(false);
         contentPane.add(signup);
 
         // Load the login background image
@@ -163,11 +166,13 @@ public class Login extends JFrame implements ActionListener {
         loginButton = new JButton("Login");
         loginButton.setFont(new Font("Tahoma", Font.BOLD, 18));
         loginButton.setBounds(653, 345, 153, 40);
+        loginButton.setFocusable(false);
         contentPane.add(loginButton);
 
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         exitButton.setBounds(809, 486, 70, 21);
+        exitButton.setFocusable(false);
         contentPane.add(exitButton);
 
         EyeBtn.addActionListener(this);
