@@ -134,26 +134,130 @@ Enhancement suggestions are tracked as [GitHub issues](/issues).
 <!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 ### Your First Code Contribution
-<!-- TODO
-include Setup of env, IDE and typical getting started instructions?
+To make your first code contribution to the HotelManagementSystem project, follow these steps:
 
--->
+1. Set up your development environment by installing the required tools and dependencies. Refer to the project's documentation for instructions on how to set up the development environment.
+
+2. Clone the project repository to your local machine using Git. Open a terminal or command prompt and run the following command:
+
+   ```
+   git clone https://github.com/EhsanulHaqueSiam/HotelManagementSystem.git
+   ```
+
+3. Create a new branch for your code contribution. This helps in isolating your changes and makes it easier to manage them. Run the following command to create a new branch:
+
+   ```
+   git checkout -b my-contribution
+   ```
+
+   Replace `my-contribution` with a descriptive branch name.
+
+4. Make the necessary changes or additions to the codebase based on the contribution you want to make. Ensure that your code follows the project's coding conventions and styleguides.
+
+5. Test your changes locally to verify that they work as intended and do not introduce any regressions.
+
+6. Once you are satisfied with your changes, commit them to your branch. Write a descriptive commit message that explains the purpose of your changes. For example:
+
+   ```
+   git commit -m "Add feature X to handle hotel bookings"
+   ```
+
+7. Push your branch to the remote repository on GitHub:
+
+   ```
+   git push origin my-contribution
+   ```
+
+8. Open a pull request on the project's GitHub repository. Provide a clear description of your contribution, including the problem it addresses or the feature it adds. The project maintainers will review your pull request and provide feedback or merge it into the main codebase.
+
 
 ### Improving The Documentation
-<!-- TODO
-Updating, improving and correcting the documentation
+To improve the documentation of the HotelManagementSystem project, you can follow these steps:
 
--->
+1. Fork the project repository on GitHub by navigating to the project's repository page and clicking the "Fork" button.
+
+2. Clone your forked repository to your local machine using Git. Open a terminal or command prompt and run the following command:
+
+   ```
+   git clone https://github.com/EhsanulHaqueSiam/HotelManagementSystem.git
+   ```
+
+
+3. Make the necessary changes or improvements to the documentation. This can include updating existing documentation, adding new sections, fixing errors, or clarifying instructions.
+
+4. Test the documentation locally to ensure that it is accurate and easy to follow.
+
+5. Commit your changes to your forked repository with a descriptive commit message:
+
+   ```
+   git commit -m "Improve installation instructions in README"
+   ```
+
+6. Push your changes to your forked repository on GitHub:
+
+   ```
+   git push origin master
+   ```
+
+7. Open a pull request on the original project's repository. Provide a clear description of the changes you made and why they are beneficial. The project maintainers will review your pull request and merge it if it meets the project's standards.
+
 
 ## Styleguides
-### Commit Messages
-<!-- TODO
 
--->
+The HotelManagementSystem project likely has specific styleguides that outline the coding conventions and best practices to follow. These styleguides ensure consistency in the codebase and make it easier for developers to understand and maintain the code. To contribute to the project, it's essential to adhere to these styleguides.
+
+1. Start by familiarizing yourself with the project's existing codebase. Take note of the coding conventions followed, such as indentation style, variable naming conventions, and file structure.
+
+2. Read the project's documentation or CONTRIBUTING.md file for specific guidelines on coding style and conventions. It may include details on preferred programming languages, indentation rules, variable naming conventions, and other project-specific guidelines.
+
+3. Use linting tools or code formatters specific to the project's programming language or framework. These tools automatically enforce styleguide rules and can help you identify and fix style issues in your code.
+
+4. Pay attention to existing code patterns and follow them consistently to maintain code coherence across the project.
+
+### Commit Messages
+
+When making commits to the HotelManagementSystem project, it's important to write clear and descriptive commit messages. Good commit messages provide a concise summary of the changes and help others understand the purpose and context of the commit. Here are some tips for writing effective commit messages:
+
+1. Keep the subject line of the commit message concise and descriptive. It should summarize the main purpose of the commit in around 50 characters.
+
+2. Use the imperative mood (e.g., "Add feature," "Fix bug," "Update documentation") to clearly indicate the type of change.
+
+3. Provide additional details in the commit message body if necessary. This can include explaining why the change was made, referencing relevant issues or discussions, or providing any important context.
+
+4. Use bullet points or paragraphs to structure the commit message body and make it easier to read.
+
+5. If the commit addresses a specific issue or pull request, reference it using the appropriate syntax. For example, "Fixes #123" or "Closes PR #456."
+
+6. Proofread your commit message for clarity, grammar, and punctuation.
+
 
 ## Join The Project Team
-<!-- TODO -->
+If you're interested in joining the HotelManagementSystem project team, follow these steps:
 
-<!-- omit in toc -->
+1. Start by familiarizing yourself with the project's goals, scope, and existing team members. Understand the project's purpose and the roles and responsibilities of the team members.
+
+2. Look for information on how to join the project team in the project's documentation or CONTRIBUTING.md file. It may provide instructions on how to express your interest in joining and what the process entails.
+
+3. Reach out to the project maintainers or team members to express your interest in joining the team. This can be done through the project's communication channels, such as the project's GitHub repository, mailing list, or chat platform.
+
+4. Introduce yourself and explain why you're interested in joining the project team. Highlight any relevant skills, experience, or contributions you have made to the project so far.
+
+5. Be prepared to showcase your skills or work on a small task or bug fix to demonstrate your ability to contribute to the project effectively.
+
+6. Collaborate with the existing team members, follow their guidance, and contribute to the project in a consistent and reliable manner.
+
 ## Attribution
-This guide is based on the **contributing-gen**. [Make your own](https://github.com/bttger/contributing-gen)!
+
+Attribution in the HotelManagementSystem project refers to giving credit to the original authors or contributors of the project. It acknowledges their contributions and helps maintain transparency and accountability within the project. Here are some ways to handle attribution:
+
+1. Include a CONTRIBUTORS.md file in the project's repository, listing the names or usernames of all contributors along with their contributions.
+
+2. Use version control system features to track and attribute individual commits to contributors. Git, for example, records the author information for each commit, making it easy to trace back contributions.
+
+3. Follow any specific attribution guidelines provided by the project. Some projects may have specific requirements for how contributors should be attributed.
+
+4. When mentioning or discussing the project publicly, such as in blog posts, presentations, or articles, attribute the project and its contributors appropriately.
+
+5. Ensure that any derivative work or modifications of the project also include the original attribution information.
+
+6. Follow the project's license requirements regarding attribution. Some open-source licenses, such as the MIT License or Apache License, have specific provisions for attributing the original authors.
