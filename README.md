@@ -18,62 +18,65 @@ classDiagram
 direction BT
 class BkashPayment {
   ~ JLabel bkash_lbl
-  ~ JTextField num_fld
+  ~ JButton back_btn
   ~ JButton next_btn
   ~ JPasswordField pass_fld
-  ~ JButton back_btn
+  ~ JTextField num_fld
+  + inputValidation(JTextField, JPasswordField) boolean
   + actionPerformed(ActionEvent) void
+  + inputLength(JTextField, JPasswordField) boolean
+  + confirmPayment(boolean, boolean, JFrame, JTextField, JPasswordField) void
 }
 class CheckIn {
-  - JFrame frame
-  - JButton clear_btn
-  - JButton logOut_Btn
-  - JTextField nationality_fld
-  - JTextField date_fld
   + String roomNo
-  - JTextField mbl_fld
   - JTextField gmail_fld
+  - JButton clear_btn
+  - JTextField cost_fld
+  - JTextField date_fld
+  - JTextField name_field
   - JTextField address_fld
   - JButton confirm_btn
-  - JComboBox~String~ roomNo_Box
-  - JComboBox~String~ roomType_Box
   - JComboBox~String~ bed_Box
+  - JFrame frame
   - JComboBox~String~ gender_Box
-  - JTextField name_field
-  - JTextField cost_fld
+  - JTextField nationality_fld
+  - JComboBox~String~ roomNo_Box
+  - JTextField mbl_fld
   - JButton back_btn
+  - JComboBox~String~ roomType_Box
+  - JButton logOut_Btn
   + actionPerformed(ActionEvent) void
   + WriteCheckinData(String, String, String, String, String, String, String, File, String, String) void
 }
 class CheckOut {
-  ~ String gender
-  - JTextField dayStay_fld
-  - JTextField pricePerDay_fld
-  - JComboBox~String~ search_combo
-  - JTextField CustomerNum_fld
-  - JTextField checkInDate_fld
-  ~ String CheckinDate
-  - JButton checkOut_btn
-  - JButton logOut_btn
-  ~ String bed
-  - JButton back_btn
-  ~ String roomNumToDelete
-  ~ String roomPrice
-  ~ String gmail
-  ~ String nationality
-  - JTextField email_fld
-  ~ String roomType
-  - JTextField totalAmount_fld
-  ~ String mobileNumber
-  ~ String name
-  ~ String address
-  - JButton clear_btn
-  - JTable table
-  - JTextField CustomerName_fld
   ~ String roomNo_B
-  + getCustomerData() void
-  + deleteRoomEntry() void
+  - JTextField CustomerNum_fld
+  - JTextField pricePerDay_fld
+  ~ String name
+  ~ String CheckinDate
+  - JButton logOut_btn
+  - JButton back_btn
+  ~ String roomPrice
+  ~ String bed
+  ~ String gender
+  ~ String address
+  - JTextField totalAmount_fld
+  - JComboBox~String~ search_combo
+  - JTable table
+  ~ String gmail
+  - JTextField checkInDate_fld
+  - JTextField dayStay_fld
+  ~ String nationality
+  - JTextField CustomerName_fld
+  - JTextField email_fld
+  - JButton clear_btn
+  - JButton checkOut_btn
+  ~ String mobileNumber
+  ~ String roomType
+  ~ String roomNumToDelete
   + roomSearch() void
+  + deleteRoomEntry() void
+  + getCustomerData() void
   + actionPerformed(ActionEvent) void
 }
 class CheckOutRoomSearch {
@@ -86,7 +89,9 @@ class ClearCheckOut {
 }
 class ConfirmPayment {
 <<Interface>>
-  + confirmPayment(boolean, boolean, JFrame) void
+  + inputLength(JTextField, JPasswordField) boolean
+  + confirmPayment(boolean, boolean, JFrame, JTextField, JPasswordField) void
+  + inputValidation(JTextField, JPasswordField) boolean
 }
 class CustomerDataEntry {
 <<Interface>>
@@ -100,186 +105,188 @@ class DashBoard {
   + actionPerformed(ActionEvent) void
 }
 class Edit {
-  - int check
-  - JButton confirmButton2
-  - JButton phoneButton
-  - JButton backButton
-  - JButton usernameButton
-  - JTextField fullField
-  - JButton fullNameButton
+  - JButton exitButton
   - JTextField userField
+  - JButton backButton
+  - JButton logoutButton
+  - JButton usernameButton
+  - JLabel user
+  - JTextField fullField
+  - JButton confirmButton1
+  - JButton fullNameButton
+  - JButton confirmButton3
+  - JButton phoneButton
+  - int check
   - JTextField phoneField
   - JLabel full
-  - JButton confirmButton3
-  - JButton confirmButton1
-  - JButton logoutButton
   - JLabel phone
-  - JLabel user
-  - JButton exitButton
+  - JButton confirmButton2
+  + isValidFullname(String) boolean
   + actionPerformed(ActionEvent) void
 }
 class ForgetPass {
+  - JButton backButton
   - JButton next
+  # int deleteLine
   - JTextField userField
   - JButton exitButton
-  # int deleteLine
-  - JButton backButton
   + actionPerformed(ActionEvent) void
 }
 class ForgetPass2 {
-  - JButton next2
-  - JButton exitButton
   - JTextField phoneField
   - JButton backButton
+  - JButton next2
+  - JButton exitButton
   + actionPerformed(ActionEvent) void
 }
 class ForgetPass3 {
+  - JButton NextButton
   - JPasswordField newPass
   - JToggleButton EyeBtn2
-  - JPasswordField confirmPass
-  - JButton backButton
   - ImageIcon off
-  - ImageIcon on
+  - JPasswordField confirmPass
   - JButton exitButton
-  - JButton NextButton
+  - JButton backButton
   - JToggleButton EyeBtn1
+  - ImageIcon on
   + actionPerformed(ActionEvent) void
 }
 class Login {
-  # boolean isAdmin
-  # String fullName
-  # String fullUsername
-  - JToggleButton EyeBtn
-  - ImageIcon off
-  # String phoneNumber
-  - JTextField usernameField
-  - ImageIcon on
-  - JButton loginButton
   + String USERNAME
+  # String fullName
+  - JButton loginButton
+  - ImageIcon on
   # boolean loginFlag
-  - JButton signup
-  - JButton exitButton
   # String oldPassword
-  - JButton forgot
+  - JToggleButton EyeBtn
+  # String phoneNumber
+  - JButton exitButton
+  - ImageIcon off
+  - JButton signup
   - JPasswordField passwordField
-  + actionPerformed(ActionEvent) void
+  - JButton forgot
+  # boolean isAdmin
+  # String fullUsername
+  - JTextField usernameField
   + getloginFlag() boolean
+  + actionPerformed(ActionEvent) void
 }
 class Main {
   + main(String[]) void
 }
 class ManageRoom {
+  - JTextField roomNum_fld
   - JComboBox~String~ bed_box
-  - JTextField price_fld
-  - JButton del_btn
-  - JTable table
   - JButton logOut_btn
+  - JButton del_btn
+  - JButton add_btn
+  - JTable table
   - JComboBox~String~ roomType_box
   - JButton back_btn
-  - JButton add_btn
-  - JTextField roomNum_fld
+  - JTextField price_fld
   + actionPerformed(ActionEvent) void
 }
 class NagadPayment {
-  ~ JPasswordField pass_fld
-  ~ JTextField num_fld
   ~ JButton next_btn
-  ~ JButton back_btn
+  ~ JTextField num_fld
   ~ JLabel bkash_lbl
+  ~ JButton back_btn
+  ~ JPasswordField pass_fld
   + actionPerformed(ActionEvent) void
 }
 class Payment {
-  ~ JRadioButton bkash_btn
-  ~ JLabel payment_lbl
   ~ JButton next_btn
-  ~ JRadioButton nagad_btn
+  ~ JRadioButton bkash_btn
   ~ ButtonGroup bkashNagad_grp
+  ~ JRadioButton nagad_btn
+  ~ JLabel payment_lbl
   + actionPerformed(ActionEvent) void
 }
 class Profile {
   - JButton editButton
-  - JButton logoutButton
   - JButton backButton
   - JButton exitButton
+  - JButton logoutButton
   + actionPerformed(ActionEvent) void
 }
 class ShowRoom {
   + roomDetails(JTextField, JComboBox~String~, JComboBox~String~, JComboBox~String~) void
 }
 class Signup {
-  - JTextField fullField
-  - JButton signin
-  - JPasswordField confirmPassField
+  - JTextField usernameField
   - ImageIcon on
+  - JPasswordField confirmPassField
+  - JButton signup
+  - JTextField fullField
   - ImageIcon off
-  - JToggleButton EyeBtn2
+  - JButton signin
+  - JPasswordField passwordField
   - JButton exitButton
   - JToggleButton EyeBtn
   - JTextField phoneNumberField
-  - JPasswordField passwordField
-  - JButton signup
-  - JTextField usernameField
+  - JToggleButton EyeBtn2
   + actionPerformed(ActionEvent) void
+  + isValidFullname(String) boolean
 }
 class UCheckIn {
+  - String fullName
+  - JTextField mbl_fld
   - JTextField nationality_fld
   - JTextField gmail_fld
   - JTextField address_fld
-  - JComboBox~String~ gender_Box
-  - String fullName
-  - JTextField name_field
-  - JTextField date_fld
-  - JTextField mbl_fld
-  - JButton clear_btn
-  - JButton back_btn
-  - JComboBox~String~ roomNo_Box
   - String MobileNumber
   - JComboBox~String~ roomType_Box
+  - JComboBox~String~ roomNo_Box
+  - JTextField name_field
+  - JButton logOut_Btn
+  - JButton clear_btn
   - JButton confirm_btn
-  - JFrame frame
   - JComboBox~String~ bed_Box
   + String roomNo
-  - JButton logOut_Btn
   - JTextField cost_fld
+  - JButton back_btn
+  - JFrame frame
+  - JComboBox~String~ gender_Box
+  - JTextField date_fld
   + WriteCheckinData(String, String, String, String, String, String, String, File, String, String) void
   + actionPerformed(ActionEvent) void
 }
 class UCheckOut {
-  ~ String roomPrice
-  - JButton back_btn
-  ~ String roomType
-  - JTable table
+  - JTextField customerName_fld
   - JTextField checkOut_fld
-  ~ String nameLogin
+  - JButton logOut_btn
+  - JButton back_btn
+  ~ String MobileNumber
+  - JTextField checkInDate_fld
+  - JTextField pricePerDay_fld
   - JComboBox~String~ roomNum_combo
+  ~ String bed
+  ~ String roomPrice
+  - JTextField totalAmount_fld
+  ~ String gender
+  - JTextField customerNum_fld
   - JButton clear_btn
   ~ String address
-  ~ String CheckInDate
-  ~ String gmail
-  - JTextField totalAmount_fld
-  ~ String name
-  - JTextField customerName_fld
-  - JButton logOut_btn
-  - JTextField dayStay_fld
-  - JTextField pricePerDay_fld
   - DefaultTableModel model
+  ~ String gmail
   ~ String roomNo_B
-  - JTextField checkInDate_fld
-  ~ String MobileNumber
-  ~ String gender
+  ~ String CheckInDate
+  - JTextField dayStay_fld
   - JTextField email_fld
-  ~ String bed
   ~ String nationality
-  - JTextField customerNum_fld
+  ~ String roomType
+  ~ String name
   - JButton checkOut_btn
-  + getCustomerData() void
+  - JTable table
+  ~ String nameLogin
   + actionPerformed(ActionEvent) void
+  + getCustomerData() void
   + deleteRoomEntry() void
 }
 class UDashBoard {
+  - JButton checkOut_btn
   - JButton profile_btn
   - JButton logoutBtn
-  - JButton checkOut_btn
   - JButton checkIn_btn
   + actionPerformed(ActionEvent) void
 }
@@ -299,6 +306,7 @@ UCheckIn  -->  ShowRoom
 UCheckIn  ..>  WriteCheckInInfo 
 UCheckOut  ..>  CheckOutRoomSearch 
 UCheckOut  ..>  CustomerDataEntry 
+
 
 ```
 
