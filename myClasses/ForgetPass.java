@@ -20,7 +20,7 @@ public class ForgetPass extends JFrame implements ActionListener {
     protected static int deleteLine;
     private final JTextField userField;
     private final JButton exitButton;
-    private final JButton next;
+    private final JButton nextButton;
     private final JButton backButton;
 
 
@@ -67,11 +67,13 @@ public class ForgetPass extends JFrame implements ActionListener {
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         exitButton.setBounds(809, 486, 70, 21);
+        exitButton.setFocusable(false);
         contentPane.add(exitButton);
 
         backButton = new JButton("Back");
         backButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         backButton.setBounds(10, 486, 70, 21);
+        backButton.setFocusable(false);
         contentPane.add(backButton);
 
         JLabel imgLabel = new JLabel("New label");
@@ -91,11 +93,12 @@ public class ForgetPass extends JFrame implements ActionListener {
         imgLabel.setIcon(new ImageIcon(imgFORGET));
         contentPane.add(imgLabel);
 
-        next = new JButton("Next");
-        next.setBounds(715, 272, 70, 21);
-        contentPane.add(next);
+        nextButton = new JButton("Next");
+        nextButton.setBounds(715, 272, 70, 21);
+        nextButton.setFocusable(false);
+        contentPane.add(nextButton);
 
-        next.addActionListener(this);
+        nextButton.addActionListener(this);
         backButton.addActionListener(this);
         exitButton.addActionListener(this);
 
@@ -113,7 +116,7 @@ public class ForgetPass extends JFrame implements ActionListener {
         int totalLines = 0;
 
         // Check which button was clicked
-        if (e.getSource() == next) {
+        if (e.getSource() == nextButton) {
             try {
                 // Open the file containing user login information
                 File userfile = new File("./files/user_login.txt");
