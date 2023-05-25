@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public class ForgetPass2 extends JFrame implements ActionListener {
 
-    private final JButton next2;
+    private final JButton next2Button;
     private final JTextField phoneField;
     private final JButton backButton;
     private final JButton exitButton;
@@ -49,9 +49,10 @@ public class ForgetPass2 extends JFrame implements ActionListener {
         phoneField.setVisible(true);
         contentPane.add(phoneField);
 
-        next2 = new JButton("Next");
-        next2.setBounds(702, 287, 70, 21);
-        contentPane.add(next2);
+        next2Button = new JButton("Next");
+        next2Button.setBounds(702, 287, 70, 21);
+        next2Button.setFocusable(false);
+        contentPane.add(next2Button);
 
         JLabel phone = new JLabel("Phone No :");
         phone.setForeground(Color.WHITE);
@@ -81,11 +82,13 @@ public class ForgetPass2 extends JFrame implements ActionListener {
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         exitButton.setBounds(809, 486, 70, 21);
+        exitButton.setFocusable(false);
         contentPane.add(exitButton);
 
         backButton = new JButton("Back");
         backButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         backButton.setBounds(10, 486, 70, 21);
+        backButton.setFocusable(false);
         contentPane.add(backButton);
 
         JLabel imgLabel = new JLabel("New label");
@@ -109,7 +112,7 @@ public class ForgetPass2 extends JFrame implements ActionListener {
         contentPane.add(forget);
 
 
-        next2.addActionListener(this);
+        next2Button.addActionListener(this);
         backButton.addActionListener(this);
         exitButton.addActionListener(this);
 
@@ -125,7 +128,7 @@ public class ForgetPass2 extends JFrame implements ActionListener {
         boolean isFound = false;// Initialize a boolean variable to keep track of whether the user's phone number is found
 
         // Check which button was clicked
-        if (e.getSource() == next2) {
+        if (e.getSource() == next2Button) {
             try {
                 if (userEmpty) {
                     // Show a warning message if the phoneField is empty

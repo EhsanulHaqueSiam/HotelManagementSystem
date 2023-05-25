@@ -171,14 +171,17 @@ public class Signup extends JFrame implements ActionListener {
         signin.setForeground(new Color(155, 157, 196));
         signin.setBackground(Color.DARK_GRAY);
         signin.setBounds(331, 405, 264, 47);
+        signin.setFocusable(false);
         contentPane.add(signin);
 
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         exitButton.setBounds(809, 486, 70, 21);
+        exitButton.setFocusable(false);
         contentPane.add(exitButton);
 
         signup = new JButton("Sign up");
+        signup.setFocusable(false);
         signup.setBounds(213, 298, 110, 34);
         contentPane.add(signup);
         signup.setFont(new Font("Tahoma", Font.BOLD, 15));

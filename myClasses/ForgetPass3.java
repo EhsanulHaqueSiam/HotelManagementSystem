@@ -15,7 +15,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
 
     private final JToggleButton EyeBtn2;
     private final JToggleButton EyeBtn1;
-    private final JButton NextButton;
+    private final JButton next3Button;
     private final ImageIcon on;
     private final ImageIcon off;
     private final JPasswordField newPass;
@@ -41,11 +41,13 @@ public class ForgetPass3 extends JFrame implements ActionListener {
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         exitButton.setBounds(809, 486, 70, 21);
+        exitButton.setFocusable(false);
         contentPane.add(exitButton);
 
         backButton = new JButton("Back");
         backButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         backButton.setBounds(10, 486, 70, 21);
+        backButton.setFocusable(false);
         contentPane.add(backButton);
 
         JLabel forget = new JLabel("Reset Password");
@@ -92,9 +94,10 @@ public class ForgetPass3 extends JFrame implements ActionListener {
         confirmPass.setEchoChar('*');
         contentPane.add(confirmPass);
 
-        NextButton = new JButton("Next");
-        NextButton.setBounds(758, 356, 70, 21);
-        contentPane.add(NextButton);
+        next3Button = new JButton("Next");
+        next3Button.setBounds(758, 356, 70, 21);
+        next3Button.setFocusable(false);
+        contentPane.add(next3Button);
 
         BufferedImage imgOn = null;
         BufferedImage imgOff = null;
@@ -149,7 +152,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
 
         EyeBtn1.addActionListener(this);
         EyeBtn2.addActionListener(this);
-        NextButton.addActionListener(this);
+        next3Button.addActionListener(this);
         backButton.addActionListener(this);
         exitButton.addActionListener(this);
 
@@ -158,7 +161,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == NextButton) {
+        if (e.getSource() == next3Button) {
             int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure You Want to Change Password?", "Alert!", JOptionPane.YES_NO_OPTION);
 
             if (yesORno == JOptionPane.YES_OPTION) {
