@@ -251,9 +251,12 @@ public class Signup extends JFrame implements ActionListener {
             if (userEmpty || passEmpty || confEmpty || nameEmpty || emailEmpty) {
                 // Display an error message if any field is empty
                 JOptionPane.showMessageDialog(null, "Please fill all of the fields.", "Error!", JOptionPane.WARNING_MESSAGE);
-            } else if (isValidFullname(user)) {
+            } else if (!isValidFullname(name)) {
                 // Display an error message for invalid Fullname
                 JOptionPane.showMessageDialog(null, "Invalid fullname. Please enter a valid fullname.", "Error!", JOptionPane.WARNING_MESSAGE);
+            }else if (!validateUsername(user)) {
+                // Display an error message for invalid username
+                JOptionPane.showMessageDialog(null, "Invalid username. Please enter a valid username.", "Error!", JOptionPane.WARNING_MESSAGE);
             } else if (numcount > 0){
                 // Display an error message for invalid phone number
                 JOptionPane.showMessageDialog(null, "Invalid Phone Number", " Error!", JOptionPane.WARNING_MESSAGE);
@@ -373,7 +376,20 @@ public class Signup extends JFrame implements ActionListener {
     }
     public static boolean isValidFullname(String fullname) {
         String pattern = "^(?!.*\\d)(?!.*[^a-zA-Z0-9 .'-])(?!.*[ .'-]{2,})[a-zA-Z0-9 .'-]+$";
-        return !fullname.matches(pattern);
+        return fullname.matches(pattern);
     }
+    public boolean validateUsername(String username) {
+        // Check for spaces
+        if (username.contains(" ")) {
+            return false;
+        }
+
+        // Check length
+        int length = username.length();
+        return length >= 3 && length <= 20;
+
+        // Additional validation rules can be added here
+    }
+
 
 }
