@@ -198,6 +198,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
 
         back_btn = new JButton("Back");
         back_btn.setBounds(779, 435, 89, 23);
+        back_btn.setFocusable(false);
         contentPane.add(back_btn);
 
         confirm_btn = new JButton("Confirm Book");
@@ -216,6 +217,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
 
         logOut_Btn = new JButton("Log Out");
         logOut_Btn.setBounds(812, 11, 89, 23);
+        logOut_Btn.setFocusable(false);
         contentPane.add(logOut_Btn);
 
         back_btn.addActionListener(this);
