@@ -163,6 +163,7 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
 
         checkOut_btn = new JButton("Check Out");
         checkOut_btn.setBounds(25, 284, 97, 23);
+        checkOut_btn.setFocusable(false);
         contentPane.add(checkOut_btn);
 
         checkInDate_fld = new JTextField();
