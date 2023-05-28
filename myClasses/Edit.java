@@ -76,6 +76,7 @@ public class Edit extends JFrame implements ActionListener {
         fullNameButton.setForeground(Color.decode("#8ee0f0"));
         Font fullnameButtonFont = new Font("Times New Roman", Font.BOLD, 19);
         fullNameButton.setFont(fullnameButtonFont);
+        fullNameButton.setFocusable(false);
         contentPane.add(fullNameButton);
 
         usernameButton = new JButton("User Name");
@@ -86,6 +87,7 @@ public class Edit extends JFrame implements ActionListener {
         usernameButton.setForeground(Color.decode("#8ee0f0"));
         Font usernameButtonFont = new Font("Times New Roman", Font.BOLD, 19);
         usernameButton.setFont(usernameButtonFont);
+        usernameButton.setFocusable(false);
         contentPane.add(usernameButton);
 
         phoneButton = new JButton("Phone Number");
@@ -96,21 +98,25 @@ public class Edit extends JFrame implements ActionListener {
         phoneButton.setForeground(Color.decode("#8ee0f0"));
         Font phoneButtonFont = new Font("Times New Roman", Font.BOLD, 19);
         phoneButton.setFont(phoneButtonFont);
+        phoneButton.setFocusable(false);
         contentPane.add(phoneButton);
 
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         exitButton.setBounds(809, 486, 70, 21);
+        exitButton.setFocusable(false);
         contentPane.add(exitButton);
 
         backButton = new JButton("Back");
         backButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         backButton.setBounds(10, 486, 70, 21);
+        backButton.setFocusable(false);
         contentPane.add(backButton);
 
         logoutButton = new JButton("logout");
         logoutButton.setBounds(809, 10, 70, 21);
         logoutButton.setFont(new Font("Tahoma", Font.BOLD, 10));
+        logoutButton.setFocusable(false);
         contentPane.add(logoutButton);
 
         confirmButton1 = new JButton("Confirm");
@@ -121,6 +127,7 @@ public class Edit extends JFrame implements ActionListener {
         confirmButton1.setForeground(Color.decode("#8ee0f0"));
         Font confirmButtonFont1 = new Font("Times New Roman", Font.BOLD, 15);
         confirmButton1.setFont(confirmButtonFont1);
+        confirmButton1.setFocusable(false);
         contentPane.add(confirmButton1);
 
         confirmButton2 = new JButton("Confirm");
@@ -131,7 +138,7 @@ public class Edit extends JFrame implements ActionListener {
         confirmButton2.setForeground(Color.decode("#8ee0f0"));
         Font confirmButtonFont2 = new Font("Times New Roman", Font.BOLD, 15);
         confirmButton2.setFont(confirmButtonFont2);
-
+        confirmButton2.setFocusable(false);
         contentPane.add(confirmButton2);
 
         confirmButton3 = new JButton("Confirm");
@@ -142,6 +149,7 @@ public class Edit extends JFrame implements ActionListener {
         confirmButton3.setForeground(Color.decode("#8ee0f0"));
         Font confirmButtonFont3 = new Font("Times New Roman", Font.BOLD, 15);
         confirmButton3.setFont(confirmButtonFont3);
+        confirmButton3.setFocusable(false);
         contentPane.add(confirmButton3);
 
         full = new JLabel("Enter your full name :");

@@ -82,21 +82,25 @@ public class Profile extends JFrame implements ActionListener {
         editButton.setBorder(BorderFactory.createEmptyBorder());
         editButton.setBackground(new Color(0, 0, 0, 0));
         editButton.setBounds(672, 387, 80, 30);
+        editButton.setFocusable(false);
         contentPane.add(editButton);
 
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         exitButton.setBounds(809, 486, 70, 21);
+        exitButton.setFocusable(false);
         contentPane.add(exitButton);
 
         backButton = new JButton("Back");
         backButton.setFont(new Font("Tahoma", Font.BOLD, 10));
         backButton.setBounds(10, 486, 70, 21);
+        backButton.setFocusable(false);
         contentPane.add(backButton);
 
         logoutButton = new JButton("logout");
         logoutButton.setBounds(809, 10, 70, 21);
         logoutButton.setFont(new Font("Tahoma", Font.BOLD, 10));
+        logoutButton.setFocusable(false);
         contentPane.add(logoutButton);
 
         JPanel panel_1 = new JPanel();
