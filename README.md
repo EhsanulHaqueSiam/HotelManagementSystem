@@ -361,6 +361,92 @@ Thanks to all the people who contribute. [[Contributors](https://github.com/Ehsa
 
 Once the application is running, you can perform various tasks such as managing hotel bookings, checking room availability, and more. Please refer to the application's user documentation for detailed instructions on how to use the system.
 
+<details>
+  <summary>Click to expand screenshots of the project</summary>
+  
+  <div align="center">
+    <p>Login Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/6750ea53937ed54b9b4e766f97ef5b10.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T195714Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=8a949a8fa5be823459bcd592428b760d28203b08edbf77023b43b15c0c11ffa0" alt="Login Page">
+  </div>
+  
+  <div align="center">
+    <p>SignUp Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/bba49005ab1f8566163f0a52d332da1f.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T200927Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=18efb5fd71de31f6c720dda588a024ffc1ad1dd309c3b4bc987388228cf7c84f" alt="SignUp Page">
+  </div>
 
-
-
+<div align="center">
+    <p>Reset Password Page 1</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/a261d4db07e7440985f7c7625fedb6dd.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T204530Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=c8674c8d6bd0ab4814070d34c050098be5455439b78563c31cbdd825cd464318" alt="Reset Password Page 1">
+  </div>
+  
+  <div align="center">
+    <p>Reset Password Page 2</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/f1a52ae8c6874c68a81606bc9d3f5fa5.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T204931Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=a0d5f00d8785ff5da89e990387103c70b8082d258ed4ec9073d268557b51d802" alt="Reset Password Page 2">
+  </div>
+  
+  <div align="center">
+    <p>Reset Password Page 3</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/892c88dc4e2a2e1b1256893417ad213c.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205109Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=939f18f17ca3bbcb87136bdee06a30fa94fedb7562569fe19c73c9d519014cc2" alt="Reset Password Page 3">
+  </div>
+  
+  <div align="center">
+    <p>User DasBoard Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/6f5469faca448ac2d203b2ec1d7adc17.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205127Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=31fd183e89cb9d75d6ca859671760746e55dc6650a29d4bc689733bca779dbd9" alt="User DasBoard">
+  </div>
+  
+  <div align="center">
+    <p>User Profile</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/811092918ab23e4167756737812f5033.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205219Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=b71c4aa32a280bf97ce6b961b5509aff977b9022dbf856cd9891f9361ad620dc" alt="User Profile">
+  </div>
+  
+  <div align="center">
+    <p>User Information Edit Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/6dcd3d4b3e99afa932b2e37ef0ffeec1.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205314Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=30348b8ed87e732d7fd0060055ec7e2e2fde3319379ea01353e999c57d56aaa3" alt="Information Edit">
+  </div>
+  
+  <div align="center">
+    <p>User ChechIn Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/e27db128643160752b6f896cf78bcfe0.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205359Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=dbf9fda9cb212e48b9e1307db23a36ba64a5ed3cd313e8e8f0c474b7541586c8" alt="User CheckIn">
+  </div>
+  
+  <div align="center">
+    <p>User CheckOut Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/d5a1b00e868c57bb0444fb31a38333f4.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205523Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=226c280acba76c6b698f65e33fd0e37b5389f812853de90cbc7c67a030c2f3d6" alt="User CheckOut">
+  </div>
+  
+  <div align="center">
+    <p>Payment Option Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/228dd0bb4fde635a8a41a7a2f02d0130.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205611Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=6697eb667f78aa288de52fdb9ddf7a798352c247fff11873495991270df49261" alt="Payment Option Page">
+  </div>
+  
+  <div align="center">
+    <p>Bkash Payment Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/1035130c1a4477854f603a407db13e3e.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205709Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=e1cb4302be319af250cb036b5721443da384504dcc9aaaf7b96bdc8cc4e8c655" alt="Bkash Payment">
+  </div>
+  
+  <div align="center">
+    <p>Nagad Payment Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/a69ff4858cda5e18f4ea22733cb30159.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205821Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=02d5ab8d2ae52a7c809cc9d474253422d2ffd9a05cf6bd118ae937fb193a7f95" alt="Nagad Payment">
+  </div>
+  
+  <div align="center">
+    <p>Admin DashBoard Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/91fdc604e0a64dfb2f6e708cb5a1085e.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205839Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=97ce985ef423b4af0ef6a8eeda6a2cf6a3e8ce55662c111508cd2a6e8077060b" alt="Admin DashBoard">
+  </div>
+  
+  <div align="center">
+    <p>Manage Room Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/fda936c1f5ccd062471486dc83937842.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T205920Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=5adc1fc8e7f9db976a6952bb71d2998b3b78cedb178ef15759d23d459deef97f" alt="Manage Room">
+  </div>
+  
+  <div align="center">
+    <p>Admin CheckIn page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/fdf9fce4a2378c945918f79c101c485a.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T210005Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=16881f0a5c683046ff911447269b8435c0a6753b8c2801f138bd5c510ee2d3ad" alt="Admin CheckIn">
+  </div>
+  
+  <div align="center">
+    <p>Admin CheckOut Page</p>
+    <img src="https://gemootest.s3.us-east-2.amazonaws.com/s/res/523291570463973376/52c90cef0203e539fa61797328522d34.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARLZICB6QQHKRCV7K%2F20230602%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230602T210043Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=44b6e85fd37017a885f1503dfbceac6aa4f1073ac27da27d4cebf86574285df1" alt="Admin CheckOut">
+  </div>
+  
+  </details>
