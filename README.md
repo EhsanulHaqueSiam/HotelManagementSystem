@@ -2,7 +2,7 @@
 
 This repository contains the collaborative project called HotelManagementSystem, which is our first project. It is a comprehensive hotel management system designed to streamline operations and enhance the guest experience.
 
-## Contributors 👥
+## Collaboration 👥
 
 - [Md Ehsanul Haque](https://github.com/EhsanulHaqueSiam) - Student ID: 22-49370-3 🎓
 - [Aonyendo Paul Neteish](https://github.com/NitPaul) - Student ID: 22-49421-3 🎓
@@ -352,6 +352,11 @@ Follow these steps to install and run the Hotel Management System:
 
 5. The Hotel Management System should now be up and running. Follow the on-screen instructions to interact with the application.
 
+# Contributors
+
+Thanks to all the people who contribute. [[Contributors](https://github.com/EhsanulHaqueSiam/HotelManagementSystem/graphs/contributors)].
+
+<a href="https://github.com/EhsanulHaqueSiam/HotelManagementSystem/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=EhsanulHaqueSiam/HotelManagementSystem" /></a>
 ## Usage
 
 Once the application is running, you can perform various tasks such as managing hotel bookings, checking room availability, and more. Please refer to the application's user documentation for detailed instructions on how to use the system.
