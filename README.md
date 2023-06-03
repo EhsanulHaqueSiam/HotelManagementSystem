@@ -367,7 +367,7 @@ Once the application is running, you can perform various tasks such as managing 
   <summary>Click to expand</summary>
   
   <div align="center">
-    <p>Login Page</p>
+    <p><a href="#screenshots">Login Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129465-c2478b2f-e73e-4d96-952a-61317cc7c8a6.png" alt="Login Page">
   </div>
   
