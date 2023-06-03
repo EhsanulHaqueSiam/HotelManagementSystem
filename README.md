@@ -372,82 +372,82 @@ Once the application is running, you can perform various tasks such as managing 
   </div>
   
   <div align="center">
-    <p>SignUp Page</p>
+    <p><a href="#screenshots">SignUp Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128418-56ed93c4-11cc-474d-8c16-6c3534699fa3.png" alt="SignUp Page">
   </div>
 
 <div align="center">
-    <p>Reset Password Page 1</p>
+    <p><a href="#screenshots">Reset Password Page 1</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128697-d1766cdc-5c50-4136-bf1d-34a495bc2bbb.png" alt="Reset Password Page 1">
   </div>
   
   <div align="center">
-    <p>Reset Password Page 2</p>
+    <p><a href="#screenshots">Reset Password Page 2</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128742-30944029-8ce8-4bd7-a7f9-96ee4aa4ca3d.png" alt="Reset Password Page 2">
   </div>
   
   <div align="center">
-    <p>Reset Password Page 3</p>
+    <p><a href="#screenshots">Reset Password Page 3</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128843-816393fd-019e-49e1-be37-bbc2a3d154f6.png" alt="Reset Password Page 3">
   </div>
   
   <div align="center">
-    <p>User DasBoard Page</p>
+    <p><a href="#screenshots">User DasBoard Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128853-bee0f571-cda6-446c-bd5e-62d7c70d0b4f.png" alt="User DasBoard">
   </div>
   
   <div align="center">
-    <p>User Profile</p>
+    <p><a href="#screenshots">User Profile</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128904-1f585bcc-c1e4-466f-8374-6e7a0f2d0e0e.png" alt="User Profile">
   </div>
   
   <div align="center">
-    <p>User Information Edit Page</p>
+    <p><a href="#screenshots">User Information Edit Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128935-296613c9-8654-4921-be27-dd92bff455e3.png" alt="Information Edit">
   </div>
   
   <div align="center">
-    <p>User ChechIn Page</p>
+    <p><a href="#screenshots">User ChechIn Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128973-f3a5b514-aaa5-4523-b169-01cd989773d2.png" alt="User CheckIn">
   </div>
   
   <div align="center">
-    <p>User CheckOut Page</p>
+    <p><a href="#screenshots">User CheckOut Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129078-103b9174-3e0e-4521-aece-ab2a55f8f48d.png" alt="User CheckOut">
   </div>
   
   <div align="center">
-    <p>Payment Option Page</p>
+    <p><a href="#screenshots">Payment Option Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129152-68da9f1a-3801-453c-8042-5d2b2ef992c1.png" alt="Payment Option Page">
   </div>
   
   <div align="center">
-    <p>Bkash Payment Page</p>
+    <p><a href="#screenshots">Bkash Payment Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129194-b39f10ef-507c-4d1a-854a-95e3b2667e26.png" alt="Bkash Payment">
   </div>
   
   <div align="center">
-    <p>Nagad Payment Page</p>
+    <p><a href="#screenshots">Nagad Payment Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129316-e1bb235f-e0b2-4f88-9f93-78a6e4821f8c.png" alt="Nagad Payment">
   </div>
   
   <div align="center">
-    <p>Admin DashBoard Page</p>
+    <p><a href="#screenshots">Admin DashBoard Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129353-cffb33a9-b030-44d4-b79b-574229aebfb3.png" alt="Admin DashBoard">
   </div>
   
   <div align="center">
-    <p>Manage Room Page</p>
+    <p><a href="#screenshots">Manage Room Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129365-9bd4d3eb-b154-4c10-a583-fbb9cc5aafb3.png" alt="Manage Room">
   </div>
   
   <div align="center">
-    <p>Admin CheckIn page</p>
+    <p><a href="#screenshots">Admin CheckIn page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129403-6501bfa0-b84f-4c38-bb3c-be2332c008c8.png" alt="Admin CheckIn">
   </div>
   
   <div align="center">
-    <p>Admin CheckOut Page</p>
+    <p><a href="#screenshots">Admin CheckOut Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129445-7fe75df4-ae18-4b68-81a9-431c1d8d9eaa.png" alt="Admin CheckOut">
   </div>
   
