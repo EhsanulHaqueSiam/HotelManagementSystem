@@ -363,6 +363,8 @@ Once the application is running, you can perform various tasks such as managing 
 
 ## Screenshots
 
+Discover the ultimate Hotel Management system in our captivating title screenshot. With a user-friendly Login Page, Sign Up, and Forget Password options, guests and staff can effortlessly access their accounts. The User Dashboard and Admin Dashboard provide intuitive interfaces for managing reservations, check-ins, check-outs, and payments. Experience streamlined operations with Admin Room Management, ensuring optimal room allocation and maintenance. Prepare for a new era of efficiency and exceptional guest experiences with our Hotel Management project.
+
 <details>
   <summary>Click to expand</summary>
   
