@@ -392,13 +392,9 @@ public class Signup extends JFrame implements ActionListener {
     
         // Check length
         int length = username.length();
-        if (length < 3 || length > 20) {
-            return false;
-        }
+        return length >= 3 && length <= 20;
     
         // Additional validation rules can be added here
-    
-        return true;
     }
 
 
