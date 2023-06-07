@@ -144,62 +144,39 @@ To make your first code contribution to the HotelManagementSystem project, follo
    git clone https://github.com/EhsanulHaqueSiam/HotelManagementSystem.git
    ```
 
-3. Create a new branch for your code contribution. This helps in isolating your changes and makes it easier to manage them. Run the following command to create a new branch:
+3. Create a new branch in the codebase with a branch name that includes your username and the issue number. For example, if your username is "johnsmith" and the issue number is 123, you can use the following command:
 
    ```
-   git checkout -b my-contribution
+   git checkout -b johnsmith-123
    ```
-
-   Replace `my-contribution` with a descriptive branch name.
 
 4. Make the necessary changes or additions to the codebase based on the contribution you want to make. Ensure that your code follows the project's coding conventions and styleguides.
 
 5. Test your changes locally to verify that they work as intended and do not introduce any regressions.
 
-6. Once you are satisfied with your changes, commit them to your branch. Write a descriptive commit message that explains the purpose of your changes. For example:
+6. Once you are satisfied with your changes, commit them to your branch. Write a descriptive commit message using one of the following prefixes:
+
+   - `feat`: for a new feature
+   - `fix`: for a bug fix
+   - `docs`: for changes in documentation
+   - `style`: for everything related to styling
+   - `refactor`: for code changes that neither fix a bug nor add a feature
+   - `test`: for everything related to testing
+   - `chore`: for updating build tasks, package manager configs, etc.
+
+   For example:
 
    ```
-   git commit -m "Add feature X to handle hotel bookings"
+   git commit -m "feat: Add feature X to handle hotel bookings"
    ```
 
 7. Push your branch to the remote repository on GitHub:
 
    ```
-   git push origin my-contribution
+   git push origin johnsmith-123
    ```
 
 8. Open a pull request on the project's GitHub repository. Provide a clear description of your contribution, including the problem it addresses or the feature it adds. The project maintainers will review your pull request and provide feedback or merge it into the main codebase.
-
-
-### Improving The Documentation
-To improve the documentation of the HotelManagementSystem project, you can follow these steps:
-
-1. Fork the project repository on GitHub by navigating to the project's repository page and clicking the "Fork" button.
-
-2. Clone your forked repository to your local machine using Git. Open a terminal or command prompt and run the following command:
-
-   ```
-   git clone https://github.com/EhsanulHaqueSiam/HotelManagementSystem.git
-   ```
-
-
-3. Make the necessary changes or improvements to the documentation. This can include updating existing documentation, adding new sections, fixing errors, or clarifying instructions.
-
-4. Test the documentation locally to ensure that it is accurate and easy to follow.
-
-5. Commit your changes to your forked repository with a descriptive commit message:
-
-   ```
-   git commit -m "Improve installation instructions in README"
-   ```
-
-6. Push your changes to your forked repository on GitHub:
-
-   ```
-   git push origin master
-   ```
-
-7. Open a pull request on the original project's repository. Provide a clear description of the changes you made and why they are beneficial. The project maintainers will review your pull request and merge it if it meets the project's standards.
 
 
 ## Styleguides
