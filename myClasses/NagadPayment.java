@@ -67,7 +67,8 @@ public class NagadPayment extends JFrame implements ActionListener, ConfirmPayme
         String Pin = String.valueOf(pass_fld.getPassword()); // Get the PIN from the password field
 
         if (ae.getSource() == back_btn) {
-            new UCheckOut();
+            // Navigate back to Payment page
+            new Payment();
             this.setVisible(false);
         } else if (ae.getSource() == next_btn) {
             boolean isMobileNumberEmpty = MobileNumber.isEmpty(); // Check if the mobile number is empty
