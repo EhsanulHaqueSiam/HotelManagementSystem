@@ -24,6 +24,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
      * It initializes the JFrame and adds components to it.
      */
     BkashPayment() {
+        System.out.println("Currently in BkashPayment class");
         // Set JFrame properties
         setTitle("Bkash Payment");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -100,6 +101,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
             boolean isPinEmpty = Pin.isEmpty();
             // Call confirmPayment method with input values and current instance
             confirmPayment(isMobileNumberEmpty, isPinEmpty, this, num_fld, pass_fld);
+
         }
     }
 
@@ -123,8 +125,10 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
             } else {
                 if (inputValidation(number, password) && inputLength(number, password)) {
                     JOptionPane.showMessageDialog(null, "Payment Confirmed\nThank You For Staying At Tipton");
+                    System.out.println("Payment Done Successfully");
                     new UDashBoard();
                     paymentFrame.setVisible(false);
+                    System.out.println("Exited from BkashPayment class");
                 }
             }
         }

@@ -32,6 +32,7 @@ public class Edit extends JFrame implements ActionListener {
     private int check;
 
     public Edit() {
+        System.out.println("Currently in Edit class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
         setIconImage(Toolkit.getDefaultToolkit().getImage(Profile.class.getResource("../images/titleIcon.png")));
@@ -240,12 +241,15 @@ public class Edit extends JFrame implements ActionListener {
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 this.setVisible(false);
+                System.out.println("Exited from Edit class");
                 new Login();
             }
         } else if (e.getSource() == exitButton) {
             int yesORno = JOptionPane.showConfirmDialog(null, "Do you want to exit ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
             if (yesORno == 0) {
+                System.out.println("Exited from Edit class");
+                System.out.println("Exited from the Project");
                 System.exit(1);
             }
         } else if (e.getSource() == fullNameButton) {
@@ -310,6 +314,7 @@ public class Edit extends JFrame implements ActionListener {
         } else if (e.getSource() == backButton) {
             if (check == 0) { // If check is 0, Hide the current window and Create and display a new Profile window
                 this.setVisible(false);
+                System.out.println("Exited from Edit class");
                 new Profile();
             } else {
                 // Set visibility and bounds for various buttons

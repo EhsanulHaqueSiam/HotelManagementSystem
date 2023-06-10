@@ -2,6 +2,7 @@ package myClasses;
 
 import myInterface.ClearCheckOut;
 
+import javax.sound.sampled.SourceDataLine;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -47,7 +48,7 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
 
 
     public CheckOut() {
-
+        System.out.println("Currently in CheckOut class");
         setResizable(false);
         setTitle("Admin checkout");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -255,11 +256,13 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
             if (yesORno == JOptionPane.YES_OPTION) {
                 // Hide current window and show login window
                 this.setVisible(false);
+                System.out.println("Exited from CheckOut class");
                 new Login();
             }
         } else if (e.getSource() == back_btn) { // Back button action
             // Hide current window and show dashboard window
             setVisible(false);
+            System.out.println("Exited from CheckOut class");
             new DashBoard();
         } else if (e.getSource() == clear_btn) { // Clear button action
             // Clear checkout fields and adjust table column widths
@@ -267,6 +270,7 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
 
             table.getColumnModel().getColumn(0).setPreferredWidth(80);
             table.getColumnModel().getColumn(1).setPreferredWidth(82);
+            System.out.println("All data cleared from Text Field and Combo Box set to Default");
         }else if (e.getSource() == checkOut_btn) {
             if(search_combo.getSelectedItem() == null){ //Show error if Search bar is Empty
                 JOptionPane.showMessageDialog(null, "Error", "No room is selected", JOptionPane.WARNING_MESSAGE);
@@ -316,7 +320,7 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                     deleteRoomEntry();
 
                     JOptionPane.showMessageDialog(null, "Check Out Successful", "Check Out", JOptionPane.INFORMATION_MESSAGE);
-
+                    System.out.println("CheckOut Done Successfully");
                     ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld, checkInDate_fld, pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld, search_combo, table);
 
                     // Clearing the input fields
@@ -337,6 +341,7 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                 roomSearch();
                 search_combo.setSelectedIndex(-1);
                 ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld, checkInDate_fld, pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld, search_combo, table);
+                System.out.println("All data cleared from Text Field and Combo Box set to Default");
             }
         }
 
@@ -370,11 +375,14 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                     }
                     // Check if the room exists
                     if (DoesRoomExists) {
+                        System.out.println("Room Exist");
                         // Retrieve customer data
                         getCustomerData();
+                        System.out.println("Customer Data Retrived");
                     } else {
                         // Display an error message if the room is not found
                         JOptionPane.showMessageDialog(null, "room not found", "Error", JOptionPane.WARNING_MESSAGE);
+                        System.out.println("Room Doesn't not exist");
                         search_combo.setSelectedIndex(-1);
 
                     }
