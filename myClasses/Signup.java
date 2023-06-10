@@ -378,28 +378,25 @@ public class Signup extends JFrame implements ActionListener {
         String pattern = "^(?!.*\\d)(?!.*[^a-zA-Z0-9 .'-])(?!.*[ .'-]{2,})[a-zA-Z0-9 .'-]+$";
         return fullname.matches(pattern);
     }
-    
+
     public boolean validateUsername(String username) {
         // Check for spaces
-        if (username.indexOf(' ') != -1) {
+        if (username.contains(" ")) {
             return false;
         }
-    
-        // Check for symbols using regular expression
-        if (!username.matches("^[a-zA-Z0-9]+$")) {
+
+        // Check for symbols and allowed formats using regular expression
+        if (!username.matches("^[a-zA-Z0-9]+$") && !username.matches("^[a-zA-Z]+$") && !username.matches("^[a-zA-Z]+[0-9]+$")) {
             return false;
-         }
-    
+        }
+
         // Check length
         int length = username.length();
-        if (length < 3 || length > 20) {
-            return false;
-        }
-    
+        return length >= 3 && length <= 20;
+
         // Additional validation rules can be added here
-    
-        return true;
     }
+
 
 
 
