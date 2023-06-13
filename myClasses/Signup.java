@@ -30,7 +30,7 @@ public class Signup extends JFrame implements ActionListener {
     private final JTextField phoneNumberField;
 
     public Signup() {
-
+        System.out.println("Currently in Signup class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
         setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("../images/titleIcon.png")));
@@ -331,6 +331,7 @@ public class Signup extends JFrame implements ActionListener {
                         printWriter.println("===============================================");
 
                         this.setVisible(false);
+                        System.out.println("Exited from Signup class");
                         new Login(); // Open the login window
 
                     } else {
@@ -364,6 +365,7 @@ public class Signup extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == signin) {
             this.setVisible(false);
+            System.out.println("Exited from Signup class");
             new Login();
         } else if (e.getSource() == exitButton) {
             int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);

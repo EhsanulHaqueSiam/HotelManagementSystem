@@ -24,7 +24,7 @@ public class ManageRoom extends JFrame implements ActionListener {
     private final JComboBox<String> bed_box;
 
     public ManageRoom() {
-
+        System.out.println("Currently in ManageRoom class");
         setResizable(false);
         setTitle("Admin manage room");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -201,10 +201,12 @@ public class ManageRoom extends JFrame implements ActionListener {
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 this.setVisible(false);
+                System.out.println("Exited from ManageRoom class");
                 new Login();
             }
         } else if (e.getSource() == back_btn) {
             setVisible(false);
+            System.out.println("Exited from ManageRoom class");
             new DashBoard();
         } else if (e.getSource() == add_btn) {
             // Check if room number and price are not empty

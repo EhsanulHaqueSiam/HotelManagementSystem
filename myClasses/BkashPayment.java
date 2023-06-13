@@ -95,6 +95,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
             // Navigate back to Payment page
             new Payment();
             this.setVisible(false);
+            System.out.println("Exited from BkashPayment class");
         } else if (ae.getSource() == next_btn) {
             // Check if MobileNumber and Pin are empty
             boolean isMobileNumberEmpty = MobileNumber.isEmpty();

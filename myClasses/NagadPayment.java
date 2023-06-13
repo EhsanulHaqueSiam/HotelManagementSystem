@@ -16,7 +16,7 @@ public class NagadPayment extends JFrame implements ActionListener, ConfirmPayme
     final JPasswordField pass_fld;
 
     NagadPayment() {
-
+        System.out.println("Currently in NagadPayment class");
         setTitle("Nagad Payment");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,6 +70,7 @@ public class NagadPayment extends JFrame implements ActionListener, ConfirmPayme
             // Navigate back to Payment page
             new Payment();
             this.setVisible(false);
+            System.out.println("Exited from NagadPayment class");
         } else if (ae.getSource() == next_btn) {
             boolean isMobileNumberEmpty = MobileNumber.isEmpty(); // Check if the mobile number is empty
             boolean isPinEmpty = Pin.isEmpty(); // Check if the PIN is empty

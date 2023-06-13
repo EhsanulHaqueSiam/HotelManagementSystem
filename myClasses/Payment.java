@@ -14,7 +14,7 @@ public class Payment extends JFrame implements ActionListener {
     final JRadioButton bkash_btn;
 
     public Payment() {
-
+        System.out.println("Currently in Payment class");
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setBounds(100, 100, 903, 554);
@@ -61,9 +61,11 @@ public class Payment extends JFrame implements ActionListener {
             if (bkash_btn.isSelected()) {
                 new BkashPayment();
                 setVisible(false);
+                System.out.println("Exited from Payment class");
             } else if (nagad_btn.isSelected()) {
                 new NagadPayment();
                 setVisible(false);
+                System.out.println("Exited from Payment class");
             } else {
                 JOptionPane.showMessageDialog(null, "You forgot to select your payment method.", "Warning!", JOptionPane.WARNING_MESSAGE);
             }

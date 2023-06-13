@@ -34,7 +34,7 @@ public class Login extends JFrame implements ActionListener {
 
 
     public Login() {
-
+        System.out.println("Currently in Login class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
         setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("../images/titleIcon.png")));
@@ -212,6 +212,7 @@ public class Login extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == signup) {
             // If the "signup" button was clicked, go to the signup page
+            System.out.println("Exited from Login class");
             this.setVisible(false);
             new Signup();
         } else if (e.getSource() == exitButton) {
@@ -219,6 +220,8 @@ public class Login extends JFrame implements ActionListener {
             int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
             if (yesORno == 0) {
+                System.out.println("Exited from Login class");
+                System.out.println("Exited from The program");
                 System.exit(1);// If the user chooses "yes", exit the program
             }
         } else if (e.getSource() == loginButton) {
@@ -275,6 +278,8 @@ public class Login extends JFrame implements ActionListener {
                                 isAdmin = true;
                                 USERNAME = user;
                                 this.setVisible(false);
+                                System.out.println("Exited from Login class");
+                                //Show the admin Dashboard
                                 new DashBoard();
                                 break;
                             } else {
@@ -318,6 +323,7 @@ public class Login extends JFrame implements ActionListener {
                                         oldPassword = Files.readAllLines(userLoginPath).get(i + 1);
                                         fullUsername = uname;
                                         // Hide the login frame and show the User dashboard
+                                        System.out.println("Exited from Login class");
                                         this.setVisible(false);
                                         new UDashBoard();
                                         // Exit the loop
@@ -340,6 +346,7 @@ public class Login extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == forgot) { // If the "forgot" button was clicked, go to the ForgotPass page
             this.setVisible(false);
+            System.out.println("Exited from Login class");
             new ForgetPass();
         }
     }

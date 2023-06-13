@@ -11,7 +11,6 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class UCheckIn extends ShowRoom implements ActionListener, myInterface.WriteCheckInInfo {
-
     private final JFrame frame;
     private final JTextField name_field;
     private final JTextField mbl_fld;
@@ -41,7 +40,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
     public String roomNo;
 
     public UCheckIn() {
-
+        System.out.println("Currently in UcheckIn class");
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -276,6 +275,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
 
         if (e.getSource() == back_btn) {
             frame.setVisible(false);
+            System.out.println("Exited from UcheckIn class");
             new UDashBoard();
         } else if (e.getSource() == logOut_Btn) {
             // Prompting for confirmation before logging out
@@ -283,6 +283,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 frame.setVisible(false);
+                System.out.println("Exited from UcheckIn class");
                 new Login();
             }
         } else if (e.getSource() == clear_btn) {

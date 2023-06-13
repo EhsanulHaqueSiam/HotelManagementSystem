@@ -48,7 +48,7 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
 
 
     public UCheckOut() {
-
+        System.out.println("Currently in UcheckOut class");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Checkout");
@@ -274,10 +274,12 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 setVisible(false);
+                System.out.println("Exited from UcheckOut class");
                 new Login();
             }
         } else if (e.getSource() == back_btn) {
             setVisible(false);
+            System.out.println("Exited from UcheckOut class");
             new UDashBoard();
         } else if (e.getSource() == clear_btn) {
             // Clear input fields
@@ -436,6 +438,7 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
                     deleteRoomEntry();
 
                     this.setVisible(false);
+                    System.out.println("Exited from UcheckOut class");
                     new Payment();
                 }
             }
