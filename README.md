@@ -17,66 +17,66 @@ The HotelManagementSystem project utilizes various classes and interfaces to han
 classDiagram
 direction BT
 class BkashPayment {
-  ~ JLabel bkash_lbl
-  ~ JButton back_btn
-  ~ JButton next_btn
-  ~ JPasswordField pass_fld
   ~ JTextField num_fld
-  + inputValidation(JTextField, JPasswordField) boolean
+  ~ JButton back_btn
+  ~ JPasswordField pass_fld
+  ~ JLabel bkash_lbl
+  ~ JButton next_btn
   + actionPerformed(ActionEvent) void
   + inputLength(JTextField, JPasswordField) boolean
   + confirmPayment(boolean, boolean, JFrame, JTextField, JPasswordField) void
+  + inputValidation(JTextField, JPasswordField) boolean
 }
 class CheckIn {
-  + String roomNo
-  - JTextField gmail_fld
-  - JButton clear_btn
-  - JTextField cost_fld
-  - JTextField date_fld
-  - JTextField name_field
-  - JTextField address_fld
-  - JButton confirm_btn
-  - JComboBox~String~ bed_Box
-  - JFrame frame
-  - JComboBox~String~ gender_Box
-  - JTextField nationality_fld
-  - JComboBox~String~ roomNo_Box
-  - JTextField mbl_fld
   - JButton back_btn
+  - JTextField cost_fld
+  - JComboBox~String~ roomNo_Box
+  - JComboBox~String~ bed_Box
+  - JTextField name_field
+  - JTextField mbl_fld
+  - JTextField address_fld
+  + String roomNo
+  - JButton clear_btn
+  - JTextField date_fld
+  - JButton confirm_btn
+  - JFrame frame
+  - JTextField nationality_fld
+  - JComboBox~String~ gender_Box
   - JComboBox~String~ roomType_Box
+  - JTextField gmail_fld
   - JButton logOut_Btn
   + actionPerformed(ActionEvent) void
   + WriteCheckinData(String, String, String, String, String, String, String, File, String, String) void
 }
 class CheckOut {
-  ~ String roomNo_B
-  - JTextField CustomerNum_fld
-  - JTextField pricePerDay_fld
-  ~ String name
-  ~ String CheckinDate
-  - JButton logOut_btn
-  - JButton back_btn
-  ~ String roomPrice
-  ~ String bed
-  ~ String gender
-  ~ String address
-  - JTextField totalAmount_fld
   - JComboBox~String~ search_combo
-  - JTable table
-  ~ String gmail
-  - JTextField checkInDate_fld
-  - JTextField dayStay_fld
-  ~ String nationality
-  - JTextField CustomerName_fld
-  - JTextField email_fld
+  - JTextField totalAmount_fld
+  - JButton logOut_btn
+  ~ String roomType
+  ~ String bed
+  ~ String roomNumToDelete
   - JButton clear_btn
+  - JTextField dayStay_fld
+  ~ String gmail
+  - JTextField email_fld
+  ~ String roomPrice
+  - JTextField checkInDate_fld
+  - JTable table
+  - JTextField CustomerNum_fld
+  ~ String gender
+  - JTextField CustomerName_fld
+  ~ String nationality
+  ~ String address
+  ~ String roomNo_B
+  ~ String CheckinDate
+  - JButton back_btn
+  - JTextField pricePerDay_fld
   - JButton checkOut_btn
   ~ String mobileNumber
-  ~ String roomType
-  ~ String roomNumToDelete
+  ~ String name
+  + getCustomerData() void
   + roomSearch() void
   + deleteRoomEntry() void
-  + getCustomerData() void
   + actionPerformed(ActionEvent) void
 }
 class CheckOutRoomSearch {
@@ -89,8 +89,8 @@ class ClearCheckOut {
 }
 class ConfirmPayment {
 <<Interface>>
-  + inputLength(JTextField, JPasswordField) boolean
   + confirmPayment(boolean, boolean, JFrame, JTextField, JPasswordField) void
+  + inputLength(JTextField, JPasswordField) boolean
   + inputValidation(JTextField, JPasswordField) boolean
 }
 class CustomerDataEntry {
@@ -99,75 +99,75 @@ class CustomerDataEntry {
 }
 class DashBoard {
   - JButton Manage_btn
-  - JButton logoutButton
-  - JButton checkoutButton
   - JButton checkinButton
+  - JButton checkoutButton
+  - JButton logoutButton
   + actionPerformed(ActionEvent) void
 }
 class Edit {
-  - JButton exitButton
-  - JTextField userField
-  - JButton backButton
-  - JButton logoutButton
-  - JButton usernameButton
-  - JLabel user
-  - JTextField fullField
-  - JButton confirmButton1
-  - JButton fullNameButton
-  - JButton confirmButton3
-  - JButton phoneButton
-  - int check
-  - JTextField phoneField
   - JLabel full
   - JLabel phone
+  - JTextField userField
+  - JButton logoutButton
+  - JButton usernameButton
+  - JButton confirmButton3
   - JButton confirmButton2
-  + isValidFullname(String) boolean
+  - JButton fullNameButton
+  - JButton phoneButton
+  - JButton confirmButton1
+  - JLabel user
+  - int check
+  - JButton backButton
+  - JTextField phoneField
+  - JButton exitButton
+  - JTextField fullField
   + actionPerformed(ActionEvent) void
+  + isValidFullname(String) boolean
 }
 class ForgetPass {
-  - JButton backButton
-  - JButton next
-  # int deleteLine
-  - JTextField userField
   - JButton exitButton
+  - JTextField userField
+  - JButton backButton
+  - JButton nextButton
+  # int deleteLine
   + actionPerformed(ActionEvent) void
 }
 class ForgetPass2 {
-  - JTextField phoneField
+  - JButton next2Button
   - JButton backButton
-  - JButton next2
   - JButton exitButton
+  - JTextField phoneField
   + actionPerformed(ActionEvent) void
 }
 class ForgetPass3 {
-  - JButton NextButton
-  - JPasswordField newPass
-  - JToggleButton EyeBtn2
-  - ImageIcon off
-  - JPasswordField confirmPass
-  - JButton exitButton
   - JButton backButton
   - JToggleButton EyeBtn1
   - ImageIcon on
+  - JButton next3Button
+  - JPasswordField newPass
+  - JPasswordField confirmPass
+  - ImageIcon off
+  - JToggleButton EyeBtn2
+  - JButton exitButton
   + actionPerformed(ActionEvent) void
 }
 class Login {
-  + String USERNAME
-  # String fullName
-  - JButton loginButton
-  - ImageIcon on
-  # boolean loginFlag
-  # String oldPassword
-  - JToggleButton EyeBtn
-  # String phoneNumber
-  - JButton exitButton
-  - ImageIcon off
   - JButton signup
-  - JPasswordField passwordField
-  - JButton forgot
-  # boolean isAdmin
+  # String fullName
+  - ImageIcon on
   # String fullUsername
+  # boolean isAdmin
+  - JPasswordField passwordField
+  - JToggleButton EyeBtn
+  # boolean loginFlag
   - JTextField usernameField
+  # String phoneNumber
+  - JButton loginButton
+  # String oldPassword
+  - ImageIcon off
+  - JButton forgot
+  + String USERNAME
+  - JButton exitButton
   + getloginFlag() boolean
   + actionPerformed(ActionEvent) void
 }
@@ -175,117 +175,118 @@ class Main {
   + main(String[]) void
 }
 class ManageRoom {
+  - JButton del_btn
+  - JButton logOut_btn
+  - JButton back_btn
+  - JTable table
   - JTextField roomNum_fld
   - JComboBox~String~ bed_box
-  - JButton logOut_btn
-  - JButton del_btn
   - JButton add_btn
-  - JTable table
-  - JComboBox~String~ roomType_box
-  - JButton back_btn
   - JTextField price_fld
+  - JComboBox~String~ roomType_box
   + actionPerformed(ActionEvent) void
 }
 class NagadPayment {
-  ~ JButton next_btn
   ~ JTextField num_fld
+  ~ JButton next_btn
   ~ JLabel bkash_lbl
   ~ JButton back_btn
   ~ JPasswordField pass_fld
   + actionPerformed(ActionEvent) void
 }
 class Payment {
-  ~ JButton next_btn
   ~ JRadioButton bkash_btn
-  ~ ButtonGroup bkashNagad_grp
   ~ JRadioButton nagad_btn
+  ~ ButtonGroup bkashNagad_grp
+  ~ JButton next_btn
   ~ JLabel payment_lbl
   + actionPerformed(ActionEvent) void
 }
 class Profile {
-  - JButton editButton
   - JButton backButton
-  - JButton exitButton
   - JButton logoutButton
+  - JButton exitButton
+  - JButton editButton
   + actionPerformed(ActionEvent) void
 }
 class ShowRoom {
   + roomDetails(JTextField, JComboBox~String~, JComboBox~String~, JComboBox~String~) void
 }
 class Signup {
-  - JTextField usernameField
   - ImageIcon on
-  - JPasswordField confirmPassField
-  - JButton signup
-  - JTextField fullField
-  - ImageIcon off
+  - JButton exitButton
+  - JTextField phoneNumberField
   - JButton signin
   - JPasswordField passwordField
-  - JButton exitButton
+  - JPasswordField confirmPassField
+  - JButton signup
+  - ImageIcon off
   - JToggleButton EyeBtn
-  - JTextField phoneNumberField
   - JToggleButton EyeBtn2
+  - JTextField usernameField
+  - JTextField fullField
   + actionPerformed(ActionEvent) void
   + isValidFullname(String) boolean
+  + validateUsername(String) boolean
 }
 class UCheckIn {
-  - String fullName
-  - JTextField mbl_fld
-  - JTextField nationality_fld
-  - JTextField gmail_fld
-  - JTextField address_fld
-  - String MobileNumber
-  - JComboBox~String~ roomType_Box
-  - JComboBox~String~ roomNo_Box
-  - JTextField name_field
-  - JButton logOut_Btn
-  - JButton clear_btn
   - JButton confirm_btn
-  - JComboBox~String~ bed_Box
-  + String roomNo
-  - JTextField cost_fld
-  - JButton back_btn
-  - JFrame frame
+  - JButton clear_btn
+  - String fullName
   - JComboBox~String~ gender_Box
+  + String roomNo
+  - JTextField address_fld
+  - JButton back_btn
+  - JTextField cost_fld
   - JTextField date_fld
-  + WriteCheckinData(String, String, String, String, String, String, String, File, String, String) void
+  - JTextField gmail_fld
+  - JTextField nationality_fld
+  - JTextField name_field
+  - JComboBox~String~ bed_Box
+  - JTextField mbl_fld
+  - JComboBox~String~ roomType_Box
+  - JFrame frame
+  - JButton logOut_Btn
+  - String MobileNumber
+  - JComboBox~String~ roomNo_Box
   + actionPerformed(ActionEvent) void
+  + WriteCheckinData(String, String, String, String, String, String, String, File, String, String) void
 }
 class UCheckOut {
-  - JTextField customerName_fld
-  - JTextField checkOut_fld
-  - JButton logOut_btn
-  - JButton back_btn
-  ~ String MobileNumber
-  - JTextField checkInDate_fld
-  - JTextField pricePerDay_fld
-  - JComboBox~String~ roomNum_combo
-  ~ String bed
-  ~ String roomPrice
-  - JTextField totalAmount_fld
-  ~ String gender
-  - JTextField customerNum_fld
-  - JButton clear_btn
   ~ String address
-  - DefaultTableModel model
-  ~ String gmail
-  ~ String roomNo_B
+  - JButton back_btn
   ~ String CheckInDate
-  - JTextField dayStay_fld
-  - JTextField email_fld
-  ~ String nationality
-  ~ String roomType
+  - DefaultTableModel model
   ~ String name
+  - JComboBox~String~ roomNum_combo
+  - JTextField checkInDate_fld
   - JButton checkOut_btn
+  ~ String roomType
+  - JTextField customerNum_fld
+  - JButton logOut_btn
   - JTable table
+  - JTextField checkOut_fld
+  ~ String bed
+  - JButton clear_btn
   ~ String nameLogin
-  + actionPerformed(ActionEvent) void
+  ~ String roomNo_B
+  ~ String roomPrice
+  ~ String MobileNumber
+  - JTextField totalAmount_fld
+  ~ String nationality
+  - JTextField email_fld
+  ~ String gender
+  - JTextField customerName_fld
+  - JTextField pricePerDay_fld
+  - JTextField dayStay_fld
+  ~ String gmail
   + getCustomerData() void
   + deleteRoomEntry() void
+  + actionPerformed(ActionEvent) void
 }
 class UDashBoard {
-  - JButton checkOut_btn
   - JButton profile_btn
+  - JButton checkOut_btn
   - JButton logoutBtn
   - JButton checkIn_btn
   + actionPerformed(ActionEvent) void
@@ -306,6 +307,7 @@ UCheckIn  -->  ShowRoom
 UCheckIn  ..>  WriteCheckInInfo 
 UCheckOut  ..>  CheckOutRoomSearch 
 UCheckOut  ..>  CustomerDataEntry 
+ 
 
 
 ```
@@ -369,87 +371,87 @@ Discover the ultimate Hotel Management system in our captivating title screensho
   <summary>Click to expand</summary>
   
   <div align="center">
-    <p><a href="#screenshots">Login Page</a></p>
+    <p><a href="#screenshots-">Login Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129465-c2478b2f-e73e-4d96-952a-61317cc7c8a6.png" alt="Login Page">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">SignUp Page</a></p>
+    <p><a href="#screenshots-">SignUp Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128418-56ed93c4-11cc-474d-8c16-6c3534699fa3.png" alt="SignUp Page">
   </div>
 
 <div align="center">
-    <p><a href="#screenshots">Reset Password Page 1</a></p>
+    <p><a href="#screenshots-">Reset Password Page 1</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128697-d1766cdc-5c50-4136-bf1d-34a495bc2bbb.png" alt="Reset Password Page 1">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Reset Password Page 2</a></p>
+    <p><a href="#screenshots-">Reset Password Page 2</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128742-30944029-8ce8-4bd7-a7f9-96ee4aa4ca3d.png" alt="Reset Password Page 2">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Reset Password Page 3</a></p>
+    <p><a href="#screenshots-">Reset Password Page 3</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128843-816393fd-019e-49e1-be37-bbc2a3d154f6.png" alt="Reset Password Page 3">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">User DasBoard Page</a></p>
+    <p><a href="#screenshots-">User DasBoard Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128853-bee0f571-cda6-446c-bd5e-62d7c70d0b4f.png" alt="User DasBoard">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">User Profile</a></p>
+    <p><a href="#screenshots-">User Profile</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128904-1f585bcc-c1e4-466f-8374-6e7a0f2d0e0e.png" alt="User Profile">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">User Information Edit Page</a></p>
+    <p><a href="#screenshots-">User Information Edit Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128935-296613c9-8654-4921-be27-dd92bff455e3.png" alt="Information Edit">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">User ChechIn Page</a></p>
+    <p><a href="#screenshots-">User ChechIn Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243128973-f3a5b514-aaa5-4523-b169-01cd989773d2.png" alt="User CheckIn">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">User CheckOut Page</a></p>
+    <p><a href="#screenshots-">User CheckOut Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129078-103b9174-3e0e-4521-aece-ab2a55f8f48d.png" alt="User CheckOut">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Payment Option Page</a></p>
+    <p><a href="#screenshots-">Payment Option Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129152-68da9f1a-3801-453c-8042-5d2b2ef992c1.png" alt="Payment Option Page">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Bkash Payment Page</a></p>
+    <p><a href="#screenshots-">Bkash Payment Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129194-b39f10ef-507c-4d1a-854a-95e3b2667e26.png" alt="Bkash Payment">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Nagad Payment Page</a></p>
+    <p><a href="#screenshots-">Nagad Payment Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129316-e1bb235f-e0b2-4f88-9f93-78a6e4821f8c.png" alt="Nagad Payment">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Admin DashBoard Page</a></p>
+    <p><a href="#screenshots-">Admin DashBoard Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129353-cffb33a9-b030-44d4-b79b-574229aebfb3.png" alt="Admin DashBoard">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Manage Room Page</a></p>
+    <p><a href="#screenshots-">Manage Room Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129365-9bd4d3eb-b154-4c10-a583-fbb9cc5aafb3.png" alt="Manage Room">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Admin CheckIn page</a></p>
+    <p><a href="#screenshots-">Admin CheckIn page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129403-6501bfa0-b84f-4c38-bb3c-be2332c008c8.png" alt="Admin CheckIn">
   </div>
   
   <div align="center">
-    <p><a href="#screenshots">Admin CheckOut Page</a></p>
+    <p><a href="#screenshots-">Admin CheckOut Page</a></p>
     <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/116294325/243129445-7fe75df4-ae18-4b68-81a9-431c1d8d9eaa.png" alt="Admin CheckOut">
   </div>
   
