@@ -17,6 +17,7 @@ public class Profile extends JFrame implements ActionListener {
     private final JButton editButton;
 
     public Profile() {
+        System.out.println("Currently in Profile class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
         setIconImage(Toolkit.getDefaultToolkit().getImage(Profile.class.getResource("../images/titleIcon.png")));
@@ -123,13 +124,16 @@ public class Profile extends JFrame implements ActionListener {
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 this.setVisible(false);
+                System.out.println("Exited from Profile class");
                 new Login();
             }
         } else if (e.getSource() == editButton) {
             this.setVisible(false);
+            System.out.println("Exited from Profile class");
             new Edit();
         } else if (e.getSource() == backButton) {
             this.setVisible(false);
+            System.out.println("Exited from Profile class");
             new UDashBoard();
         } else if (e.getSource() == exitButton) {
             int yesORno = JOptionPane.showConfirmDialog(null, "Do you want to exit ?", "Alert!", JOptionPane.YES_NO_OPTION);

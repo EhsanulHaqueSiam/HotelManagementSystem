@@ -105,8 +105,8 @@ Booked
 
 Rooms Details
 218
-Non-Ac
-Double
-2000
+AC
+Single
+120
 Not Booked
 

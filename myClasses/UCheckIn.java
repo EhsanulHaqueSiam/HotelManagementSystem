@@ -11,7 +11,6 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class UCheckIn extends ShowRoom implements ActionListener, myInterface.WriteCheckInInfo {
-
     private final JFrame frame;
     private final JTextField name_field;
     private final JTextField mbl_fld;
@@ -41,7 +40,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
     public String roomNo;
 
     public UCheckIn() {
-
+        System.out.println("Currently in UcheckIn class");
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -232,6 +231,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
     // Method to write check-in data to a file
     @Override
     public void WriteCheckinData(String nationality, String gmail, String address, String CheckInDate, String cost, String gender, String roomNo_B, File file, String fullName, String mobileNumber) throws IOException {
+        System.out.println("WriteCheckinData function called");
         FileWriter fileWriter = new FileWriter(file, true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(bufferedWriter);
@@ -250,6 +250,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
         printWriter.println("Booked");
         printWriter.println();
         printWriter.close();
+        System.out.println("WriteCheckinData function executed successfully");
     }
 
     @Override
@@ -276,6 +277,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
 
         if (e.getSource() == back_btn) {
             frame.setVisible(false);
+            System.out.println("Exited from UcheckIn class");
             new UDashBoard();
         } else if (e.getSource() == logOut_Btn) {
             // Prompting for confirmation before logging out
@@ -283,6 +285,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 frame.setVisible(false);
+                System.out.println("Exited from UcheckIn class");
                 new Login();
             }
         } else if (e.getSource() == clear_btn) {
@@ -295,6 +298,8 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
             gender_Box.setSelectedIndex(0);
             bed_Box.setSelectedIndex(0);
             roomType_Box.setSelectedIndex(0);
+
+            System.out.println("text filed cleared and combo box set to default");
         } else if (e.getSource() == confirm_btn) {
             // Check if all required fields are not empty
             if (!nameEmpty && !mblnumEmpty && !nationalityEmpty && !gamilEmpty && !addressEmpty && !chkindateEmpty && !costEmpty) {
@@ -382,6 +387,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
 
                         // Display check-in success message
                         JOptionPane.showMessageDialog(null, "Congratulation Check In successful", "Congratulation", JOptionPane.INFORMATION_MESSAGE);
+                        System.out.println("Check in done successfully");
 
                         // Clear input fields
                         nationality_fld.setText(null);
@@ -395,6 +401,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

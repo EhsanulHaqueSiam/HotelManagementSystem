@@ -16,6 +16,7 @@ public class ShowRoom {
      */
     public void roomDetails(JTextField cost_fld, JComboBox<String> bed_Box, JComboBox<String> roomType_Box, JComboBox<String> roomNo_Box) {
 
+        System.out.println("roomDetails Funtion called from Show room class");
         String bed = (String) bed_Box.getSelectedItem();
         String roomtype = (String) roomType_Box.getSelectedItem();
 
@@ -37,8 +38,10 @@ public class ShowRoom {
                     }
                 }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("roomDetails funtion ran successfully");
     }
 }

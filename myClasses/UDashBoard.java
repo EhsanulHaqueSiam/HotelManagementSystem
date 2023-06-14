@@ -17,7 +17,7 @@ public class UDashBoard extends JFrame implements ActionListener {
     private final JButton logoutBtn;
 
     public UDashBoard() {
-
+        System.out.println("Currently in UDashBoard class");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("The Tipton Hotel Management");
@@ -127,18 +127,22 @@ public class UDashBoard extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == checkIn_btn) {
             setVisible(false);
+            System.out.println("Exited from UDashBoard class");
             new UCheckIn();
         } else if (e.getSource() == profile_btn) {
             setVisible(false);
+            System.out.println("Exited from UDashBoard class");
             new Profile();
         } else if (e.getSource() == checkOut_btn) {
             setVisible(false);
+            System.out.println("Exited from UDashBoard class");
             new UCheckOut();
         } else if (e.getSource() == logoutBtn) {
             int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 setVisible(false);
+                System.out.println("Exited from UDashBoard class");
                 new Login();
             }
 

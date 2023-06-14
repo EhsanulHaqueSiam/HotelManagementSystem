@@ -24,7 +24,7 @@ public class DashBoard extends JFrame implements ActionListener {
     private final JButton checkoutButton;
 
     public DashBoard() {
-
+        System.out.println("Currently in DashBoard class");
         setResizable(false);
         setTitle("Admin dashboard");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -212,16 +212,20 @@ public class DashBoard extends JFrame implements ActionListener {
 
             if (yesORno == JOptionPane.YES_OPTION) { // If user confirms, hide current window and open Login window
                 this.setVisible(false);
+                System.out.println("Exited from DashBoard class");
                 new Login();
             }
         } else if (e.getSource() == checkinButton) {
             setVisible(false);
+            System.out.println("Exited from DashBoard class");
             new CheckIn();
         } else if (e.getSource() == checkoutButton) {
             setVisible(false);
+            System.out.println("Exited from DashBoard class");
             new CheckOut();
         } else if (e.getSource() == Manage_btn) {
             setVisible(false);
+            System.out.println("Exited from DashBoard class");
             new ManageRoom();
         }
     }

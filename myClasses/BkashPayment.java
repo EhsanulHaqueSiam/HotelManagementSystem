@@ -24,6 +24,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
      * It initializes the JFrame and adds components to it.
      */
     BkashPayment() {
+        System.out.println("Currently in BkashPayment class");
         // Set JFrame properties
         setTitle("Bkash Payment");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,12 +95,14 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
             // Navigate back to Payment page
             new Payment();
             this.setVisible(false);
+            System.out.println("Exited from BkashPayment class");
         } else if (ae.getSource() == next_btn) {
             // Check if MobileNumber and Pin are empty
             boolean isMobileNumberEmpty = MobileNumber.isEmpty();
             boolean isPinEmpty = Pin.isEmpty();
             // Call confirmPayment method with input values and current instance
             confirmPayment(isMobileNumberEmpty, isPinEmpty, this, num_fld, pass_fld);
+
         }
     }
 
@@ -115,19 +118,25 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
      */
     @Override
     public void confirmPayment(boolean isMobileNumberEmpty, boolean isPinEmpty, JFrame paymentFrame, JTextField number, JPasswordField password) {
+        System.out.println("confirmPayment function called");
         if (isMobileNumberEmpty) {
             JOptionPane.showMessageDialog(null, "Invalid Phone number ");
+            System.out.println("Number field is empty");
         } else {
             if (isPinEmpty) {
                 JOptionPane.showMessageDialog(null, "Invalid  Pin");
+                System.out.println("Pin number is invalid");
             } else {
                 if (inputValidation(number, password) && inputLength(number, password)) {
                     JOptionPane.showMessageDialog(null, "Payment Confirmed\nThank You For Staying At Tipton");
+                    System.out.println("Payment Done Successfully");
                     new UDashBoard();
                     paymentFrame.setVisible(false);
+                    System.out.println("Exited from BkashPayment class");
                 }
             }
         }
+        System.out.println("confirmPayment funtion executed successfully");
     }
 
     /**
@@ -140,6 +149,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
      */
     @Override
     public boolean inputValidation(JTextField number, JPasswordField password) {
+        System.out.println("inputValidation funtion called");
         boolean n = true;
         boolean p = true;
         String numberText = number.getText();
@@ -169,7 +179,8 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
             JOptionPane.showMessageDialog(null, "Pin number cannot contain characters", "Pin number error", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        return true;
+        System.out.println("inputValtidation funtion executed successfully");
+        return true;   
     }
 
     /**
@@ -182,6 +193,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
      */
     @Override
     public boolean inputLength(JTextField number, JPasswordField password) {
+        System.out.println("inputLength funtion called");
         String numberText = number.getText();
         String passText = String.valueOf(password.getPassword());
 
@@ -196,6 +208,7 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
             return false;
         }
 
+        System.out.println("inputLength funtion executed successfully");
         return true;
     }
 }

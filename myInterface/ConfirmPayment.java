@@ -14,6 +14,7 @@ public interface ConfirmPayment {
      * @param password             password represent the Password Field
      */
     default void confirmPayment(boolean isMobileNumberEmpty, boolean isPinEmpty, JFrame paymentFrame, JTextField number, JPasswordField password) {
+        System.out.println("confirmPayment function called");
         if (isMobileNumberEmpty) {
             JOptionPane.showMessageDialog(null, "Invalid Phone number ");
         } else {
@@ -27,9 +28,11 @@ public interface ConfirmPayment {
                 }
             }
         }
+        System.out.println("confirmPayment function ran successfully");
     }
     //Check if the input consist any character in number and password field
     default boolean inputValidation(JTextField number, JPasswordField password) {
+        System.out.println("inputValidation function called");
 
         boolean n = true;
         boolean p = true;
@@ -60,10 +63,12 @@ public interface ConfirmPayment {
             JOptionPane.showMessageDialog(null, "Pin number cannot contain character", "Pin number error", JOptionPane.WARNING_MESSAGE);
             return false;
         }
+        System.out.println("inputValidation funtion ran successfully");
         return true;
     }
     //Check if the phonenumber length is 11 and password length is 4
     default boolean inputLength(JTextField number, JPasswordField password) {
+        System.out.println("inputLength function called");
         String numberText = number.getText();
         String passText = String.valueOf(password.getPassword());
 
@@ -78,6 +83,7 @@ public interface ConfirmPayment {
             return false;
         }
 
+        System.out.println("inputLength funtion executed successfully");
         return true;
     }
 

@@ -36,6 +36,7 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
     public String roomNo;
 
     public CheckIn() {
+        System.out.println("Currently in CheckIn class");
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 927, 533);
@@ -240,6 +241,7 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
         if (e.getSource() == back_btn) {
             // Navigate back to the dashboard
             frame.setVisible(false);
+            System.out.println("Exited from CheckIn class");
             new DashBoard();
         } else if (e.getSource() == logOut_Btn) {
             // Prompt for confirmation and logout if confirmed
@@ -248,6 +250,7 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
             if (yesORno == JOptionPane.YES_OPTION) {
                 // Logout and show the login screen
                 frame.setVisible(false);
+                System.out.println("Exited from CheckIn class");
                 new Login();
             }
         } else if (e.getSource() == clear_btn) {
@@ -261,6 +264,7 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
             gender_Box.setSelectedIndex(0);
             bed_Box.setSelectedIndex(0);
             roomType_Box.setSelectedIndex(0);
+            System.out.println("All data cleared from Text Field and Combo Box set to Default");
         } else if (e.getSource() == confirm_btn) {
             if (!isNameFieldEmpty && !isMobileNumberFieldEmpty && !isNationalityFieldEmpty && !isGmailEmpty && !isAddressEmpty && !isCheckinDateEmptyField && !isCostFieldEmpty) {
 
@@ -309,8 +313,11 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
                                     String roomNo = Objects.requireNonNull(roomNo_Box.getSelectedItem()).toString();
                                     // Create a temporary file to write updated data to
                                     File tempFile = new File("./files/temp.txt");
+                                    System.out.println("temp file created");
                                     PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+                                    System.out.println("Writting into temp file");
                                     BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"));
+                                    System.out.println("Reading from room.txt");
                                     String line2;
                                     while ((line2 = br.readLine()) != null) {
                                         if (line2.equals("Rooms Details")) {
@@ -318,12 +325,16 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
                                             for (int i = 0; i < 5; i++) {
                                                 // read the next 5 lines and add the data to the corresponding column
                                                 rowData[i] = br.readLine();
+                                                System.out.println("reading room.txt");
                                             }
                                             if (rowData[0].equals(roomNo)) { // if the room number is a match
+                                                System.out.println("Room found");
                                                 rowData[4] = "Booked"; // update the status
+                                                System.out.println("Updated room status to Booked");
                                             }
                                             // write the updated row data to the temporary file
                                             pw.println("Rooms Details");
+                                            System.out.println("Updating data to temp file");
                                             for (int i = 0; i < 5; i++) {
                                                 pw.println(rowData[i]);
                                             }
@@ -351,7 +362,8 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
                                 }
 
 
-                                JOptionPane.showMessageDialog(null, "Congratulation Check In successful", "Congratulation", JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "Congratulation Check In successfully", "Congratulation", JOptionPane.INFORMATION_MESSAGE);
+                                System.out.println("Check in done successfully");
                                 // Clearing the input fields
                                 name_field.setText(null);
                                 mbl_fld.setText(null);
@@ -362,6 +374,8 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
                                 gender_Box.setSelectedIndex(0);
                                 bed_Box.setSelectedIndex(0);
                                 roomType_Box.setSelectedIndex(0);
+                                System.out.println("All data cleared from Text Field and Combo Box set to Default");
+                                
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
@@ -422,6 +436,7 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
      */
     @Override
     public void WriteCheckinData(String nationality, String gmail, String address, String CheckInDate, String cost, String gender, String roomNo_B, File file, String fullName, String mobileNumber) throws IOException {
+        System.out.println("WriteCheckinData funtion called");
         FileWriter fileWriter = new FileWriter(file, true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         PrintWriter printWriter = new PrintWriter(bufferedWriter);
@@ -440,6 +455,8 @@ public class CheckIn extends ShowRoom implements ActionListener,myInterface.Writ
         printWriter.println();
 
         printWriter.close();
+        System.out.println("WriteCheckinData funtion executed successfully");
+        System.out.println("New checkIn data stored successfully");
     }
 
 

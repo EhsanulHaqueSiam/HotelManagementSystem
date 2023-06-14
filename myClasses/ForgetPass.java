@@ -25,7 +25,7 @@ public class ForgetPass extends JFrame implements ActionListener {
 
 
     public ForgetPass() {
-
+        System.out.println("Currently in ForgetPass class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
         setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("../images/titleIcon.png")));
@@ -137,6 +137,7 @@ public class ForgetPass extends JFrame implements ActionListener {
                         String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
                         if (line.equals(user)) {
                             // If a match is found, set a flag variable and exit the loop
+                            System.out.println("User name found");
                             deleteLine = i;
                             isFound = true;
                             break;
@@ -146,13 +147,16 @@ public class ForgetPass extends JFrame implements ActionListener {
                     // Otherwise, show an error message
                     if (isFound) {
                         this.setVisible(false);
+                        System.out.println("Exited from ForgetPass class");
                         new ForgetPass2();
                     } else {
+                        System.out.println("User Name not found");
                         JOptionPane.showMessageDialog(null, "Username not found", "Error", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             } catch (Exception ex) {
                 // Show an error message if there was a problem accessing the file
+                System.out.println("User name not found error in file");
                 JOptionPane.showMessageDialog(null, "Username not found", "Error", JOptionPane.WARNING_MESSAGE);
             }
 
@@ -161,11 +165,14 @@ public class ForgetPass extends JFrame implements ActionListener {
             int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
             if (yesORno == 0) {
                 // If the user chooses to exit, close the application
+                System.out.println("Exited from ForgetPass class");
+                System.out.println("Exited from the Project");
                 System.exit(1);
             }
         } else if (e.getSource() == backButton) {
             // If the back button was clicked, hide the current window and show the login window
             this.setVisible(false);
+            System.out.println("Exited from ForgetPass class");
             new Login();
         }
 

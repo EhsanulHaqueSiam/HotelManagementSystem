@@ -32,6 +32,7 @@ public class Edit extends JFrame implements ActionListener {
     private int check;
 
     public Edit() {
+        System.out.println("Currently in Edit class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
         setIconImage(Toolkit.getDefaultToolkit().getImage(Profile.class.getResource("../images/titleIcon.png")));
@@ -240,12 +241,15 @@ public class Edit extends JFrame implements ActionListener {
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 this.setVisible(false);
+                System.out.println("Exited from Edit class");
                 new Login();
             }
         } else if (e.getSource() == exitButton) {
             int yesORno = JOptionPane.showConfirmDialog(null, "Do you want to exit ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
             if (yesORno == 0) {
+                System.out.println("Exited from Edit class");
+                System.out.println("Exited from the Project");
                 System.exit(1);
             }
         } else if (e.getSource() == fullNameButton) {
@@ -310,6 +314,7 @@ public class Edit extends JFrame implements ActionListener {
         } else if (e.getSource() == backButton) {
             if (check == 0) { // If check is 0, Hide the current window and Create and display a new Profile window
                 this.setVisible(false);
+                System.out.println("Exited from Edit class");
                 new Profile();
             } else {
                 // Set visibility and bounds for various buttons
@@ -371,8 +376,10 @@ public class Edit extends JFrame implements ActionListener {
 
                     // Create a temporary file for writing updated data
                     String tempfile = "./files/temp3.txt";
+
                     File oldFile = new File("./files/user_login.txt");
                     File newFile = new File("./files/temp3.txt");
+                    System.out.println("temp file created");
                     String currentLine;
 
                     FileWriter fileWriter2 = new FileWriter(tempfile, false);
@@ -402,8 +409,10 @@ public class Edit extends JFrame implements ActionListener {
 
                     // Delete the old file and rename the temporary file
                     oldFile.delete();
+                    System.out.println("Old file deleted");
                     File dumb = new File("./files/user_login.txt");
                     newFile.renameTo(dumb);
+                    System.out.println("temp file name updated to orginal");
 
                     // Perform further actions, such as opening the Profile view
                     this.setVisible(false);
@@ -445,6 +454,7 @@ public class Edit extends JFrame implements ActionListener {
 
                             // Create a temporary file and copy contents with the new name
                             String tempfl1 = "./files/temp4.txt";
+                            System.out.println("temp file created");
                             File oldF1 = new File("./files/checkIn.txt");
                             File newF1 = new File("./files/temp4.txt");
                             String cLine2;
@@ -469,6 +479,7 @@ public class Edit extends JFrame implements ActionListener {
                                 line2++;
 
                             }
+                            System.out.println("Orginal file copied to temp file");
                             // Close the file readers and writers
                             pntWrite2.flush();
                             pntWrite2.close();
@@ -481,6 +492,7 @@ public class Edit extends JFrame implements ActionListener {
                             File dum1 = new File("./files/checkIn.txt");
                             // Rename the temporary file to the original file
                             newF1.renameTo(dum1);
+                            System.out.println("temp file renamed to original file");
 
                         } catch (Exception ex) {
                             ex.printStackTrace();
@@ -498,9 +510,11 @@ public class Edit extends JFrame implements ActionListener {
                         // Delete the destination file if it already exists
                         destinationFile.delete();
                     }
+                    System.out.println("old file deleted");
 
                     // Rename the source file to the destination file
                     sourceFile.renameTo(destinationFile);
+                    System.out.println("temp file renamed");
 
 
                 } catch (Exception ex) {
@@ -582,6 +596,7 @@ public class Edit extends JFrame implements ActionListener {
                         String tempfile = "./files/temp3.txt";
                         File oldFile = new File("./files/user_login.txt");
                         File newFile = new File("./files/temp3.txt");
+                        System.out.println("temp file created");
                         String currentline;
 
                         // Write updated username to a temporary file
@@ -601,7 +616,6 @@ public class Edit extends JFrame implements ActionListener {
                                 printWriter2.println(currentline);
                             }
                             l++;
-
                         }
                         printWriter2.flush();
                         printWriter2.close();
@@ -612,6 +626,7 @@ public class Edit extends JFrame implements ActionListener {
                         oldFile.delete();
                         File dumb = new File("./files/user_login.txt");
                         newFile.renameTo(dumb);
+                        System.out.println("temp file renamed");
 
                         Login.fullUsername = newName;
 
@@ -634,7 +649,6 @@ public class Edit extends JFrame implements ActionListener {
             int number;
             int numcount = 0;
             try {
-
                 number = Integer.parseInt(newPhoneNumber); // Try parsing the input as an integer
                 if (newPhoneNumber.length() != 11) { // Check if the phone number has 11 digits
                     numcount++; // Increment numcount if the length is not 11
@@ -673,6 +687,7 @@ public class Edit extends JFrame implements ActionListener {
                     String tempfile = "./files/temp3.txt";
                     File oldFile = new File("./files/user_login.txt");
                     File newFile = new File("./files/temp3.txt");
+                    System.out.println("temp file created");
                     String currentline;
 
                     // Open the temp3.txt file for writing
@@ -704,7 +719,7 @@ public class Edit extends JFrame implements ActionListener {
                     oldFile.delete();
                     File dumb = new File("./files/user_login.txt");
                     newFile.renameTo(dumb);
-
+                    System.out.println("temp file renamed");
                     Login.phoneNumber = newNumber; // Update the phoneNumber variable in the Login class
 
                     this.setVisible(false);
@@ -717,7 +732,9 @@ public class Edit extends JFrame implements ActionListener {
         }
     }
     public static boolean isValidFullname(String fullname) {
+        System.out.println("isValidFullname funtion called");
         String pattern = "^(?!.*\\d)(?!.*[^a-zA-Z0-9 .'-])(?!.*[ .'-]{2,})[a-zA-Z0-9 .'-]+$";
+        System.out.println("isValidFullname executed successfully");
         return fullname.matches(pattern);
     }
 
