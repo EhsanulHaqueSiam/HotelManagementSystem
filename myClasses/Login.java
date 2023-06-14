@@ -267,16 +267,17 @@ public class Login extends JFrame implements ActionListener {
 
                     // Iterate over each line in the admin login file and check if the user credentials match
                     for (int i = 0; i < totalLines1; i++) {
-
                         Path adminLoginPath = Paths.get("./files/admin_login.txt");
                         String line = Files.readAllLines(adminLoginPath).get(i);
                         if (line.equals(uname)) {
                             String line2 = Files.readAllLines(adminLoginPath).get((i + 1));
+                            System.out.println("user name matched to admin");
                             // Set flags and username, and open the dashboard window
                             if (line2.equals(pin)) {
                                 loginFlag = true;
                                 isAdmin = true;
                                 USERNAME = user;
+                                System.out.println("pin matched to admin user");
                                 this.setVisible(false);
                                 System.out.println("Exited from Login class");
                                 //Show the admin Dashboard
@@ -312,8 +313,10 @@ public class Login extends JFrame implements ActionListener {
                                 // Check if the username matches the i-th line of the file
                                 if (line.equals(uname)) {
                                     // Check if the password matches the (i+1)-th line of the file
+                                    System.out.println("User found");
                                     String line2 = Files.readAllLines(userLoginPath).get((i + 1));
                                     if (line2.equals(pin)) {
+                                        System.out.println("Password matched with user name");
                                         // Set login flag, username, full name, phone number, and old password
                                         loginFlag = true;
                                         userbool = true;

@@ -142,11 +142,13 @@ public class ForgetPass2 extends JFrame implements ActionListener {
                     String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(n);
                     // Check if the line matches the formatted phone number
                     if (line.equals(user)) {
+                        System.out.println("User phonenumber found");
                         isFound = true;
                     }
 
                     if (!isFound) {
                         // Show a warning message if the phone number is not found in the file
+                        System.out.println("User phonenumber not found");
                         JOptionPane.showMessageDialog(null, "Phone number not found!", "Error", JOptionPane.WARNING_MESSAGE);
                     } else {
                         this.setVisible(false);// Hide the current frame and show the ForgetPass3 frame
@@ -158,6 +160,7 @@ public class ForgetPass2 extends JFrame implements ActionListener {
                 }
 
             } catch (Exception ex) {// Show a warning message if an exception occurs while reading from the file
+                System.out.println("User phone number not found error in file");
                 JOptionPane.showMessageDialog(null, "Phone number not found!", "Error", JOptionPane.WARNING_MESSAGE);
 
             }

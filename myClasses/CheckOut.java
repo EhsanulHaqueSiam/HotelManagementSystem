@@ -281,6 +281,7 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                         String roomNo = (String) search_combo.getSelectedItem();
                         // Create a temporary file to write updated data to
                         File tempFile = new File("./files/temp.txt");
+                        System.out.println("temp.txt file created");
                         PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
                         BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"));
                         String line2;
@@ -292,10 +293,13 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                                     rowData[i] = br.readLine();
                                 }
                                 if (rowData[0].equals(roomNo)) { // if the room number is a match
+                                    System.out.println("Room number found");
                                     rowData[4] = "Not Booked"; // update the status
+                                    System.out.println("Updated room details to Not Booked");
                                 }
                                 // write the updated row data to the temporary file
                                 pw.println("Rooms Details");
+                                System.out.println("Updated details to temp file");
                                 for (int i = 0; i < 5; i++) {
                                     pw.println(rowData[i]);
                                 }
@@ -309,8 +313,15 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                         // Replace the original file with the temporary file
                         File originalFile = new File("./files/rooms.txt");
                         if (originalFile.delete()) {
-                            tempFile.renameTo(originalFile);
-                        }
+                                        boolean renamed = tempFile.renameTo(originalFile);
+                                        if (renamed) {
+                                            System.out.println("File renamed successfully.");
+                                        } else {
+                                            System.out.println("Failed to rename the file.");
+                                        }
+                                    } else {
+                                        System.out.println("Failed to delete the original file.");
+                                    }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
@@ -425,9 +436,11 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
 
     @Override
     public void deleteRoomEntry() {
+        System.out.println("deleteRoomEntry funtion called");
         try {
             File inputFile = new File("./files/checkIn.txt");
             File tempFile = new File("./files/checkIn_temp.txt");
+            System.out.println("temp file created");
 
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
@@ -454,6 +467,7 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                     // write all other lines to the temp file
 
                     writer.write(currentLine + System.getProperty("line.separator"));
+                    System.out.println("writting into temp file");
 
                 }
             }
@@ -463,17 +477,21 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
 
             // delete the original file
             inputFile.delete();
+            System.out.println("Orginal file deleted");
 
             // rename the temp file to the original file name
             tempFile.renameTo(inputFile);
+            System.out.println("temp file renamed to orginal file");
 
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        System.out.println("deleteRoomEntry funtion executed successfully");
     }
 
     @Override
     public void getCustomerData() {
+        System.out.println("getCustomerData funtion called");
         DefaultTableModel model;
         model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
@@ -547,9 +565,12 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         CustomerNum_fld.setText(mobileNumber);
         pricePerDay_fld.setText(roomPrice);
         email_fld.setText(gmail);
+
+        System.out.println("getCustomerData funtion executed successfully");
     }
 
     public void roomSearch() {
+        System.out.println("roomSearch funtion called");
         try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -567,6 +588,8 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        System.out.println("roomSearch funtion executed successfully");
     }
 
 }

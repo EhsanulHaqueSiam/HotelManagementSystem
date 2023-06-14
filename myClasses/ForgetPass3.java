@@ -194,6 +194,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
                         String tempfile = "./files/temp.txt";
                         File oldFile = new File("./files/user_login.txt");
                         File newFile = new File("./files/temp.txt");
+                        System.out.println("temp file created");
                         int l = 0;
 
                         String currentline;
@@ -213,6 +214,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
                                 printWriter.println(currentline);
                             } else {
                                 printWriter.println(confpass2); // Replace the line with the new password
+                                System.out.println("New password replace with old password");
                             }
                         }
                         printWriter.flush();
@@ -224,8 +226,10 @@ public class ForgetPass3 extends JFrame implements ActionListener {
 
                         // Delete the old file and rename the temp file
                         oldFile.delete();
+                        System.out.println("Original file deleted");
                         File dumb = new File("./files/user_login.txt");
                         newFile.renameTo(dumb);
+                        System.out.println("temp file rename to original file");
                         // Close the current window and open the Login window
                         this.setVisible(false);
                         System.out.println("Exited from ForgetPass3 class");

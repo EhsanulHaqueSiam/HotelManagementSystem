@@ -308,6 +308,7 @@ public class Signup extends JFrame implements ActionListener {
                         String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
                         if (line.equals("User Name : " + user)) {
                             userflag = true;
+                            System.out.println("User name exists");
                             break;
                         }
                     }
@@ -316,6 +317,7 @@ public class Signup extends JFrame implements ActionListener {
                     for (int i = 0; i < totalLines2; i++) { // Check if the username already exists in Admin Login file
                         String line = Files.readAllLines(Paths.get("./files/admin_login.txt")).get(i);
                         if (line.equals("User Name : " + user)) {
+                            System.out.println("User name exists as Admin");
                             adminflag = true;
                             break;
                         }
@@ -329,6 +331,8 @@ public class Signup extends JFrame implements ActionListener {
                         printWriter.println("Phone : " + PhoneNumber);
                         printWriter.println("Time & Date : " + timeAndDate);
                         printWriter.println("===============================================");
+
+                        System.out.println("New User details added");
 
                         this.setVisible(false);
                         System.out.println("Exited from Signup class");
@@ -377,11 +381,14 @@ public class Signup extends JFrame implements ActionListener {
 
     }
     public static boolean isValidFullname(String fullname) {
+        System.out.println("isValidFullname function called");
         String pattern = "^(?!.*\\d)(?!.*[^a-zA-Z0-9 .'-])(?!.*[ .'-]{2,})[a-zA-Z0-9 .'-]+$";
+        System.out.println("isValidFullname function executed successfully");
         return fullname.matches(pattern);
     }
 
     public boolean validateUsername(String username) {
+        System.out.println("validateUsername function called");
         // Check for spaces
         if (username.contains(" ")) {
             return false;
@@ -394,6 +401,7 @@ public class Signup extends JFrame implements ActionListener {
 
         // Check length
         int length = username.length();
+        System.out.println("validateUsername function executed successfully");
         return length >= 3 && length <= 20;
 
         // Additional validation rules can be added here

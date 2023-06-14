@@ -215,11 +215,18 @@ public class ManageRoom extends JFrame implements ActionListener {
                 try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
                     String line;
                     // Check if the room number already exists in the file
+                    System.out.println("Checking if room number already exists");
                     while ((line = br.readLine()) != null) {
                         if (line.equals(roomNum_fld.getText())) {
-                            flag = true;
+                            flag = true;                            
                             break;
                         }
+                    }
+
+                    if(flag == true){
+                        System.out.println("Room number already exists");
+                    }else{
+                        System.out.println("Room number available to add");
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -267,6 +274,8 @@ public class ManageRoom extends JFrame implements ActionListener {
                             // Clear text fields
                             roomNum_fld.setText(null);
                             price_fld.setText(null);
+
+                            System.out.println("New Room added");
 
                         } catch (Exception ex) {
                             ex.printStackTrace();
@@ -321,10 +330,12 @@ public class ManageRoom extends JFrame implements ActionListener {
                         try {
                             File inputFile = new File("./files/rooms.txt");
                             File tempFile = new File("./files/rooms_temp.txt");
+                            System.out.println("temp file created");
 
                             // Read the original file and write to the temp file, excluding the room to delete
                             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
                             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+                            System.out.println("temp file updated");
 
                             String currentLine;
                             int lineCounter = 0;
@@ -341,8 +352,7 @@ public class ManageRoom extends JFrame implements ActionListener {
                             int k = 0;
                             while ((currentLine = reader.readLine()) != null) {
                                 k++;
-                                if (k > (lineCounter - 2) && k < (lineCounter + 6)) {
-                                    // skip lines before the room number to delete
+                                if (k > (lineCounter - 2) && k < (lineCounter + 6)) {            
                                 } else {
                                     // write all other lines to the temp file
                                     writer.write(currentLine + System.getProperty("line.separator"));
@@ -350,14 +360,18 @@ public class ManageRoom extends JFrame implements ActionListener {
                                 }
                             }
 
+                            System.out.println("Room deleted");
+
                             writer.close();
                             reader.close();
 
                             // delete the original file
                             inputFile.delete();
+                            System.out.println("Original file deleted");
 
                             // rename the temp file to the original file name
                             tempFile.renameTo(inputFile);
+                            System.out.println("temp file renamed as original file");
 
                         } catch (IOException ex) {
                             ex.printStackTrace();

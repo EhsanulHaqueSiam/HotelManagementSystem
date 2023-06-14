@@ -137,6 +137,7 @@ public class ForgetPass extends JFrame implements ActionListener {
                         String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
                         if (line.equals(user)) {
                             // If a match is found, set a flag variable and exit the loop
+                            System.out.println("User name found");
                             deleteLine = i;
                             isFound = true;
                             break;
@@ -149,11 +150,13 @@ public class ForgetPass extends JFrame implements ActionListener {
                         System.out.println("Exited from ForgetPass class");
                         new ForgetPass2();
                     } else {
+                        System.out.println("User Name not found");
                         JOptionPane.showMessageDialog(null, "Username not found", "Error", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             } catch (Exception ex) {
                 // Show an error message if there was a problem accessing the file
+                System.out.println("User name not found error in file");
                 JOptionPane.showMessageDialog(null, "Username not found", "Error", JOptionPane.WARNING_MESSAGE);
             }
 

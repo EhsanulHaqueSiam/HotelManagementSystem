@@ -38,10 +38,10 @@ public class ShowRoom {
                     }
                 }
             }
-            System.out.println("roomDetails funtion ran successfully");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("roomDetails funtion ran successfully");
     }
 }
