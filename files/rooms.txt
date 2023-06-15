@@ -107,6 +107,6 @@ Rooms Details
 218
 AC
 Single
-120
+1200
 Not Booked
 
