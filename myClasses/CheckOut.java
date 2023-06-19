@@ -1,23 +1,38 @@
 package myClasses;
 
-import myInterface.ClearCheckOut;
-
-import javax.sound.sampled.SourceDataLine;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import myInterface.ClearCheckOut;
 
-public class CheckOut extends JFrame implements ActionListener, myInterface.ClearCheckOut, myInterface.CustomerDataEntry, myInterface.CheckOutRoomSearch {
+public class CheckOut extends JFrame implements ActionListener, myInterface.ClearCheckOut,
+    myInterface.CustomerDataEntry, myInterface.CheckOutRoomSearch {
 
     private final JTable table;
     private final JTextField CustomerName_fld;
@@ -89,7 +104,9 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
 
         table = new JTable();
         scrollPane.setViewportView(table);
-        table.setModel(new DefaultTableModel(new Object[][]{}, new String[]{"Name", "Mobile Number", "Nationality", "Gender", "Email", "Address", "Check In Data", "Room Number", "Bed", "Room Type", "Price Per Day"}));
+        table.setModel(new DefaultTableModel(new Object[][]{},
+            new String[]{"Name", "Mobile Number", "Nationality", "Gender", "Email", "Address",
+                "Check In Data", "Room Number", "Bed", "Room Type", "Price Per Day"}));
         table.setEnabled(false);
         table.getTableHeader().setReorderingAllowed(false);
         table.getColumnModel().getColumn(0).setPreferredWidth(80);
@@ -98,8 +115,10 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         // Set custom background colors for alternate rows
         table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
+                Component component = super.getTableCellRendererComponent(table, value, isSelected,
+                    hasFocus, row, column);
                 if (row % 2 == 0) {
                     component.setBackground(new Color(230, 230, 230)); // Light gray for even rows
                 } else {
@@ -251,7 +270,8 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
         boolean DoesRoomExists = false;
         if (e.getSource() == logOut_btn) { // Logout button action
             // Display confirmation dialog
-            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
+            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
+                JOptionPane.YES_NO_OPTION);
             // If user confirms logout
             if (yesORno == JOptionPane.YES_OPTION) {
                 // Hide current window and show login window
@@ -266,16 +286,19 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
             new DashBoard();
         } else if (e.getSource() == clear_btn) { // Clear button action
             // Clear checkout fields and adjust table column widths
-            ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld, checkInDate_fld, pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld, search_combo, table);
+            ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld, checkInDate_fld,
+                pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld, search_combo, table);
 
             table.getColumnModel().getColumn(0).setPreferredWidth(80);
             table.getColumnModel().getColumn(1).setPreferredWidth(82);
             System.out.println("All data cleared from Text Field and Combo Box set to Default");
-        }else if (e.getSource() == checkOut_btn) {
-            if(search_combo.getSelectedItem() == null){ //Show error if Search bar is Empty
-                JOptionPane.showMessageDialog(null, "Error", "No room is selected", JOptionPane.WARNING_MESSAGE);
-            }else{
-                if (JOptionPane.showConfirmDialog(null, "Confirmation", "Are You Sure?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        } else if (e.getSource() == checkOut_btn) {
+            if (search_combo.getSelectedItem() == null) { //Show error if Search bar is Empty
+                JOptionPane.showMessageDialog(null, "Error", "No room is selected",
+                    JOptionPane.WARNING_MESSAGE);
+            } else {
+                if (JOptionPane.showConfirmDialog(null, "Confirmation", "Are You Sure?",
+                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     try {
                         // Input room number to search for
                         String roomNo = (String) search_combo.getSelectedItem();
@@ -313,26 +336,28 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                         // Replace the original file with the temporary file
                         File originalFile = new File("./files/rooms.txt");
                         if (originalFile.delete()) {
-                                        boolean renamed = tempFile.renameTo(originalFile);
-                                        if (renamed) {
-                                            System.out.println("File renamed successfully.");
-                                        } else {
-                                            System.out.println("Failed to rename the file.");
-                                        }
-                                    } else {
-                                        System.out.println("Failed to delete the original file.");
-                                    }
+                            boolean renamed = tempFile.renameTo(originalFile);
+                            if (renamed) {
+                                System.out.println("File renamed successfully.");
+                            } else {
+                                System.out.println("Failed to rename the file.");
+                            }
+                        } else {
+                            System.out.println("Failed to delete the original file.");
+                        }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
                     roomNumToDelete = (String) search_combo.getSelectedItem(); // change this to whatever room number you want to delete
 
-
                     deleteRoomEntry();
 
-                    JOptionPane.showMessageDialog(null, "Check Out Successful", "Check Out", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Check Out Successful", "Check Out",
+                        JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("CheckOut Done Successfully");
-                    ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld, checkInDate_fld, pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld, search_combo, table);
+                    ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld,
+                        checkInDate_fld, pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld,
+                        search_combo, table);
 
                     // Clearing the input fields
                     name = null;
@@ -351,15 +376,17 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                 search_combo.removeAllItems();
                 roomSearch();
                 search_combo.setSelectedIndex(-1);
-                ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld, checkInDate_fld, pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld, search_combo, table);
+                ClearCheckOut.ClearCheckoutField(CustomerName_fld, CustomerNum_fld, checkInDate_fld,
+                    pricePerDay_fld, dayStay_fld, totalAmount_fld, email_fld, search_combo, table);
                 System.out.println("All data cleared from Text Field and Combo Box set to Default");
             }
         }
 
-        if(search_combo.getSelectedIndex() != -1){
-            if(e.getSource() == search_combo) {
+        if (search_combo.getSelectedIndex() != -1) {
+            if (e.getSource() == search_combo) {
                 if (search_combo.getSelectedIndex() == -1) {
-                    JOptionPane.showMessageDialog(null, "There is no room to checkout", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "There is no room to checkout", "Error",
+                        JOptionPane.WARNING_MESSAGE);
                 } else {
 
                     String search = (String) search_combo.getSelectedItem();
@@ -367,13 +394,14 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                     model.setRowCount(0);
 
                     // Read the rooms.txt file
-                    try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+                    try (BufferedReader br = new BufferedReader(
+                        new FileReader("./files/rooms.txt"))) {
                         String line;
                         while ((line = br.readLine()) != null) {
                             if (!line.equals("Rooms Details")) {
                                 String[] rowData = new String[5]; // create an array with 5 elements
                                 rowData[0] = line; // add the first element to the Room Number column
-                                assert search != null:"Cannot read rooms.txt";
+                                assert search != null : "Cannot read rooms.txt";
                                 if (search.equals(rowData[0])) {
                                     DoesRoomExists = true; // Set the flag to indicate that the room exists
                                     roomNo_B = rowData[0]; // Store the room number in a variable
@@ -392,7 +420,8 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                         System.out.println("Customer Data Retrived");
                     } else {
                         // Display an error message if the room is not found
-                        JOptionPane.showMessageDialog(null, "room not found", "Error", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "room not found", "Error",
+                            JOptionPane.WARNING_MESSAGE);
                         System.out.println("Room Doesn't not exist");
                         search_combo.setSelectedIndex(-1);
 
@@ -509,7 +538,8 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                         //System.out.println(rowData1);
                     } // set the last element to empty string
 
-                    try (BufferedReader br2 = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+                    try (BufferedReader br2 = new BufferedReader(
+                        new FileReader("./files/rooms.txt"))) {
                         String line2;
 
                         while ((line2 = br2.readLine()) != null) {
@@ -545,14 +575,14 @@ public class CheckOut extends JFrame implements ActionListener, myInterface.Clea
                         CheckinDate = rowData1[7];
                     }
 
-
                     // add the row to the JTable
                     br1.readLine();
                     br1.readLine(); // skip the empty line
                 }
             }
             if (name != null) {
-                String[] data = {name, mobileNumber, nationality, gender, gmail, address, CheckinDate, roomNo_B, bed, roomType, roomPrice};
+                String[] data = {name, mobileNumber, nationality, gender, gmail, address,
+                    CheckinDate, roomNo_B, bed, roomType, roomPrice};
                 model.addRow(data);
             }
 

@@ -1,14 +1,31 @@
 package myClasses;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
 
 public class ManageRoom extends JFrame implements ActionListener {
     //TODO Table data edit and table shift
@@ -60,7 +77,8 @@ public class ManageRoom extends JFrame implements ActionListener {
         table = new JTable();
         scrollPane.setViewportView(table);
 
-        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Room Number", "Room Type", "Bed", "Price", "Status"}) {
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{},
+            new String[]{"Room Number", "Room Type", "Bed", "Price", "Status"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false; // Make all cells non-editable
@@ -77,8 +95,10 @@ public class ManageRoom extends JFrame implements ActionListener {
         // Set custom background colors for alternate rows
         table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
+                Component component = super.getTableCellRendererComponent(table, value, isSelected,
+                    hasFocus, row, column);
                 if (row % 2 == 0) {
                     component.setBackground(new Color(230, 230, 230)); // Light gray for even rows
                 } else {
@@ -197,7 +217,8 @@ public class ManageRoom extends JFrame implements ActionListener {
 
         if (e.getSource() == logOut_btn) {
             // Prompt for confirmation before logging out
-            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
+            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
+                JOptionPane.YES_NO_OPTION);
 
             if (yesORno == JOptionPane.YES_OPTION) {
                 this.setVisible(false);
@@ -218,14 +239,14 @@ public class ManageRoom extends JFrame implements ActionListener {
                     System.out.println("Checking if room number already exists");
                     while ((line = br.readLine()) != null) {
                         if (line.equals(roomNum_fld.getText())) {
-                            flag = true;                            
+                            flag = true;
                             break;
                         }
                     }
 
-                    if(flag == true){
+                    if (flag) {
                         System.out.println("Room number already exists");
-                    }else{
+                    } else {
                         System.out.println("Room number available to add");
                     }
                 } catch (Exception ex) {
@@ -234,9 +255,11 @@ public class ManageRoom extends JFrame implements ActionListener {
 
                 if (flag) {
                     // Display a warning message if the room number already exists
-                    JOptionPane.showMessageDialog(null, "Room number already exist", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Room number already exist", "Error",
+                        JOptionPane.WARNING_MESSAGE);
                 } else if (!price.matches("\\d+")) {
-                    JOptionPane.showMessageDialog(null, "Invalid Price", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid Price", "Error",
+                        JOptionPane.WARNING_MESSAGE);
                 } else {
                     try {
                         String line = "./files/rooms.txt";
@@ -251,7 +274,8 @@ public class ManageRoom extends JFrame implements ActionListener {
                                 printWriter.close();
                             }
 
-                            BufferedReader rdfile3 = new BufferedReader(new FileReader("./files/rooms.txt"));
+                            BufferedReader rdfile3 = new BufferedReader(
+                                new FileReader("./files/rooms.txt"));
                             int ttlLines3 = 0;
                             while (rdfile3.readLine() != null) {
                                 ttlLines3++;
@@ -286,7 +310,8 @@ public class ManageRoom extends JFrame implements ActionListener {
                 }
             } else {
                 // Display a warning message if any box is not filled
-                JOptionPane.showMessageDialog(null, "Please Fill all the box", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Please Fill all the box", "Error",
+                    JOptionPane.WARNING_MESSAGE);
             }
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.setRowCount(0);
@@ -312,7 +337,8 @@ public class ManageRoom extends JFrame implements ActionListener {
 
 
         } else if (e.getSource() == del_btn) {
-            if (JOptionPane.showConfirmDialog(null, "Confirmation", "Remove This Room?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(null, "Confirmation", "Remove This Room?",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 DefaultTableModel tempTbl = (DefaultTableModel) table.getModel();
                 int selectedRow = table.getSelectedRow();
 
@@ -352,10 +378,11 @@ public class ManageRoom extends JFrame implements ActionListener {
                             int k = 0;
                             while ((currentLine = reader.readLine()) != null) {
                                 k++;
-                                if (k > (lineCounter - 2) && k < (lineCounter + 6)) {            
+                                if (k > (lineCounter - 2) && k < (lineCounter + 6)) {
                                 } else {
                                     // write all other lines to the temp file
-                                    writer.write(currentLine + System.getProperty("line.separator"));
+                                    writer.write(
+                                        currentLine + System.getProperty("line.separator"));
 
                                 }
                             }
@@ -379,7 +406,8 @@ public class ManageRoom extends JFrame implements ActionListener {
                         // Remove the selected row from the table
                         tempTbl.removeRow(table.getSelectedRow());
                     } else {
-                        JOptionPane.showMessageDialog(this, "Room is Booked Please check out it first");
+                        JOptionPane.showMessageDialog(this,
+                            "Room is Booked Please check out it first");
                     }
 
 

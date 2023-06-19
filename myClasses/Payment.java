@@ -1,12 +1,21 @@
 package myClasses;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 
 
 public class Payment extends JFrame implements ActionListener {
+
     final JLabel payment_lbl;
     final JButton next_btn;
     final ButtonGroup bkashNagad_grp;
@@ -67,7 +76,8 @@ public class Payment extends JFrame implements ActionListener {
                 setVisible(false);
                 System.out.println("Exited from Payment class");
             } else {
-                JOptionPane.showMessageDialog(null, "You forgot to select your payment method.", "Warning!", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "You forgot to select your payment method.",
+                    "Warning!", JOptionPane.WARNING_MESSAGE);
             }
 
         }

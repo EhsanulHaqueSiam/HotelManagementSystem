@@ -1,9 +1,9 @@
 package myClasses;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -14,6 +14,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class ForgetPass extends JFrame implements ActionListener {
 
@@ -28,7 +38,8 @@ public class ForgetPass extends JFrame implements ActionListener {
         System.out.println("Currently in ForgetPass class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("../images/titleIcon.png")));
+        setIconImage(Toolkit.getDefaultToolkit()
+            .getImage(Login.class.getResource("../images/titleIcon.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 903, 554);
         setLocationRelativeTo(null);
@@ -60,7 +71,8 @@ public class ForgetPass extends JFrame implements ActionListener {
         userField.setOpaque(false);
         userField.setForeground(new Color(219, 226, 233));
         userField.setBorder(BorderFactory.createEmptyBorder());
-        Border userFieldBorder = BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(128, 128, 128));
+        Border userFieldBorder = BorderFactory.createMatteBorder(0, 0, 2, 0,
+            new Color(128, 128, 128));
         userField.setBorder(userFieldBorder);
         contentPane.add(userField);
 
@@ -81,7 +93,8 @@ public class ForgetPass extends JFrame implements ActionListener {
         // Load an image from the project's resources
         BufferedImage imgForget = null;
         try {
-            imgForget = ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/Forget1.png")));
+            imgForget = ImageIO.read(
+                Objects.requireNonNull(Login.class.getResource("../images/Forget1.png")));
         } catch (IOException e) {
             // If an error occurs while loading the image, print the stack trace
             e.printStackTrace();
@@ -89,7 +102,8 @@ public class ForgetPass extends JFrame implements ActionListener {
         // If the image fails to load, print the error
         assert imgForget != null : "The 'Forget1' image could not be loaded";
         // Scale the image to fit the label and set it as the label's icon
-        Image imgFORGET = imgForget.getScaledInstance(imgLabel.getWidth(), imgLabel.getHeight(), Image.SCALE_SMOOTH);
+        Image imgFORGET = imgForget.getScaledInstance(imgLabel.getWidth(), imgLabel.getHeight(),
+            Image.SCALE_SMOOTH);
         imgLabel.setIcon(new ImageIcon(imgFORGET));
         contentPane.add(imgLabel);
 
@@ -122,7 +136,8 @@ public class ForgetPass extends JFrame implements ActionListener {
                 File userfile = new File("./files/user_login.txt");
                 if (userfile.exists()) {
                     // Count the total number of lines in the file
-                    BufferedReader readFile = new BufferedReader(new FileReader("./files/user_login.txt"));
+                    BufferedReader readFile = new BufferedReader(
+                        new FileReader("./files/user_login.txt"));
                     while (readFile.readLine() != null) {
                         totalLines++;
                     }
@@ -130,11 +145,13 @@ public class ForgetPass extends JFrame implements ActionListener {
                 }
                 // If the user input is empty, show an error message
                 if (userEmpty) {
-                    JOptionPane.showMessageDialog(null, "Enter User Name", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Enter User Name", "Error",
+                        JOptionPane.WARNING_MESSAGE);
                 } else {
                     // Loop through each line in the file and compare it to the user input
                     for (int i = 0; i < totalLines; i++) {
-                        String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
+                        String line = Files.readAllLines(Paths.get("./files/user_login.txt"))
+                            .get(i);
                         if (line.equals(user)) {
                             // If a match is found, set a flag variable and exit the loop
                             System.out.println("User name found");
@@ -151,18 +168,21 @@ public class ForgetPass extends JFrame implements ActionListener {
                         new ForgetPass2();
                     } else {
                         System.out.println("User Name not found");
-                        JOptionPane.showMessageDialog(null, "Username not found", "Error", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Username not found", "Error",
+                            JOptionPane.WARNING_MESSAGE);
                     }
                 }
             } catch (Exception ex) {
                 // Show an error message if there was a problem accessing the file
                 System.out.println("User name not found error in file");
-                JOptionPane.showMessageDialog(null, "Username not found", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Username not found", "Error",
+                    JOptionPane.WARNING_MESSAGE);
             }
 
         } else if (e.getSource() == exitButton) {
             // If the exit button was clicked, ask the user if they really want to exit
-            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
+            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
+                JOptionPane.YES_NO_OPTION);
             if (yesORno == 0) {
                 // If the user chooses to exit, close the application
                 System.out.println("Exited from ForgetPass class");

@@ -1,12 +1,9 @@
 package myClasses;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -14,6 +11,20 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class DashBoard extends JFrame implements ActionListener {
     //TODO table editable table changeable logout image
@@ -50,7 +61,8 @@ public class DashBoard extends JFrame implements ActionListener {
         JTable table = new JTable();
         scrollPane.setViewportView(table);
 
-        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Customer Name", "Room Number", "Room Type", "Bed", "Price", "Status"});
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{},
+            new String[]{"Customer Name", "Room Number", "Room Type", "Bed", "Price", "Status"});
         table.setModel(model);
         table.getTableHeader().setReorderingAllowed(false);
         table.setEnabled(false);
@@ -60,8 +72,10 @@ public class DashBoard extends JFrame implements ActionListener {
         // Set custom background colors for alternate rows
         table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
+                Component component = super.getTableCellRendererComponent(table, value, isSelected,
+                    hasFocus, row, column);
                 if (row % 2 == 0) {
                     component.setBackground(new Color(230, 230, 230)); // Light gray for even rows
                 } else {
@@ -78,7 +92,6 @@ public class DashBoard extends JFrame implements ActionListener {
         Font headerFont = header.getFont();
         header.setFont(headerFont.deriveFont(Font.BOLD)); // Make the font bold
 
-
         try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -91,17 +104,20 @@ public class DashBoard extends JFrame implements ActionListener {
                         rowData[i] = br.readLine();
                     } // set the last element to empty string
 
-                    try (BufferedReader br2 = new BufferedReader(new FileReader("./files/checkIn.txt"))) {
+                    try (BufferedReader br2 = new BufferedReader(
+                        new FileReader("./files/checkIn.txt"))) {
                         String line2;
                         while ((line2 = br2.readLine()) != null) {
                             if (!line2.equals("Check In Details")) {
                                 String[] rowData2 = new String[10]; // create an array with 10 elements
                                 rowData2[0] = line2; // Store the first line in the array
-                                for (int i = 1; i < 10; i++) { // Read the next 9 lines and store them in the array
+                                for (int i = 1; i < 10;
+                                    i++) { // Read the next 9 lines and store them in the array
                                     rowData2[i] = br2.readLine();
                                 }
 
-                                if (rowData[1].equals(rowData2[1])) { // Swap the first line with the matching row's first line
+                                if (rowData[1].equals(
+                                    rowData2[1])) { // Swap the first line with the matching row's first line
                                     String temp = rowData2[0];
                                     rowData[0] = temp;
                                 }
@@ -122,7 +138,6 @@ public class DashBoard extends JFrame implements ActionListener {
             ex.printStackTrace();
         }
 
-
         checkinButton = new JButton("Start Booking");
         checkinButton.setBounds(34, 150, 90, 70);
         checkoutButton = new JButton("Cancel Booking");
@@ -133,9 +148,12 @@ public class DashBoard extends JFrame implements ActionListener {
         BufferedImage checkOut = null;
         BufferedImage mngRoomPhoto = null;
         try { // Load the images
-            checkIn = ImageIO.read(Objects.requireNonNull(DashBoard.class.getResource("../images/check_in.png")));
-            checkOut = ImageIO.read(Objects.requireNonNull(DashBoard.class.getResource("../images/check_out.png")));
-            mngRoomPhoto = ImageIO.read(Objects.requireNonNull(DashBoard.class.getResource("../images/room.png")));
+            checkIn = ImageIO.read(
+                Objects.requireNonNull(DashBoard.class.getResource("../images/check_in.png")));
+            checkOut = ImageIO.read(
+                Objects.requireNonNull(DashBoard.class.getResource("../images/check_out.png")));
+            mngRoomPhoto = ImageIO.read(
+                Objects.requireNonNull(DashBoard.class.getResource("../images/room.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -143,9 +161,11 @@ public class DashBoard extends JFrame implements ActionListener {
         assert checkIn != null : "'check_in.png' not found";
         assert checkOut != null : "'check_out.png' not found";
         // Scale check-in image to fit the button size
-        Image chkIn = checkIn.getScaledInstance(checkinButton.getWidth(), checkinButton.getHeight(), Image.SCALE_SMOOTH);
+        Image chkIn = checkIn.getScaledInstance(checkinButton.getWidth(), checkinButton.getHeight(),
+            Image.SCALE_SMOOTH);
         // Scale check-out image to fit the button size
-        Image chkOut = checkOut.getScaledInstance(checkoutButton.getWidth(), checkoutButton.getHeight(), Image.SCALE_SMOOTH);
+        Image chkOut = checkOut.getScaledInstance(checkoutButton.getWidth(),
+            checkoutButton.getHeight(), Image.SCALE_SMOOTH);
 
         checkinButton.setIcon(new ImageIcon(chkIn));
         checkinButton.setForeground(Color.WHITE);
@@ -181,7 +201,8 @@ public class DashBoard extends JFrame implements ActionListener {
         Manage_btn = new JButton("Manage Room");
         Manage_btn.setBounds(34, 379, 90, 70);
         assert mngRoomPhoto != null : "'room.png' not found";
-        Image mngRoom = mngRoomPhoto.getScaledInstance(Manage_btn.getWidth(), Manage_btn.getHeight(), Image.SCALE_SMOOTH);
+        Image mngRoom = mngRoomPhoto.getScaledInstance(Manage_btn.getWidth(),
+            Manage_btn.getHeight(), Image.SCALE_SMOOTH);
         Manage_btn.setIcon(new ImageIcon(mngRoom));
         Manage_btn.setForeground(Color.WHITE);
         Manage_btn.setBackground(Color.DARK_GRAY);
@@ -208,9 +229,11 @@ public class DashBoard extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == logoutButton) { // Prompt user for confirmation before logging out
-            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
+            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
+                JOptionPane.YES_NO_OPTION);
 
-            if (yesORno == JOptionPane.YES_OPTION) { // If user confirms, hide current window and open Login window
+            if (yesORno
+                == JOptionPane.YES_OPTION) { // If user confirms, hide current window and open Login window
                 this.setVisible(false);
                 System.out.println("Exited from DashBoard class");
                 new Login();

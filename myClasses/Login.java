@@ -1,17 +1,35 @@
 package myClasses;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
+import javax.swing.border.Border;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -37,7 +55,8 @@ public class Login extends JFrame implements ActionListener {
         System.out.println("Currently in Login class");
         setResizable(false);
         setTitle("The Tipton Hotel Management System");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("../images/titleIcon.png")));
+        setIconImage(Toolkit.getDefaultToolkit()
+            .getImage(Login.class.getResource("../images/titleIcon.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 903, 554);
         setLocationRelativeTo(null);
@@ -93,8 +112,10 @@ public class Login extends JFrame implements ActionListener {
         BufferedImage imgOff = null;
         try {
             // Read in the image files from resources
-            imgOn = ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/show.png")));
-            imgOff = ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/hide.png")));
+            imgOn = ImageIO.read(
+                Objects.requireNonNull(Login.class.getResource("../images/show.png")));
+            imgOff = ImageIO.read(
+                Objects.requireNonNull(Login.class.getResource("../images/hide.png")));
 
         } catch (IOException e) {
             // Print the stack trace if an IOException occurs
@@ -139,7 +160,8 @@ public class Login extends JFrame implements ActionListener {
         // Load the login background image
         BufferedImage imgLogin = null;
         try {
-            imgLogin = ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/LoginBackground.png")));
+            imgLogin = ImageIO.read(
+                Objects.requireNonNull(Login.class.getResource("../images/LoginBackground.png")));
 
         } catch (IOException e) {
             // If the image fails to load, print the error
@@ -217,7 +239,8 @@ public class Login extends JFrame implements ActionListener {
             new Signup();
         } else if (e.getSource() == exitButton) {
             // If the "exit" button was clicked, prompt the user to confirm if they want to exit
-            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
+            int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
+                JOptionPane.YES_NO_OPTION);
 
             if (yesORno == 0) {
                 System.out.println("Exited from Login class");
@@ -226,9 +249,10 @@ public class Login extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == loginButton) {
             // If the "login" button was clicked, check if the username and password fields are filled
-            if (userEmpty || passEmpty)
-                JOptionPane.showMessageDialog(null, "Please fill all of the fields.", "Warning!", JOptionPane.WARNING_MESSAGE);
-            else {
+            if (userEmpty || passEmpty) {
+                JOptionPane.showMessageDialog(null, "Please fill all of the fields.", "Warning!",
+                    JOptionPane.WARNING_MESSAGE);
+            } else {
                 boolean userbool = false;// Flag to check if the user is an admin or not
                 isAdmin = false;// Flag to check if the user is an admin or not
                 try {
@@ -257,7 +281,8 @@ public class Login extends JFrame implements ActionListener {
                     String pin = "Password : " + pass;
 
                     // Check if the user is an admin by reading the admin login file
-                    BufferedReader readFile1 = new BufferedReader(new FileReader("./files/admin_login.txt"));
+                    BufferedReader readFile1 = new BufferedReader(
+                        new FileReader("./files/admin_login.txt"));
 
                     int totalLines1 = 0;
                     while (readFile1.readLine() != null) {
@@ -297,7 +322,8 @@ public class Login extends JFrame implements ActionListener {
                         File userfile = new File("./files/user_login.txt");
                         if (userfile.exists()) { // Check if the file exists
                             // Create a buffered reader to read the file
-                            BufferedReader readFile = new BufferedReader(new FileReader("./files/user_login.txt"));
+                            BufferedReader readFile = new BufferedReader(
+                                new FileReader("./files/user_login.txt"));
                             int totalLines = 0;
                             // Count the total number of lines in the file
                             while (readFile.readLine() != null) {
@@ -338,16 +364,19 @@ public class Login extends JFrame implements ActionListener {
                     }
                     // If the login is unsuccessful, show an error message
                     if (!userbool && !isAdmin) {
-                        JOptionPane.showMessageDialog(null, "Invalid Name or Password!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Invalid Name or Password!", "Warning!",
+                            JOptionPane.WARNING_MESSAGE);
                     }
                     // Catch any exceptions and show an error message
                 } catch (Exception ex) {
                     if (!userbool && !isAdmin) {
-                        JOptionPane.showMessageDialog(null, "Invalid Name or Password!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Invalid Name or Password!", "Warning!",
+                            JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }
-        } else if (e.getSource() == forgot) { // If the "forgot" button was clicked, go to the ForgotPass page
+        } else if (e.getSource()
+            == forgot) { // If the "forgot" button was clicked, go to the ForgotPass page
             this.setVisible(false);
             System.out.println("Exited from Login class");
             new ForgetPass();
