@@ -132,7 +132,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
     contentPane.add(gmail_fld);
 
     gender_Box = new JComboBox<>();
-    gender_Box.setModel(new DefaultComboBoxModel<>(new String[]{"Male", "Female", "Others"}));
+    gender_Box.setModel(new DefaultComboBoxModel<>(new String[] {"Male", "Female", "Others"}));
     gender_Box.setBounds(10, 342, 76, 22);
     contentPane.add(gender_Box);
 
@@ -187,7 +187,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
     contentPane.add(cost_lbl);
 
     bed_Box = new JComboBox<>();
-    bed_Box.setModel(new DefaultComboBoxModel<>(new String[]{"Single", "Double", "Triple"}));
+    bed_Box.setModel(new DefaultComboBoxModel<>(new String[] {"Single", "Double", "Triple"}));
     bed_Box.setBounds(650, 108, 133, 22);
     bed_Box.addActionListener(this);
     contentPane.add(bed_Box);
@@ -197,7 +197,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
     cost_fld.setBounds(650, 344, 218, 20);
 
     roomType_Box = new JComboBox<>();
-    roomType_Box.setModel(new DefaultComboBoxModel<>(new String[]{"AC", "Non-Ac"}));
+    roomType_Box.setModel(new DefaultComboBoxModel<>(new String[] {"AC", "Non-Ac"}));
     roomType_Box.setBounds(650, 186, 133, 22);
     roomType_Box.addActionListener(this);
     contentPane.add(roomType_Box);
@@ -239,13 +239,21 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
     logOut_Btn.addActionListener(this);
 
     frame.setVisible(true);
-
   }
 
   // Method to write check-in data to a file
   @Override
-  public void WriteCheckinData(String nationality, String gmail, String address, String CheckInDate,
-      String cost, String gender, String roomNo_B, File file, String fullName, String mobileNumber)
+  public void WriteCheckinData(
+      String nationality,
+      String gmail,
+      String address,
+      String CheckInDate,
+      String cost,
+      String gender,
+      String roomNo_B,
+      File file,
+      String fullName,
+      String mobileNumber)
       throws IOException {
     System.out.println("WriteCheckinData function called");
     FileWriter fileWriter = new FileWriter(file, true);
@@ -296,8 +304,9 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
       new UDashBoard();
     } else if (e.getSource() == logOut_Btn) {
       // Prompting for confirmation before logging out
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == JOptionPane.YES_OPTION) {
         frame.setVisible(false);
@@ -318,24 +327,31 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
       System.out.println("text filed cleared and combo box set to default");
     } else if (e.getSource() == confirm_btn) {
       // Check if all required fields are not empty
-      if (!nameEmpty && !mblnumEmpty && !nationalityEmpty && !gamilEmpty && !addressEmpty
-          && !chkindateEmpty && !costEmpty) {
+      if (!nameEmpty
+          && !mblnumEmpty
+          && !nationalityEmpty
+          && !gamilEmpty
+          && !addressEmpty
+          && !chkindateEmpty
+          && !costEmpty) {
 
-        //Checks if Nationality contains numbers or special character
+        // Checks if Nationality contains numbers or special character
         if (!nationality.matches("[a-zA-Z]+")) {
-          JOptionPane.showMessageDialog(null,
-              "Nationality cannot contain numbers or special character", "Error",
+          JOptionPane.showMessageDialog(
+              null,
+              "Nationality cannot contain numbers or special character",
+              "Error",
               JOptionPane.WARNING_MESSAGE);
           nationality_fld.setText(null);
-          //checks if gmail contains @ and .com
+          // checks if gmail contains @ and .com
         } else if (!(gmail.contains("@") && gmail.contains(".com"))) {
-          JOptionPane.showMessageDialog(null, "Gmail must contain @ and .com", "Error",
-              JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(
+              null, "Gmail must contain @ and .com", "Error", JOptionPane.WARNING_MESSAGE);
           gmail_fld.setText(null);
-          //checks if address contain
+          // checks if address contain
         } else if (address.matches("^\\d+$")) {
-          JOptionPane.showMessageDialog(null, "Address can not contain only number", "Error",
-              JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(
+              null, "Address can not contain only number", "Error", JOptionPane.WARNING_MESSAGE);
           address_fld.setText(null);
         } else {
 
@@ -357,8 +373,17 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
                 printWriter.close();
               }
               // Write check-in data to the check-in file
-              WriteCheckinData(nationality, gmail, address, chkindate, cost, gender, roomNo_B, file,
-                  fullName, MobileNumber);
+              WriteCheckinData(
+                  nationality,
+                  gmail,
+                  address,
+                  chkindate,
+                  cost,
+                  gender,
+                  roomNo_B,
+                  file,
+                  fullName,
+                  MobileNumber);
 
               try {
                 // Input room number to search for
@@ -396,7 +421,8 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
                   boolean Rename = tempFile.renameTo(originalFile);
                   if (Rename) {
                     System.out.println(
-                        "The temporary file has been successfully replaced with the original file.");
+                        "The temporary file has been successfully replaced with the original"
+                            + " file.");
                   } else {
                     System.out.println(
                         "Failed to replace the original file with the temporary file.");
@@ -409,8 +435,11 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
               }
 
               // Display check-in success message
-              JOptionPane.showMessageDialog(null, "Congratulation Check In successful",
-                  "Congratulation", JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.showMessageDialog(
+                  null,
+                  "Congratulation Check In successful",
+                  "Congratulation",
+                  JOptionPane.INFORMATION_MESSAGE);
               System.out.println("Check in done successfully");
 
               // Clear input fields
@@ -432,8 +461,8 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
         }
       } else {
         // Display an error message if any of the boxes are empty
-        JOptionPane.showMessageDialog(null, "Please Fill all the box", "Error",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Please Fill all the box", "Error", JOptionPane.WARNING_MESSAGE);
       }
     } else if (e.getSource() == roomType_Box) {
       // Retrieve room details based on the selected room type
@@ -464,7 +493,5 @@ public class UCheckIn extends ShowRoom implements ActionListener, myInterface.Wr
         ex.printStackTrace();
       }
     }
-
-
   }
 }

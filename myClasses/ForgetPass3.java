@@ -1,6 +1,5 @@
 package myClasses;
 
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -107,8 +106,8 @@ public class ForgetPass3 extends JFrame implements ActionListener {
     confirmPass.setOpaque(false);
     confirmPass.setForeground(new Color(219, 226, 233));
     confirmPass.setBorder(BorderFactory.createEmptyBorder());
-    Border confirmPassBorder = BorderFactory.createMatteBorder(0, 0, 2, 0,
-        new Color(128, 128, 128));
+    Border confirmPassBorder =
+        BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(128, 128, 128));
     confirmPass.setBorder(confirmPassBorder);
     confirmPass.setVisible(true);
     confirmPass.setEchoChar('*');
@@ -160,7 +159,6 @@ public class ForgetPass3 extends JFrame implements ActionListener {
     try {
       img = ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/Forget3.png")));
 
-
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -182,8 +180,12 @@ public class ForgetPass3 extends JFrame implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == next3Button) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure You Want to Change Password?",
-          "Alert!", JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null,
+              "Are you sure You Want to Change Password?",
+              "Alert!",
+              JOptionPane.YES_NO_OPTION);
 
       if (yesORno == JOptionPane.YES_OPTION) {
 
@@ -205,12 +207,12 @@ public class ForgetPass3 extends JFrame implements ActionListener {
 
           // Check for empty passwords
           if (newpass3 || confpass3) {
-            JOptionPane.showMessageDialog(null, "Enter password", "Error",
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(
+                null, "Enter password", "Error", JOptionPane.WARNING_MESSAGE);
           } else if (!check) {
             // Check if passwords match
-            JOptionPane.showMessageDialog(null, "Password not matching", "Error",
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(
+                null, "Password not matching", "Error", JOptionPane.WARNING_MESSAGE);
           } else {
             String tempfile = "./files/temp.txt";
             File oldFile = new File("./files/user_login.txt");
@@ -255,17 +257,16 @@ public class ForgetPass3 extends JFrame implements ActionListener {
             this.setVisible(false);
             System.out.println("Exited from ForgetPass3 class");
             new Login();
-
           }
         } catch (Exception ex) {
           ex.printStackTrace();
-
         }
       }
 
     } else if (e.getSource() == exitButton) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == 0) {
         System.out.println("Exited from ForgetPass3 class");
@@ -293,7 +294,5 @@ public class ForgetPass3 extends JFrame implements ActionListener {
         newPass.setEchoChar('*'); // Hide the text entered in newPass with asterisks
       }
     }
-
   }
-
 }

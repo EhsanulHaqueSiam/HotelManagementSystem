@@ -20,15 +20,14 @@ import myInterface.ConfirmPayment;
  */
 public class BkashPayment extends JFrame implements ActionListener, ConfirmPayment {
 
-  final JLabel bkash_lbl;          // Label to display Bkash logo
-  final JTextField num_fld;       // Text field for entering the mobile number
-  final JButton back_btn;         // Button for navigating back
-  final JButton next_btn;        // Button for proceeding to the next step
+  final JLabel bkash_lbl; // Label to display Bkash logo
+  final JTextField num_fld; // Text field for entering the mobile number
+  final JButton back_btn; // Button for navigating back
+  final JButton next_btn; // Button for proceeding to the next step
   final JPasswordField pass_fld; // Password field for entering the PIN
 
   /**
-   * The constructor of the BkashPayment class.
-   * It initializes the JFrame and adds components to it.
+   * The constructor of the BkashPayment class. It initializes the JFrame and adds components to it.
    */
   BkashPayment() {
     System.out.println("Currently in BkashPayment class");
@@ -88,8 +87,8 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
   }
 
   /**
-   * This method is invoked when an action is performed on a component.
-   * It handles the button clicks for the back and next buttons.
+   * This method is invoked when an action is performed on a component. It handles the button clicks
+   * for the back and next buttons.
    *
    * @param ae The ActionEvent that occurred.
    */
@@ -109,23 +108,26 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
       boolean isPinEmpty = Pin.isEmpty();
       // Call confirmPayment method with input values and current instance
       confirmPayment(isMobileNumberEmpty, isPinEmpty, this, num_fld, pass_fld);
-
     }
   }
 
   /**
-   * This method confirms the payment for a hotel stay.
-   * It is implemented from the ConfirmPayment interface.
+   * This method confirms the payment for a hotel stay. It is implemented from the ConfirmPayment
+   * interface.
    *
    * @param isMobileNumberEmpty true if the mobile number is empty, false otherwise
-   * @param isPinEmpty          true if the PIN is empty, false otherwise
-   * @param paymentFrame        the JFrame object representing the payment frame
-   * @param number              the number field representing the mobile number
-   * @param password            the password field representing the PIN
+   * @param isPinEmpty true if the PIN is empty, false otherwise
+   * @param paymentFrame the JFrame object representing the payment frame
+   * @param number the number field representing the mobile number
+   * @param password the password field representing the PIN
    */
   @Override
-  public void confirmPayment(boolean isMobileNumberEmpty, boolean isPinEmpty, JFrame paymentFrame,
-      JTextField number, JPasswordField password) {
+  public void confirmPayment(
+      boolean isMobileNumberEmpty,
+      boolean isPinEmpty,
+      JFrame paymentFrame,
+      JTextField number,
+      JPasswordField password) {
     System.out.println("confirmPayment function called");
     if (isMobileNumberEmpty) {
       JOptionPane.showMessageDialog(null, "Invalid Phone number ");
@@ -148,10 +150,10 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
   }
 
   /**
-   * This method validates if the input values in the number and password fields consist only of digits.
-   * It is implemented from the ConfirmPayment interface.
+   * This method validates if the input values in the number and password fields consist only of
+   * digits. It is implemented from the ConfirmPayment interface.
    *
-   * @param number   the number field representing the mobile number
+   * @param number the number field representing the mobile number
    * @param password the password field representing the PIN
    * @return true if the input values consist only of digits, false otherwise
    */
@@ -178,16 +180,25 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
       }
     }
     if (!n && !p) {
-      JOptionPane.showMessageDialog(null, "Phone number and Pin number cannot contain characters",
-          "Input error", JOptionPane.WARNING_MESSAGE);
+      JOptionPane.showMessageDialog(
+          null,
+          "Phone number and Pin number cannot contain characters",
+          "Input error",
+          JOptionPane.WARNING_MESSAGE);
       return false;
     } else if (!n) {
-      JOptionPane.showMessageDialog(null, "Phone Number cannot contain characters",
-          "Phone number error", JOptionPane.WARNING_MESSAGE);
+      JOptionPane.showMessageDialog(
+          null,
+          "Phone Number cannot contain characters",
+          "Phone number error",
+          JOptionPane.WARNING_MESSAGE);
       return false;
     } else if (!p) {
-      JOptionPane.showMessageDialog(null, "Pin number cannot contain characters",
-          "Pin number error", JOptionPane.WARNING_MESSAGE);
+      JOptionPane.showMessageDialog(
+          null,
+          "Pin number cannot contain characters",
+          "Pin number error",
+          JOptionPane.WARNING_MESSAGE);
       return false;
     }
     System.out.println("inputValtidation funtion executed successfully");
@@ -195,10 +206,10 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
   }
 
   /**
-   * This method checks the length of the input values in the number and password fields.
-   * It is implemented from the ConfirmPayment interface.
+   * This method checks the length of the input values in the number and password fields. It is
+   * implemented from the ConfirmPayment interface.
    *
-   * @param number   the number field representing the mobile number
+   * @param number the number field representing the mobile number
    * @param password the password field representing the PIN
    * @return true if the length of the input values is valid, false otherwise
    */
@@ -209,17 +220,26 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
     String passText = String.valueOf(password.getPassword());
 
     if (numberText.length() != 11 && passText.length() != 4) {
-      JOptionPane.showMessageDialog(null,
-          "Phone number must contain exactly 11 digits and PIN number must contain exactly 4 digits",
-          "Length error", JOptionPane.WARNING_MESSAGE);
+      JOptionPane.showMessageDialog(
+          null,
+          "Phone number must contain exactly 11 digits and PIN number must contain exactly 4"
+              + " digits",
+          "Length error",
+          JOptionPane.WARNING_MESSAGE);
       return false;
     } else if (numberText.length() != 11) {
-      JOptionPane.showMessageDialog(null, "Phone number must contain exactly 11 digits",
-          "Length error", JOptionPane.WARNING_MESSAGE);
+      JOptionPane.showMessageDialog(
+          null,
+          "Phone number must contain exactly 11 digits",
+          "Length error",
+          JOptionPane.WARNING_MESSAGE);
       return false;
     } else if (passText.length() != 4) {
-      JOptionPane.showMessageDialog(null, "PIN number must contain exactly 4 digits",
-          "Length error", JOptionPane.WARNING_MESSAGE);
+      JOptionPane.showMessageDialog(
+          null,
+          "PIN number must contain exactly 4 digits",
+          "Length error",
+          JOptionPane.WARNING_MESSAGE);
       return false;
     }
 

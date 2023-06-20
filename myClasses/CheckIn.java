@@ -46,7 +46,6 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
   private final JButton clear_btn;
   private final JButton logOut_Btn;
 
-
   public String roomNo;
 
   public CheckIn() {
@@ -121,7 +120,7 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
     contentPane.add(gmail_fld);
 
     gender_Box = new JComboBox<>();
-    gender_Box.setModel(new DefaultComboBoxModel<>(new String[]{"Male", "Female", "Others"}));
+    gender_Box.setModel(new DefaultComboBoxModel<>(new String[] {"Male", "Female", "Others"}));
     gender_Box.setBounds(10, 342, 76, 22);
     contentPane.add(gender_Box);
 
@@ -176,7 +175,7 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
     contentPane.add(cost_lbl);
 
     bed_Box = new JComboBox<>();
-    bed_Box.setModel(new DefaultComboBoxModel<>(new String[]{"Single", "Double", "Triple"}));
+    bed_Box.setModel(new DefaultComboBoxModel<>(new String[] {"Single", "Double", "Triple"}));
     bed_Box.setBounds(650, 108, 133, 22);
     bed_Box.addActionListener(this);
     contentPane.add(bed_Box);
@@ -187,7 +186,7 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
     contentPane.add(cost_fld);
 
     roomType_Box = new JComboBox<>();
-    roomType_Box.setModel(new DefaultComboBoxModel<>(new String[]{"AC", "Non-Ac"}));
+    roomType_Box.setModel(new DefaultComboBoxModel<>(new String[] {"AC", "Non-Ac"}));
     roomType_Box.setBounds(650, 186, 133, 22);
     roomType_Box.addActionListener(this);
     contentPane.add(roomType_Box);
@@ -227,7 +226,6 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
     logOut_Btn.addActionListener(this);
 
     frame.setVisible(true);
-
   }
 
   @Override
@@ -258,8 +256,9 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
       new DashBoard();
     } else if (e.getSource() == logOut_Btn) {
       // Prompt for confirmation and logout if confirmed
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == JOptionPane.YES_OPTION) {
         // Logout and show the login screen
@@ -280,29 +279,36 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
       roomType_Box.setSelectedIndex(0);
       System.out.println("All data cleared from Text Field and Combo Box set to Default");
     } else if (e.getSource() == confirm_btn) {
-      if (!isNameFieldEmpty && !isMobileNumberFieldEmpty && !isNationalityFieldEmpty
-          && !isGmailEmpty && !isAddressEmpty && !isCheckinDateEmptyField && !isCostFieldEmpty) {
+      if (!isNameFieldEmpty
+          && !isMobileNumberFieldEmpty
+          && !isNationalityFieldEmpty
+          && !isGmailEmpty
+          && !isAddressEmpty
+          && !isCheckinDateEmptyField
+          && !isCostFieldEmpty) {
 
-        //Checks if Nationality contains numbers or special character
+        // Checks if Nationality contains numbers or special character
         if (!nationality.matches("[a-zA-Z]+")) {
-          JOptionPane.showMessageDialog(null,
-              "Nationality cannot contain numbers or special character", "Error",
+          JOptionPane.showMessageDialog(
+              null,
+              "Nationality cannot contain numbers or special character",
+              "Error",
               JOptionPane.WARNING_MESSAGE);
           nationality_fld.setText(null);
-          //checks if gmail contains @ and .com
+          // checks if gmail contains @ and .com
         } else if (!(gmail.contains("@") && gmail.contains(".com"))) {
-          JOptionPane.showMessageDialog(null, "Gmail must contain @ and .com", "Error",
-              JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(
+              null, "Gmail must contain @ and .com", "Error", JOptionPane.WARNING_MESSAGE);
           gmail_fld.setText(null);
-          //checks if address contain
+          // checks if address contain
         } else if (address.matches("^\\d+$")) {
-          JOptionPane.showMessageDialog(null, "Address can not contain only number", "Error",
-              JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(
+              null, "Address can not contain only number", "Error", JOptionPane.WARNING_MESSAGE);
           address_fld.setText(null);
-          //checks if the mobile number is valid
+          // checks if the mobile number is valid
         } else if (!(mobileNumber.length() == 11 && mobileNumber.matches("\\d+"))) {
-          JOptionPane.showMessageDialog(null, "mobile number must be only 11 digit", "Error",
-              JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(
+              null, "mobile number must be only 11 digit", "Error", JOptionPane.WARNING_MESSAGE);
         } else {
           try {
             String CheckinFilePath = "./files/checkIn.txt";
@@ -325,8 +331,17 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
                 System.out.println("File already exists.");
               }
               // Write check-in data to the file
-              WriteCheckinData(nationality, gmail, address, checkindate, cost, gender, roomNo_B,
-                  file, name, mobileNumber);
+              WriteCheckinData(
+                  nationality,
+                  gmail,
+                  address,
+                  checkindate,
+                  cost,
+                  gender,
+                  roomNo_B,
+                  file,
+                  name,
+                  mobileNumber);
 
               try {
                 // Input room number to search for
@@ -381,8 +396,11 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
                 ex.printStackTrace();
               }
 
-              JOptionPane.showMessageDialog(null, "Congratulation Check In successfully",
-                  "Congratulation", JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.showMessageDialog(
+                  null,
+                  "Congratulation Check In successfully",
+                  "Congratulation",
+                  JOptionPane.INFORMATION_MESSAGE);
               System.out.println("Check in done successfully");
               // Clearing the input fields
               name_field.setText(null);
@@ -402,11 +420,10 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
           } catch (Exception ex) {
             ex.printStackTrace();
           }
-
         }
       } else {
-        JOptionPane.showMessageDialog(null, "Please Fill all the box", "Error",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Please Fill all the box", "Error", JOptionPane.WARNING_MESSAGE);
       }
     } else if (e.getSource() == roomType_Box) {
       // Update room details based on selected room type
@@ -437,27 +454,35 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
         ex.printStackTrace();
       }
     }
-
   }
 
   /**
    * Writes check-in data to a file in the hotel management system.
    *
-   * @param nationality  The nationality of the guest.
-   * @param gmail        The guest's Gmail address.
-   * @param address      The guest's address.
-   * @param CheckInDate  The date of check-in.
-   * @param cost         The cost of the booking.
-   * @param gender       The gender of the guest.
-   * @param roomNo_B     The room number or identifier.
-   * @param file         The file to write the check-in data to.
-   * @param fullName     The full name of the guest.
+   * @param nationality The nationality of the guest.
+   * @param gmail The guest's Gmail address.
+   * @param address The guest's address.
+   * @param CheckInDate The date of check-in.
+   * @param cost The cost of the booking.
+   * @param gender The gender of the guest.
+   * @param roomNo_B The room number or identifier.
+   * @param file The file to write the check-in data to.
+   * @param fullName The full name of the guest.
    * @param mobileNumber The guest's mobile number.
    * @throws IOException If an I/O error occurs while writing the data to the file.
    */
   @Override
-  public void WriteCheckinData(String nationality, String gmail, String address, String CheckInDate,
-      String cost, String gender, String roomNo_B, File file, String fullName, String mobileNumber)
+  public void WriteCheckinData(
+      String nationality,
+      String gmail,
+      String address,
+      String CheckInDate,
+      String cost,
+      String gender,
+      String roomNo_B,
+      File file,
+      String fullName,
+      String mobileNumber)
       throws IOException {
     System.out.println("WriteCheckinData funtion called");
     FileWriter fileWriter = new FileWriter(file, true);
@@ -481,6 +506,4 @@ public class CheckIn extends ShowRoom implements ActionListener, myInterface.Wri
     System.out.println("WriteCheckinData funtion executed successfully");
     System.out.println("New checkIn data stored successfully");
   }
-
-
 }

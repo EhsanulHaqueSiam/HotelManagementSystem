@@ -70,12 +70,15 @@ public class UDashBoard extends JFrame implements ActionListener {
     BufferedImage checkOut = null;
     BufferedImage profile = null;
     try {
-      checkIn = ImageIO.read(
-          Objects.requireNonNull(UDashBoard.class.getResource("../images/UserCheckIn.png")));
-      checkOut = ImageIO.read(
-          Objects.requireNonNull(UDashBoard.class.getResource("../images/UserCheckOut.png")));
-      profile = ImageIO.read(
-          Objects.requireNonNull(UDashBoard.class.getResource("../images/UserProfile3.png")));
+      checkIn =
+          ImageIO.read(
+              Objects.requireNonNull(UDashBoard.class.getResource("../images/UserCheckIn.png")));
+      checkOut =
+          ImageIO.read(
+              Objects.requireNonNull(UDashBoard.class.getResource("../images/UserCheckOut.png")));
+      profile =
+          ImageIO.read(
+              Objects.requireNonNull(UDashBoard.class.getResource("../images/UserProfile3.png")));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -83,24 +86,27 @@ public class UDashBoard extends JFrame implements ActionListener {
     checkIn_btn = new JButton("CheckButton");
     checkIn_btn.setBounds(109, 162, 170, 170);
     assert checkIn != null : "The 'UserCheckIn.png' image could not be loaded";
-    Image chkIn = checkIn.getScaledInstance(checkIn_btn.getWidth(), checkIn_btn.getHeight(),
-        Image.SCALE_SMOOTH);
+    Image chkIn =
+        checkIn.getScaledInstance(
+            checkIn_btn.getWidth(), checkIn_btn.getHeight(), Image.SCALE_SMOOTH);
     checkIn_btn.setIcon(new ImageIcon(chkIn));
     contentPane.add(checkIn_btn);
 
     profile_btn = new JButton("Profile");
     profile_btn.setBounds(408, 162, 170, 170);
     assert profile != null : "The 'UserProfile3.png' image could not be loaded";
-    Image profileScaledInstance = profile.getScaledInstance(checkIn_btn.getWidth(),
-        checkIn_btn.getHeight(), Image.SCALE_SMOOTH);
+    Image profileScaledInstance =
+        profile.getScaledInstance(
+            checkIn_btn.getWidth(), checkIn_btn.getHeight(), Image.SCALE_SMOOTH);
     profile_btn.setIcon(new ImageIcon(profileScaledInstance));
     contentPane.add(profile_btn);
 
     checkOut_btn = new JButton("checkOut");
     checkOut_btn.setBounds(695, 162, 170, 170);
     assert checkOut != null : "The 'UserCheckOut.png' image could not be loaded";
-    Image chkOut = checkOut.getScaledInstance(checkOut_btn.getWidth(), checkOut_btn.getHeight(),
-        Image.SCALE_SMOOTH);
+    Image chkOut =
+        checkOut.getScaledInstance(
+            checkOut_btn.getWidth(), checkOut_btn.getHeight(), Image.SCALE_SMOOTH);
     checkOut_btn.setIcon(new ImageIcon(chkOut));
     contentPane.add(checkOut_btn);
 
@@ -153,16 +159,15 @@ public class UDashBoard extends JFrame implements ActionListener {
       System.out.println("Exited from UDashBoard class");
       new UCheckOut();
     } else if (e.getSource() == logoutBtn) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == JOptionPane.YES_OPTION) {
         setVisible(false);
         System.out.println("Exited from UDashBoard class");
         new Login();
       }
-
     }
-
   }
 }

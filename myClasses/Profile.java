@@ -69,8 +69,8 @@ public class Profile extends JFrame implements ActionListener {
 
     BufferedImage ImgLabel = null;
     try {
-      ImgLabel = ImageIO.read(
-          Objects.requireNonNull(Profile.class.getResource("../images/profile.png")));
+      ImgLabel =
+          ImageIO.read(Objects.requireNonNull(Profile.class.getResource("../images/profile.png")));
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -132,8 +132,9 @@ public class Profile extends JFrame implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == logoutButton) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == JOptionPane.YES_OPTION) {
         this.setVisible(false);
@@ -149,13 +150,13 @@ public class Profile extends JFrame implements ActionListener {
       System.out.println("Exited from Profile class");
       new UDashBoard();
     } else if (e.getSource() == exitButton) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Do you want to exit ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Do you want to exit ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == 0) {
         System.exit(1);
       }
     }
-
   }
 }

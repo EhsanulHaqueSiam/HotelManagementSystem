@@ -1,5 +1,5 @@
 package myInterface;
 
 public interface CheckOutRoomSearch {
-    void deleteRoomEntry();
+  void deleteRoomEntry();
 }

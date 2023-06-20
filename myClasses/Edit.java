@@ -68,8 +68,8 @@ public class Edit extends JFrame implements ActionListener {
 
     BufferedImage ImgLabel = null;
     try {
-      ImgLabel = ImageIO.read(
-          Objects.requireNonNull(Profile.class.getResource("../images/profile.png")));
+      ImgLabel =
+          ImageIO.read(Objects.requireNonNull(Profile.class.getResource("../images/profile.png")));
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -263,8 +263,9 @@ public class Edit extends JFrame implements ActionListener {
     boolean emptyName;
 
     if (e.getSource() == logoutButton) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == JOptionPane.YES_OPTION) {
         this.setVisible(false);
@@ -272,8 +273,9 @@ public class Edit extends JFrame implements ActionListener {
         new Login();
       }
     } else if (e.getSource() == exitButton) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Do you want to exit ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Do you want to exit ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == 0) {
         System.out.println("Exited from Edit class");
@@ -341,7 +343,8 @@ public class Edit extends JFrame implements ActionListener {
       newPhoneNumber = phoneField.getText(); // Store the entered phone number
     } else if (e.getSource() == backButton) {
       if (check
-          == 0) { // If check is 0, Hide the current window and Create and display a new Profile window
+          == 0) { // If check is 0, Hide the current window and Create and display a new Profile
+                  // window
         this.setVisible(false);
         System.out.println("Exited from Edit class");
         new Profile();
@@ -367,8 +370,7 @@ public class Edit extends JFrame implements ActionListener {
         userField.setVisible(false);
         phoneField.setVisible(false);
 
-        check = 0;// Reset the value of check
-
+        check = 0; // Reset the value of check
       }
     } else if (e.getSource() == confirmButton1) {
       // Retrieve the entered name from the text field
@@ -378,12 +380,15 @@ public class Edit extends JFrame implements ActionListener {
 
       if (emptyName) {
         // Display a warning message if the name field is empty
-        JOptionPane.showMessageDialog(null, "Enter your name", " Error!",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Enter your name", " Error!", JOptionPane.WARNING_MESSAGE);
       } else if (!isValidFullname(newPhoneNumber)) {
         // Display an error message for invalid Fullname
-        JOptionPane.showMessageDialog(null, "Invalid fullname. Please enter a valid fullname.",
-            "Error!", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null,
+            "Invalid fullname. Please enter a valid fullname.",
+            "Error!",
+            JOptionPane.WARNING_MESSAGE);
       } else {
         // Construct a new name string
         newName = "Full Name : " + newPhoneNumber;
@@ -429,7 +434,6 @@ public class Edit extends JFrame implements ActionListener {
               printWriter2.println(currentLine); // Write the original line
             }
             l++;
-
           }
           printWriter2.flush();
           printWriter2.close();
@@ -454,7 +458,7 @@ public class Edit extends JFrame implements ActionListener {
         }
 
         String oldName = Login.fullName.replace("Full Name : ", ""); // Store Old Name
-        //Assign the new Full name
+        // Assign the new Full name
         Login.fullName = newName;
 
         try {
@@ -508,7 +512,6 @@ public class Edit extends JFrame implements ActionListener {
                   pntWrite2.println(cLine2); // Write the existing line to the temporary file
                 }
                 line2++;
-
               }
               System.out.println("Orginal file copied to temp file");
               // Close the file readers and writers
@@ -547,15 +550,13 @@ public class Edit extends JFrame implements ActionListener {
           sourceFile.renameTo(destinationFile);
           System.out.println("temp file renamed");
 
-
         } catch (Exception ex) {
           ex.printStackTrace();
         }
 
-        //Assign the new Full name
+        // Assign the new Full name
         Login.fullName = newName;
       }
-
 
     } else if (e.getSource() == confirmButton2) {
       newPhoneNumber = userField.getText();
@@ -563,10 +564,10 @@ public class Edit extends JFrame implements ActionListener {
       emptyName = newPhoneNumber.isEmpty();
 
       if (emptyName) {
-        JOptionPane.showMessageDialog(null, "Enter new user name", " Error!",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Enter new user name", " Error!", JOptionPane.WARNING_MESSAGE);
       } else {
-        newName = "User Name : " + newPhoneNumber; //Get the new Username
+        newName = "User Name : " + newPhoneNumber; // Get the new Username
 
         try {
           // Count total lines in user_login.txt
@@ -666,8 +667,8 @@ public class Edit extends JFrame implements ActionListener {
             new Profile();
           } else {
             // Display error message if username already exists
-            JOptionPane.showMessageDialog(null, "User name already exist", " Error!",
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(
+                null, "User name already exist", " Error!", JOptionPane.WARNING_MESSAGE);
           }
 
         } catch (Exception ex) {
@@ -692,12 +693,12 @@ public class Edit extends JFrame implements ActionListener {
 
       if (emptyName) {
         // Display a warning message if the input is empty
-        JOptionPane.showMessageDialog(null, "Enter new phone number", " Error!",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Enter new phone number", " Error!", JOptionPane.WARNING_MESSAGE);
       } else if (numcount > 0) {
         // Display a warning message if the phone number is invalid
-        JOptionPane.showMessageDialog(null, "Invalid Phone Number", " Error!",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Invalid Phone Number", " Error!", JOptionPane.WARNING_MESSAGE);
       } else {
         newNumber = "Phone : " + newPhoneNumber;
 
@@ -735,7 +736,8 @@ public class Edit extends JFrame implements ActionListener {
           BufferedReader br = new BufferedReader(fr);
 
           int l = 0;
-          // Copy the lines from user_login.txt to temp3.txt, replacing the target line with the new name
+          // Copy the lines from user_login.txt to temp3.txt, replacing the target line with the new
+          // name
           while ((currentline = br.readLine()) != null) {
             if (target == l) {
               printWriter2.println(newNumber); // Write modified phone number to the temporary file
@@ -743,7 +745,6 @@ public class Edit extends JFrame implements ActionListener {
               printWriter2.println(currentline);
             }
             l++;
-
           }
           printWriter2.flush();
           printWriter2.close();
@@ -766,7 +767,4 @@ public class Edit extends JFrame implements ActionListener {
       }
     }
   }
-
 }
-
-

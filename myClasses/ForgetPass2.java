@@ -106,15 +106,15 @@ public class ForgetPass2 extends JFrame implements ActionListener {
     imgLabel.setBounds(10, 105, 453, 343);
     BufferedImage imgForget = null;
     try {
-      imgForget = ImageIO.read(
-          Objects.requireNonNull(Login.class.getResource("../images/Forget2.png")));
+      imgForget =
+          ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/Forget2.png")));
 
     } catch (IOException e) {
       e.printStackTrace();
     }
     assert imgForget != null : "The 'Forget2' image could not be loaded";
-    Image imgFORGET = imgForget.getScaledInstance(imgLabel.getWidth(), imgLabel.getHeight(),
-        Image.SCALE_SMOOTH);
+    Image imgFORGET =
+        imgForget.getScaledInstance(imgLabel.getWidth(), imgLabel.getHeight(), Image.SCALE_SMOOTH);
     imgLabel.setIcon(new ImageIcon(imgFORGET));
     contentPane.add(imgLabel);
 
@@ -129,24 +129,28 @@ public class ForgetPass2 extends JFrame implements ActionListener {
     exitButton.addActionListener(this);
 
     this.setVisible(true);
-
   }
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    String user = "Phone : "
-        + phoneField.getText();// Get the value of the phoneField and format it as "Phone : {phone number}"
-    String user1 = phoneField.getText();// Get the value of the phoneField
-    boolean userEmpty = user1.isEmpty();// Check if the phoneField is empty
-    boolean isFound = false;// Initialize a boolean variable to keep track of whether the user's phone number is found
+    String user =
+        "Phone : "
+            + phoneField
+                .getText(); // Get the value of the phoneField and format it as "Phone : {phone
+                            // number}"
+    String user1 = phoneField.getText(); // Get the value of the phoneField
+    boolean userEmpty = user1.isEmpty(); // Check if the phoneField is empty
+    boolean isFound =
+        false; // Initialize a boolean variable to keep track of whether the user's phone number is
+               // found
 
     // Check which button was clicked
     if (e.getSource() == next2Button) {
       try {
         if (userEmpty) {
           // Show a warning message if the phoneField is empty
-          JOptionPane.showMessageDialog(null, "Enter phone number", "Error",
-              JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(
+              null, "Enter phone number", "Error", JOptionPane.WARNING_MESSAGE);
 
         } else {
           // Calculate the line number to read from the file
@@ -163,40 +167,40 @@ public class ForgetPass2 extends JFrame implements ActionListener {
           if (!isFound) {
             // Show a warning message if the phone number is not found in the file
             System.out.println("User phonenumber not found");
-            JOptionPane.showMessageDialog(null, "Phone number not found!", "Error",
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(
+                null, "Phone number not found!", "Error", JOptionPane.WARNING_MESSAGE);
           } else {
-            this.setVisible(false);// Hide the current frame and show the ForgetPass3 frame
+            this.setVisible(false); // Hide the current frame and show the ForgetPass3 frame
             System.out.println("Exited from ForgetPass2 class");
             new ForgetPass3();
           }
           readFile.close();
-
         }
 
       } catch (
-          Exception ex) {// Show a warning message if an exception occurs while reading from the file
+          Exception
+              ex) { // Show a warning message if an exception occurs while reading from the file
         System.out.println("User phone number not found error in file");
-        JOptionPane.showMessageDialog(null, "Phone number not found!", "Error",
-            JOptionPane.WARNING_MESSAGE);
-
+        JOptionPane.showMessageDialog(
+            null, "Phone number not found!", "Error", JOptionPane.WARNING_MESSAGE);
       }
     } else if (e.getSource()
-        == exitButton) {// Show a confirmation dialog before exiting the program
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+        == exitButton) { // Show a confirmation dialog before exiting the program
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == 0) {
-        //If Yes then exit from the project
+        // If Yes then exit from the project
         System.out.println("Exited from ForgetPass2 class");
         System.out.println("Exited from the Project");
         System.exit(1);
       }
-    } else if (e.getSource() == backButton) {// Hide the current frame and show the ForgetPass frame
+    } else if (e.getSource()
+        == backButton) { // Hide the current frame and show the ForgetPass frame
       this.setVisible(false);
       System.out.println("Exited from ForgetPass2 class");
       new ForgetPass();
     }
-
   }
 }

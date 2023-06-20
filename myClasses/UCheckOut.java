@@ -30,8 +30,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-public class UCheckOut extends JFrame implements ActionListener, myInterface.CheckOutRoomSearch,
-    myInterface.CustomerDataEntry {
+public class UCheckOut extends JFrame
+    implements ActionListener, myInterface.CheckOutRoomSearch, myInterface.CustomerDataEntry {
 
   final String nameLogin = Login.fullName.replace("Full Name : ", "");
   private final JTable table;
@@ -43,12 +43,14 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
   private final JTextField dayStay_fld;
   private final JTextField totalAmount_fld;
   private final JTextField email_fld;
-  private final JComboBox<String> roomNum_combo; // Create a JComboBox for selecting Room Number (using String as the data type for options)
+  private final JComboBox<String>
+      roomNum_combo; // Create a JComboBox for selecting Room Number (using String as the data type
+                     // for options)
   private final JButton logOut_btn;
   private final JButton back_btn;
   private final JButton checkOut_btn;
   private final JButton clear_btn;
-  //private final JButton search_btn;
+  // private final JButton search_btn;
   String name;
   String MobileNumber;
   String nationality;
@@ -61,7 +63,6 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
   String bed;
   String roomPrice;
   private DefaultTableModel model;
-
 
   public UCheckOut() {
     System.out.println("Currently in UcheckOut class");
@@ -106,15 +107,28 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
     table = new JTable();
     scrollPane.setViewportView(table);
 
-    model = new DefaultTableModel(new Object[][]{},
-        new String[]{"Name", "Mobile Number", "Nationality", "Gender", "Email", "Address",
-            "Check In Data", "Room Number", "Bed", "Room Type", "Price Per Day"}) {
-      @Override
-      public boolean isCellEditable(int row, int column) {
-        // Make all cells not editable
-        return false;
-      }
-    };
+    model =
+        new DefaultTableModel(
+            new Object[][] {},
+            new String[] {
+              "Name",
+              "Mobile Number",
+              "Nationality",
+              "Gender",
+              "Email",
+              "Address",
+              "Check In Data",
+              "Room Number",
+              "Bed",
+              "Room Type",
+              "Price Per Day"
+            }) {
+          @Override
+          public boolean isCellEditable(int row, int column) {
+            // Make all cells not editable
+            return false;
+          }
+        };
 
     table.setEnabled(false);
     table.getTableHeader().setReorderingAllowed(false);
@@ -127,22 +141,30 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
     table.setEnabled(false);
 
     // Set custom background colors for alternate rows
-    table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-      @Override
-      public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-          boolean hasFocus, int row, int column) {
-        Component component = super.getTableCellRendererComponent(table, value, isSelected,
-            hasFocus, row, column);
-        if (row % 2 == 0) {
-          component.setBackground(new Color(230, 230, 230)); // Light gray for even rows
-        } else {
-          component.setBackground(Color.WHITE); // White for odd rows
-        }
-        return component;
-      }
-    });
+    table.setDefaultRenderer(
+        Object.class,
+        new DefaultTableCellRenderer() {
+          @Override
+          public Component getTableCellRendererComponent(
+              JTable table,
+              Object value,
+              boolean isSelected,
+              boolean hasFocus,
+              int row,
+              int column) {
+            Component component =
+                super.getTableCellRendererComponent(
+                    table, value, isSelected, hasFocus, row, column);
+            if (row % 2 == 0) {
+              component.setBackground(new Color(230, 230, 230)); // Light gray for even rows
+            } else {
+              component.setBackground(Color.WHITE); // White for odd rows
+            }
+            return component;
+          }
+        });
 
-// Customize table header names
+    // Customize table header names
     JTableHeader header = table.getTableHeader();
     header.setBackground(new Color(150, 150, 150)); // Dark gray for header background
     header.setForeground(Color.WHITE); // White text color for header
@@ -260,7 +282,7 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
     roomNum_combo.setBounds(303, 35, 151, 20);
     contentPane.add(roomNum_combo);
 
-    deleteRoomEntry(/*nameLogin, roomNum_combo*/);
+    deleteRoomEntry(/*nameLogin, roomNum_combo*/ );
     roomNum_combo.setSelectedIndex(-1);
 
     clear_btn = new JButton("Clear");
@@ -273,10 +295,9 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
     checkOut_btn.addActionListener(this);
     clear_btn.addActionListener(this);
     roomNum_combo.addActionListener(this);
-    //search_btn.addActionListener(this);
+    // search_btn.addActionListener(this);
 
     this.setVisible(true);
-
   }
 
   @Override
@@ -285,8 +306,9 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
     boolean roomexists = false; // Variable to track if a room exists
     if (e.getSource() == logOut_btn) {
       // Display confirmation dialog
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == JOptionPane.YES_OPTION) {
         setVisible(false);
@@ -308,15 +330,28 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
       email_fld.setText(null);
 
       // Create a new empty table model
-      model = new DefaultTableModel(new Object[][]{},
-          new String[]{"Name", "Mobile Number", "Nationality", "Gender", "Email", "Address",
-              "Check In Data", "Room Number", "Bed", "Room Type", "Price Per Day"}) {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-          // Make all cells not editable
-          return false;
-        }
-      };
+      model =
+          new DefaultTableModel(
+              new Object[][] {},
+              new String[] {
+                "Name",
+                "Mobile Number",
+                "Nationality",
+                "Gender",
+                "Email",
+                "Address",
+                "Check In Data",
+                "Room Number",
+                "Bed",
+                "Room Type",
+                "Price Per Day"
+              }) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+              // Make all cells not editable
+              return false;
+            }
+          };
 
       table.setModel(model); // Set the table model
       table.getColumnModel().getColumn(0).setPreferredWidth(80); // Set preferred width for column 0
@@ -325,12 +360,13 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
     } else if (e.getSource() == checkOut_btn) {
       // Check if a room is selected for checkout
       if (roomNum_combo.getSelectedIndex() == -1) {
-        JOptionPane.showMessageDialog(null, "No room selected to checkout", "Error",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "No room selected to checkout", "Error", JOptionPane.WARNING_MESSAGE);
       } else {
         // Ask for confirmation before proceeding with checkout
-        if (JOptionPane.showConfirmDialog(null, "Confirmation", "Are You Sure?",
-            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(
+                null, "Confirmation", "Are You Sure?", JOptionPane.YES_NO_OPTION)
+            == JOptionPane.YES_OPTION) {
 
           try {
             // Input room number to search for
@@ -381,7 +417,10 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
           } catch (Exception ex) {
             ex.printStackTrace();
           }
-          String roomNumToDelete = (String) roomNum_combo.getSelectedItem(); // change this to whatever room number you want to delete
+          String roomNumToDelete =
+              (String)
+                  roomNum_combo
+                      .getSelectedItem(); // change this to whatever room number you want to delete
 
           try {
             File inputFile = new File("./files/checkIn.txt");
@@ -395,8 +434,8 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
             int lineCounter = 0;
             while ((currentLine = reader.readLine()) != null) {
               lineCounter++;
-              assert roomNumToDelete
-                  != null : "The 'RoomNumberToDelete' variable Doesn't contain any value";
+              assert roomNumToDelete != null
+                  : "The 'RoomNumberToDelete' variable Doesn't contain any value";
               if (currentLine.contains(roomNumToDelete)) {
                 break;
                 // skip the lines that contain the room number to delete
@@ -415,7 +454,6 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
                 // write all other lines to the temp file
                 System.out.println("temp file updated");
                 writer.write(currentLine + System.getProperty("line.separator"));
-
               }
             }
 
@@ -446,15 +484,28 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
           roomNum_combo.setSelectedIndex(0);
 
           // Create a new table model for displaying customer information
-          model = new DefaultTableModel(new Object[][]{},
-              new String[]{"Name", "Mobile Number", "Nationality", "Gender", "Email", "Address",
-                  "Check In Data", "Room Number", "Bed", "Room Type", "Price Per Day"}) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-              // Make all cells not editable
-              return false;
-            }
-          };
+          model =
+              new DefaultTableModel(
+                  new Object[][] {},
+                  new String[] {
+                    "Name",
+                    "Mobile Number",
+                    "Nationality",
+                    "Gender",
+                    "Email",
+                    "Address",
+                    "Check In Data",
+                    "Room Number",
+                    "Bed",
+                    "Room Type",
+                    "Price Per Day"
+                  }) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                  // Make all cells not editable
+                  return false;
+                }
+              };
           // Set the table model for the table component
           table.setModel(model);
 
@@ -483,8 +534,8 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
       if (e.getSource() == roomNum_combo) {
         if (roomNum_combo.getSelectedIndex() == -1) {
           // Display a warning message if there are no rooms to check out
-          JOptionPane.showMessageDialog(null, "There is no room to checkout", "Error",
-              JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(
+              null, "There is no room to checkout", "Error", JOptionPane.WARNING_MESSAGE);
         } else {
           // Retrieve the selected room number
           String srch = (String) roomNum_combo.getSelectedItem();
@@ -516,10 +567,9 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
             getCustomerData();
           } else {
             // Display a warning message if the room is not found
-            JOptionPane.showMessageDialog(null, "room not found", "Error",
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(
+                null, "room not found", "Error", JOptionPane.WARNING_MESSAGE);
             roomNum_combo.setSelectedIndex(0);
-
           }
 
           // Calculate the number of days stayed
@@ -552,8 +602,6 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
           // Calculate and display the total amount
           float price = Float.parseFloat(pricePerDay_fld.getText());
           totalAmount_fld.setText(String.valueOf(noOfDayStay * price));
-
-
         }
       }
     }
@@ -571,7 +619,8 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
 
       while ((line1 = br1.readLine()) != null) {
         if (!line1.equals("Check In Details")) {
-          String[] rowData1 = new String[11]; // create an array with 11 elements to store customer data
+          String[] rowData1 =
+              new String[11]; // create an array with 11 elements to store customer data
           rowData1[0] = line1; // add the second element to the Room Number column
           for (int i = 1; i < 10; i++) {
             // read the next 9 lines and add the data to the corresponding column
@@ -583,9 +632,11 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
 
             while ((line2 = br2.readLine()) != null) {
               if (!line2.equals("Rooms Details")) {
-                String[] rowData2 = new String[6]; // create an array with 6 elements to store room data
+                String[] rowData2 =
+                    new String[6]; // create an array with 6 elements to store room data
                 rowData2[0] = line2;
-                for (int i = 1; i < 6;
+                for (int i = 1;
+                    i < 6;
                     i++) { // read the next 5 lines and add the data to the corresponding column
                   rowData2[i] = br2.readLine();
                 }
@@ -597,9 +648,7 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
                   roomPrice = rowData2[3];
                 }
               }
-
             }
-
 
           } catch (Exception ex) {
             ex.printStackTrace();
@@ -619,8 +668,19 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
         }
       }
       if (name != null) {
-        String[] data = {name, MobileNumber, nationality, gender, gmail, address, CheckInDate,
-            roomNo_B, bed, roomType, roomPrice};
+        String[] data = {
+          name,
+          MobileNumber,
+          nationality,
+          gender,
+          gmail,
+          address,
+          CheckInDate,
+          roomNo_B,
+          bed,
+          roomType,
+          roomPrice
+        };
         model.addRow(data);
       }
 
@@ -651,10 +711,10 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
 
           roomNums[i] = roomNum; // store it in the array
           i++; // increment the index of the array
-
         }
       }
-      for (int j = 0; j < i;
+      for (int j = 0;
+          j < i;
           j++) { // loop through the array and add the room numbers to the JComboBox
         roomNum_combo.addItem(roomNums[j]);
       }
@@ -663,5 +723,4 @@ public class UCheckOut extends JFrame implements ActionListener, myInterface.Che
     }
     System.out.println("deleteRoomEntry funtion executed successfully");
   }
-
 }

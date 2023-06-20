@@ -209,8 +209,8 @@ public class Signup extends JFrame implements ActionListener {
     // Load the login background image
     BufferedImage imgSignup = null;
     try {
-      imgSignup = ImageIO.read(
-          Objects.requireNonNull(Login.class.getResource("../images/signup.jpg")));
+      imgSignup =
+          ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/signup.jpg")));
 
     } catch (IOException e) {
       // If the image fails to load, print the error
@@ -249,7 +249,7 @@ public class Signup extends JFrame implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     // Get user input
-    String user = usernameField.getText();// Get username
+    String user = usernameField.getText(); // Get username
     String pass = String.valueOf(passwordField.getPassword()); // Get password
     String confpass = String.valueOf(confirmPassField.getPassword()); // Get confirmed password
     String name = fullField.getText(); // Get full name
@@ -278,24 +278,30 @@ public class Signup extends JFrame implements ActionListener {
     if (e.getSource() == signup) {
       if (userEmpty || passEmpty || confEmpty || nameEmpty || emailEmpty) {
         // Display an error message if any field is empty
-        JOptionPane.showMessageDialog(null, "Please fill all of the fields.", "Error!",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Please fill all of the fields.", "Error!", JOptionPane.WARNING_MESSAGE);
       } else if (!isValidFullname(name)) {
         // Display an error message for invalid Fullname
-        JOptionPane.showMessageDialog(null, "Invalid fullname. Please enter a valid fullname.",
-            "Error!", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null,
+            "Invalid fullname. Please enter a valid fullname.",
+            "Error!",
+            JOptionPane.WARNING_MESSAGE);
       } else if (!validateUsername(user)) {
         // Display an error message for invalid username
-        JOptionPane.showMessageDialog(null, "Invalid username. Please enter a valid username.",
-            "Error!", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null,
+            "Invalid username. Please enter a valid username.",
+            "Error!",
+            JOptionPane.WARNING_MESSAGE);
       } else if (numcount > 0) {
         // Display an error message for invalid phone number
-        JOptionPane.showMessageDialog(null, "Invalid Phone Number", " Error!",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Invalid Phone Number", " Error!", JOptionPane.WARNING_MESSAGE);
       } else if (!check) {
         // Display an error message if password doesn't match
-        JOptionPane.showMessageDialog(null, "Password is not matching", " Error!",
-            JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(
+            null, "Password is not matching", " Error!", JOptionPane.WARNING_MESSAGE);
       } else {
         try {
           File file = new File("./files/user_login.txt");
@@ -337,7 +343,8 @@ public class Signup extends JFrame implements ActionListener {
           boolean adminflag = false;
 
           // for user
-          for (int i = 0; i < totalLines;
+          for (int i = 0;
+              i < totalLines;
               i++) { // Check if the username already exists in User Login file
             String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
             if (line.equals("User Name : " + user)) {
@@ -348,7 +355,8 @@ public class Signup extends JFrame implements ActionListener {
           }
 
           // for admin
-          for (int i = 0; i < totalLines2;
+          for (int i = 0;
+              i < totalLines2;
               i++) { // Check if the username already exists in Admin Login file
             String line = Files.readAllLines(Paths.get("./files/admin_login.txt")).get(i);
             if (line.equals("User Name : " + user)) {
@@ -375,8 +383,8 @@ public class Signup extends JFrame implements ActionListener {
 
           } else {
             // Display a warning message if username is already taken
-            JOptionPane.showMessageDialog(null, "User name already taken", "Warning",
-                JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(
+                null, "User name already taken", "Warning", JOptionPane.WARNING_MESSAGE);
           }
 
           printWriter.close();
@@ -384,12 +392,11 @@ public class Signup extends JFrame implements ActionListener {
         } catch (Exception ex) {
           ex.printStackTrace();
         }
-
       }
 
     } else if (e.getSource() == EyeBtn) {
       if (EyeBtn.isSelected()) {
-        EyeBtn.setIcon(on);  // Set eye icon to "on"
+        EyeBtn.setIcon(on); // Set eye icon to "on"
         passwordField.setEchoChar((char) 0); // Show password characters
       } else {
         EyeBtn.setIcon(off); // Set eye icon to "off"
@@ -408,14 +415,14 @@ public class Signup extends JFrame implements ActionListener {
       System.out.println("Exited from Signup class");
       new Login();
     } else if (e.getSource() == exitButton) {
-      int yesORno = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Alert!",
-          JOptionPane.YES_NO_OPTION);
+      int yesORno =
+          JOptionPane.showConfirmDialog(
+              null, "Are you sure ?", "Alert!", JOptionPane.YES_NO_OPTION);
 
       if (yesORno == 0) {
         System.exit(1);
       }
     }
-
   }
 
   public boolean validateUsername(String username) {
@@ -426,7 +433,8 @@ public class Signup extends JFrame implements ActionListener {
     }
 
     // Check for symbols and allowed formats using regular expression
-    if (!username.matches("^[a-zA-Z0-9]+$") && !username.matches("^[a-zA-Z]+$")
+    if (!username.matches("^[a-zA-Z0-9]+$")
+        && !username.matches("^[a-zA-Z]+$")
         && !username.matches("^[a-zA-Z]+[0-9]+$")) {
       return false;
     }
@@ -438,6 +446,4 @@ public class Signup extends JFrame implements ActionListener {
 
     // Additional validation rules can be added here
   }
-
-
 }

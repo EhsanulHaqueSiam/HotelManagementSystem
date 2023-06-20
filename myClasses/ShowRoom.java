@@ -10,13 +10,16 @@ public class ShowRoom {
   /**
    * Retrieves room details based on selected criteria.
    *
-   * @param cost_fld     JTextField to display the room cost.
-   * @param bed_Box      JComboBox for selecting bed type.
+   * @param cost_fld JTextField to display the room cost.
+   * @param bed_Box JComboBox for selecting bed type.
    * @param roomType_Box JComboBox for selecting room type.
-   * @param roomNo_Box   JComboBox to populate available room numbers.
+   * @param roomNo_Box JComboBox to populate available room numbers.
    */
-  public void roomDetails(JTextField cost_fld, JComboBox<String> bed_Box,
-      JComboBox<String> roomType_Box, JComboBox<String> roomNo_Box) {
+  public void roomDetails(
+      JTextField cost_fld,
+      JComboBox<String> bed_Box,
+      JComboBox<String> roomType_Box,
+      JComboBox<String> roomNo_Box) {
 
     System.out.println("roomDetails Funtion called from Show room class");
     String bed = (String) bed_Box.getSelectedItem();
@@ -34,10 +37,10 @@ public class ShowRoom {
             // read the next 5 lines and add the data to the corresponding column
             rowData[i] = br.readLine();
           }
-          if (rowData[1].equals(roomtype) && rowData[2].equals(bed) && rowData[4].equals(
-              "Not Booked")) {
+          if (rowData[1].equals(roomtype)
+              && rowData[2].equals(bed)
+              && rowData[4].equals("Not Booked")) {
             roomNo_Box.addItem(rowData[0]); // add the room number to the combo
-
           }
         }
       }
