@@ -1,5 +1,5 @@
 package myInterface;
 
 public interface CustomerDataEntry {
-    void getCustomerData();
+  void getCustomerData();
 }

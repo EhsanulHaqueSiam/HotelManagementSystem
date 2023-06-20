@@ -14,7 +14,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import myInterface.ConfirmPayment;
 
-
 /**
  * The BkashPayment class represents a JFrame window for Bkash payment functionality. It implements
  * the ActionListener interface and uses the ConfirmPayment interface for confirming payments.

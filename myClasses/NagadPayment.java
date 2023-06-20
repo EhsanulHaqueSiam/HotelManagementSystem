@@ -13,7 +13,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import myInterface.ConfirmPayment;
 
-
 public class NagadPayment extends JFrame implements ActionListener, ConfirmPayment {
 
   final JLabel bkash_lbl;
@@ -81,9 +80,12 @@ public class NagadPayment extends JFrame implements ActionListener, ConfirmPayme
     } else if (ae.getSource() == next_btn) {
       boolean isMobileNumberEmpty = MobileNumber.isEmpty(); // Check if the mobile number is empty
       boolean isPinEmpty = Pin.isEmpty(); // Check if the PIN is empty
-      confirmPayment(isMobileNumberEmpty, isPinEmpty, this, num_fld,
+      confirmPayment(
+          isMobileNumberEmpty,
+          isPinEmpty,
+          this,
+          num_fld,
           pass_fld); // Call the confirmPayment method with the provided parameters
     }
   }
 }
-

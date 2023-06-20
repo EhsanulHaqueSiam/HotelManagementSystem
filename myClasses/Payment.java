@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
-
 public class Payment extends JFrame implements ActionListener {
 
     final JLabel payment_lbl;

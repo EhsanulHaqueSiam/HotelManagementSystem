@@ -30,7 +30,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-
 public class UCheckOut extends JFrame implements ActionListener, myInterface.CheckOutRoomSearch,
     myInterface.CustomerDataEntry {
 
