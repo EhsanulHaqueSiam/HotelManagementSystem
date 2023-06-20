@@ -21,11 +21,11 @@ import myInterface.ConfirmPayment;
  */
 public class BkashPayment extends JFrame implements ActionListener, ConfirmPayment {
 
-  final JLabel bkash_lbl;          // Label to display Bkash logo
-  final JTextField num_fld;       // Text field for entering the mobile number
-  final JButton back_btn;         // Button for navigating back
-  final JButton next_btn;        // Button for proceeding to the next step
-  final JPasswordField pass_fld; // Password field for entering the PIN
+  final JLabel bkashLabel;          // Label to display Bkash logo
+  final JTextField numField;       // Text field for entering the mobile number
+  final JButton backButton;         // Button for navigating back
+  final JButton nextButton;        // Button for proceeding to the next step
+  final JPasswordField passField; // Password field for entering the PIN
 
   /**
    * The constructor of the BkashPayment class.
@@ -47,42 +47,42 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
     Image i = img.getImage();
     Image new_img = i.getScaledInstance(854, 580, Image.SCALE_SMOOTH);
     img = new ImageIcon(new_img);
-    bkash_lbl = new JLabel("", img, JLabel.CENTER);
-    bkash_lbl.setBounds(-190, -220, 854, 580);
+    bkashLabel = new JLabel("", img, JLabel.CENTER);
+    bkashLabel.setBounds(-190, -220, 854, 580);
 
     // Create and position text field for entering mobile number
-    num_fld = new JTextField();
-    num_fld.setBounds(260, 250, 300, 25);
-    this.add(num_fld);
+    numField = new JTextField();
+    numField.setBounds(260, 250, 300, 25);
+    this.add(numField);
 
     // Create and position password field for entering PIN
-    pass_fld = new JPasswordField();
-    pass_fld.setBounds(260, 380, 300, 25);
-    this.add(pass_fld);
+    passField = new JPasswordField();
+    passField.setBounds(260, 380, 300, 25);
+    this.add(passField);
 
     // Add Bkash logo label to the JFrame
-    this.add(bkash_lbl);
+    this.add(bkashLabel);
 
     // Create and position back button
-    back_btn = new JButton("Back");
-    back_btn.setFont(new Font("Abadi", Font.BOLD, 15));
-    back_btn.setBackground(Color.BLACK);
-    back_btn.setForeground(Color.WHITE);
-    back_btn.setBounds(720, 460, 80, 25);
-    back_btn.addActionListener(this);
-    this.add(back_btn);
+    backButton = new JButton("Back");
+    backButton.setFont(new Font("Abadi", Font.BOLD, 15));
+    backButton.setBackground(Color.BLACK);
+    backButton.setForeground(Color.WHITE);
+    backButton.setBounds(720, 460, 80, 25);
+    backButton.addActionListener(this);
+    this.add(backButton);
 
     // Create and position next button
-    next_btn = new JButton("Next");
-    next_btn.setFont(new Font("Abadi", Font.BOLD, 15));
-    next_btn.setBackground(Color.BLACK);
-    next_btn.setForeground(Color.WHITE);
-    next_btn.setBounds(620, 460, 80, 25);
-    next_btn.addActionListener(this);
-    this.add(next_btn);
+    nextButton = new JButton("Next");
+    nextButton.setFont(new Font("Abadi", Font.BOLD, 15));
+    nextButton.setBackground(Color.BLACK);
+    nextButton.setForeground(Color.WHITE);
+    nextButton.setBounds(620, 460, 80, 25);
+    nextButton.addActionListener(this);
+    this.add(nextButton);
 
     // Add Bkash logo label to the JFrame
-    this.add(bkash_lbl);
+    this.add(bkashLabel);
 
     // Set the JFrame visible
     setVisible(true);
@@ -96,20 +96,20 @@ public class BkashPayment extends JFrame implements ActionListener, ConfirmPayme
    */
   public void actionPerformed(ActionEvent ae) {
     // Get input values
-    String MobileNumber = num_fld.getText();
-    String Pin = String.valueOf(pass_fld.getPassword());
+    String MobileNumber = numField.getText();
+    String Pin = String.valueOf(passField.getPassword());
 
-    if (ae.getSource() == back_btn) {
+    if (ae.getSource() == backButton) {
       // Navigate back to Payment page
       new Payment();
       this.setVisible(false);
       System.out.println("Exited from BkashPayment class");
-    } else if (ae.getSource() == next_btn) {
+    } else if (ae.getSource() == nextButton) {
       // Check if MobileNumber and Pin are empty
       boolean isMobileNumberEmpty = MobileNumber.isEmpty();
       boolean isPinEmpty = Pin.isEmpty();
       // Call confirmPayment method with input values and current instance
-      confirmPayment(isMobileNumberEmpty, isPinEmpty, this, num_fld, pass_fld);
+      confirmPayment(isMobileNumberEmpty, isPinEmpty, this, numField, passField);
 
     }
   }
