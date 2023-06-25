@@ -1,4 +1,4 @@
-package myClasses;
+package myclasses;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class CheckIn extends ShowRoom implements ActionListener, myInterface.WriteCheckInInfo {
+public class CheckIn extends ShowRoom implements ActionListener, myinterface.WriteCheckInInfo {
 
   private final JFrame frame;
   private final JTextField name_field;

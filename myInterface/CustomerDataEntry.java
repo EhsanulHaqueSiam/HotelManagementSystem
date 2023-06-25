@@ -1,4 +1,4 @@
-package myInterface;
+package myinterface;
 
 public interface CustomerDataEntry {
   void getCustomerData();

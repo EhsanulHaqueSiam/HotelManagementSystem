@@ -1,4 +1,4 @@
-package myClasses;
+package myclasses;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import myInterface.ConfirmPayment;
+import myinterface.ConfirmPayment;
 
 /**
  * The BkashPayment class represents a JFrame window for Bkash payment functionality. It implements

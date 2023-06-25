@@ -1,4 +1,4 @@
-package myClasses;
+package myclasses;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -31,7 +31,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 public class UCheckOut extends JFrame
-    implements ActionListener, myInterface.CheckOutRoomSearch, myInterface.CustomerDataEntry {
+    implements ActionListener, myinterface.CheckOutRoomSearch, myinterface.CustomerDataEntry {
 
   final String nameLogin = Login.fullName.replace("Full Name : ", "");
   private final JTable table;

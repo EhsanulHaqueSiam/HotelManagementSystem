@@ -1,4 +1,4 @@
-package myInterface;
+package myinterface;
 
 import javax.swing.JComboBox;
 import javax.swing.JTable;
