@@ -1,4 +1,4 @@
-package myClasses;
+package myclasses;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import myInterface.ConfirmPayment;
+import myinterface.ConfirmPayment;
 
 public class NagadPayment extends JFrame implements ActionListener, ConfirmPayment {
 

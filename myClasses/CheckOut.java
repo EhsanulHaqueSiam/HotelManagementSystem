@@ -1,4 +1,4 @@
-package myClasses;
+package myclasses;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -29,13 +29,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import myInterface.ClearCheckOut;
+import myinterface.ClearCheckOut;
 
 public class CheckOut extends JFrame
     implements ActionListener,
-        myInterface.ClearCheckOut,
-        myInterface.CustomerDataEntry,
-        myInterface.CheckOutRoomSearch {
+        myinterface.ClearCheckOut,
+        myinterface.CustomerDataEntry,
+        myinterface.CheckOutRoomSearch {
 
   private final JTable table;
   private final JTextField CustomerName_fld;
